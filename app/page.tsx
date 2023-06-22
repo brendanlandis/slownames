@@ -35,17 +35,20 @@ export default function Home() {
         />
       ))} */}
 
-      <form id="login-form">
-        <div className='login-form-input'>
-          <label htmlFor='email'>email: </label>
-          <input id="email" type="email" placeholder="email"></input>
-        </div>
-        <div className='login-form-input'>
-          <label htmlFor='password'>password: </label>
-          <input id="password" type="password" placeholder="password"></input>
-        </div>
-      </form>
+      <div className="login-form-container">
+        <form id="login-form">
+          <div className='login-form-input'>
+            {/* <label htmlFor='login'>login: </label> */}
+            <input id="login-form-login" type="text" placeholder="login (user or email)" />
+          </div>
+          <div className='login-form-input'>
+            {/* <label htmlFor='password'>password: </label> */}
+            <input id="login-form-password" type="password" placeholder="password" />
+          </div>
+        </form>
 
+        <div className='login-form-submit-wrapper'><button id="login-form-submit" type="submit" value="jump!">jump!</button></div>
+      </div>
     </main>
   )
 }

@@ -40,19 +40,27 @@ header {
 main {
 }
 
-#login-form {
+.login-form-container {
     height: 100vh;
     display: grid;
     align-content: center;
     text-align: center;
     justify-content: center;
+
+    button {
+        @apply btn btn-outline;
+    }
+}
+
+#login-form {
+
     .login-form-input {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        margin-bottom: 1em;
         label {
             margin-right: 1em;
         }
-        &+.login-form-input { margin-top: 1em; }
     }
 }
