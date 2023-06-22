@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <main className="container mx-auto">
 
-      {works.map(({ id, attributes }) => (
+      {/* {works.map(({ id, attributes }) => (
         <Image
           key={id}
           className="homePhoto"
@@ -33,9 +33,18 @@ export default function Home() {
           width={attributes.photograph.data.attributes.width}
           height={attributes.photograph.data.attributes.height}
         />
-      ))}
-      <span></span>
+      ))} */}
 
+      <form id="login-form">
+        <div className='login-form-input'>
+          <label htmlFor='email'>email: </label>
+          <input id="email" type="email" placeholder="email"></input>
+        </div>
+        <div className='login-form-input'>
+          <label htmlFor='password'>password: </label>
+          <input id="password" type="password" placeholder="password"></input>
+        </div>
+      </form>
 
     </main>
   )

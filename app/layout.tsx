@@ -12,8 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="container">
-          <h1>Slow Names</h1>
+        {/* <header className="container">
           <nav>
             <ul>
               <li><a href="#">news</a></li>
@@ -24,7 +23,7 @@ export default function RootLayout({
               <li><a href="#">videos</a></li>
             </ul>
           </nav>
-        </header>
+        </header> */}
 
         {children}
 

@@ -2,15 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.prose, .prose-sm {
-    text-align: left;
-}
 .container {
-    // border: 1px solid #000;
+    margin: 0 auto;
 }
 
 header {
-    margin: 0 auto;
     h1 {
         position: fixed;
         top: 0;
@@ -42,14 +38,21 @@ header {
 }
 
 main {
-    text-align: center;
-    img {
-        margin: 0 auto;
-    }
 }
 
-// sm	640px
-// md	768px
-// lg	1024px
-// xl	1280px
-// 2xl	1536px
+#login-form {
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    .login-form-input {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        label {
+            margin-right: 1em;
+        }
+        &+.login-form-input { margin-top: 1em; }
+    }
+}
