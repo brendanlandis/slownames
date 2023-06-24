@@ -1,12 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .container {
     margin: 0 auto;
 }
 
 header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background: #fff;
     h1 {
         position: fixed;
         top: 0;
@@ -37,30 +37,16 @@ header {
     }
 }
 
-main {
-}
-
-.login-form-container {
-    height: 100vh;
-    display: grid;
-    align-content: center;
-    text-align: center;
-    justify-content: center;
-
-    button {
-        @apply btn btn-outline;
-    }
-}
-
-#login-form {
-
-    .login-form-input {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-bottom: 1em;
-        label {
-            margin-right: 1em;
-        }
+button {
+    @apply btn btn-outline;
+    text-transform: none;
+    transition-duration: 0ms;
+    animation: none;
+    transform: none;
+    &:active:hover, &:active:focus {
+        animation: none;
+        transform: none;
+        color: #fff;
+        background: #000;
     }
 }

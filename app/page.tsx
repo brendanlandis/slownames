@@ -1,54 +1,27 @@
-"use client"
+import Layout from './layout';
 
-import Image from 'next/image'
-import axios from "axios";
-import { useEffect, useState } from "react";
-
-export default function Home() {
-  const [error, setError] = useState(null);
-  const [works, setWorks] = useState<any[]>([]);
-
-  useEffect(() => {
-    axios
-      .get("https://api.slownames.net/api/photos?populate=*&filters%5Busability%5D%5B$eq%5D=bio")
-      .then(({ data }) => setWorks(data.data))
-      .catch((error) => setError(error));
-  }, []);
-
-  if (error) {
-    // Print errors if any
-    return <div>An error occured: {error}</div>;
-  }
-  const path = "https://api.slownames.net"
-
+const Home = () => {
   return (
-    <main className="container mx-auto">
+    <Layout>
+      <main className="container mx-auto">
+        <div className="login-form-container">
+          <form id="login-form">
+            <div className='login-form-input'>
+              <label htmlFor='login-form-login'>login</label>
+              <input id="login-form-login" type="text" placeholder="login (user or email)" />
+            </div>
+            <div className='login-form-input'>
+              <label htmlFor='login-form-password'>password</label>
+              <input id="login-form-password" type="password" placeholder="password" />
+            </div>
+          </form>
 
-      {/* {works.map(({ id, attributes }) => (
-        <Image
-          key={id}
-          className="homePhoto"
-          src={path + attributes.photograph.data.attributes.url}
-          alt={'taken by ' + attributes.credit}
-          width={attributes.photograph.data.attributes.width}
-          height={attributes.photograph.data.attributes.height}
-        />
-      ))} */}
-
-      <div className="login-form-container">
-        <form id="login-form">
-          <div className='login-form-input'>
-            {/* <label htmlFor='login'>login: </label> */}
-            <input id="login-form-login" type="text" placeholder="login (user or email)" />
-          </div>
-          <div className='login-form-input'>
-            {/* <label htmlFor='password'>password: </label> */}
-            <input id="login-form-password" type="password" placeholder="password" />
-          </div>
-        </form>
-
-        <div className='login-form-submit-wrapper'><button id="login-form-submit" type="submit" value="jump!">jump!</button></div>
-      </div>
-    </main>
+          <div className='login-form-submit-wrapper'><button id="login-form-submit" type="submit" value="jump!">jump!</button></div>
+        </div>
+      </main>
+    </Layout>
   )
 }
+
+
+export default Home;
