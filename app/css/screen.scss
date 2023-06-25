@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 @import "type";
-@import "global";
+@import "layout";
+@import "components";
 @import "login";
+
+// pages
+@import "pages/yourband";

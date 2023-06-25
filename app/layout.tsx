@@ -1,8 +1,8 @@
 import './css/screen.scss'
-import Link from 'next/link';
+import Header from './components/header'
 
 export const metadata = {
-  title: 'Slow Names'
+  title: 'Slow Names',
 }
 
 export default function RootLayout({
@@ -13,21 +13,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>
-          <nav>
-            <ul>
-              <li><Link href="/news">news</Link></li>
-              <li><Link href="/press">press</Link></li>
-              <li><Link href="/shows">shows</Link></li>
-              <li><Link href="/recordings">recordings</Link></li>
-              <li><Link href="/photos">photos</Link></li>
-              <li><Link href="/videos">videos</Link></li>
-            </ul>
-          </nav>
-        </header>
-
+        <Header />
         { children }
-
       </body>
     </html>
   )

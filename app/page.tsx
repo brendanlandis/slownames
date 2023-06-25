@@ -1,9 +1,9 @@
 import Layout from './layout';
 
-const Home = () => {
+export default function Home() {
   return (
     <Layout>
-      <main className="container mx-auto">
+      <main className="container mx-auto smallcontainer">
         <div className="login-form-container">
           <form id="login-form">
             <div className='login-form-input'>
@@ -16,12 +16,9 @@ const Home = () => {
             </div>
           </form>
 
-          <div className='login-form-submit-wrapper'><button id="login-form-submit" type="submit" value="jump!">jump!</button></div>
+          <div className='login-form-submit-wrapper'><button id="login-form-submit" type="submit" value="submit">jump!</button></div>
         </div>
       </main>
     </Layout>
   )
 }
-
-
-export default Home;
