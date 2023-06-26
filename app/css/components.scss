@@ -4,7 +4,8 @@ button {
     transition-duration: 0ms;
     animation: none;
     transform: none;
-    &:active:hover, &:active:focus {
+    &:active:hover,
+    &:active:focus {
         animation: none;
         transform: none;
         color: #fff;
