@@ -1,4 +1,4 @@
-button {
+button[type=submit] {
     @apply btn btn-outline;
     text-transform: none;
     transition-duration: 0ms;

@@ -1,9 +1,12 @@
 #yourband {
     text-align: center;
-    label {
-        display: none;
-    }
-    h1, input {
-        margin-bottom: 1em;
+    #primaryartist-form {
+        label {
+            display: none;
+        }
+        h1,
+        input {
+            margin-bottom: 1em;
+        }
     }
 }

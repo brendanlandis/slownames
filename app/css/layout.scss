@@ -32,6 +32,13 @@ header {
                     transition: 100ms;
                     text-decoration: underline;
                 }
+                &#nav-bands {
+                    position: fixed;
+                    bottom: 0;
+                    right: 0;
+                    transform: rotate(-45deg);
+                    margin: 0 -47px 0px 0;
+                }
             }
         }
     }
