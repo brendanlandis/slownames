@@ -1,14 +1,15 @@
 'use client';
+import * as React from 'react';
+import { TextField } from '@mui/material';
 
-export default async function YourBand() {
+export default function YourBand() {
     return (
         <form id="primaryartist-form">
             <div className="primaryartist-form-input">
-                <label htmlFor="primaryartist-form-artist">band name</label>
-                <input
-                    id="primaryartist-form-artist"
-                    type="text"
-                    placeholder="band name"
+                <TextField
+                    id="outlined-basic"
+                    label="band name"
+                    variant="outlined"
                 />
             </div>
         </form>

@@ -1,4 +1,41 @@
+'use client';
+
+import * as React from 'react';
+// import { useState } from 'react';
+// import { setToken, unsetToken } from '../lib/auth';
+
 export default function Login() {
+    // const [data, setData] = useState({
+    //     identifier: '',
+    //     password: '',
+    // });
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const data = await fetch(
+    //         `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`,
+    //         {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({
+    //                 identifier: data.identifier,
+    //                 password: data.password,
+    //             }),
+    //         }
+    //     );
+    //     setToken(data);
+    // };
+
+    // const logout = () => {
+    //     unsetToken();
+    // }
+
+    // const handleChange = (e) => {
+    //     setData({ ...data, [e.target.name]: e.target.value });
+    // };
+
     return (
         <main className="container mx-auto smallcontainer">
             <div className="login-form-container">
@@ -8,6 +45,7 @@ export default function Login() {
                         <input
                             id="login-form-login"
                             type="text"
+                            // onChange={handleChange}
                             placeholder="login (user or email)"
                         />
                     </div>
@@ -16,6 +54,7 @@ export default function Login() {
                         <input
                             id="login-form-password"
                             type="password"
+                            // onChange={handleChange}
                             placeholder="password"
                         />
                     </div>
@@ -27,6 +66,9 @@ export default function Login() {
                     </button>
                 </div>
             </div>
+            {/* <div>
+                or, <Link href="/login" onClick={logout}>logout</Link>
+            </div> */}
         </main>
     );
 }

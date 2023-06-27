@@ -1,4 +1,4 @@
-button[type=submit] {
+button[type='submit'] {
     @apply btn btn-outline;
     text-transform: none;
     transition-duration: 0ms;
@@ -10,5 +10,24 @@ button[type=submit] {
         transform: none;
         color: #fff;
         background: #000;
+    }
+}
+
+.MuiAutocomplete-root, .MuiFormControl-root {
+    width: 300px !important;
+    margin: 0 auto;
+    * {
+        font-family: $font-body !important;
+    }
+    input[type=text]:not([role=combobox]) {
+        box-shadow: none !important;
+        padding: 16.5px 14px !important;
+    }
+    label[data-shrink=true] {
+        color: #000 !important;
+    }
+    fieldset {
+        border-color: #000 !important;
+        border-radius: 0 !important;
     }
 }

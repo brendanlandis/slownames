@@ -2,15 +2,18 @@
 
 import Link from 'next/link';
 
-import { usePathname } from 'next/navigation'
+// import { usePathname } from 'next/navigation'
 
 const Header = () => {
-    const pathname = usePathname();
-    if(pathname != "/login" )
+    // const pathname = usePathname();
+    // if(pathname != "/login" )
     return (
         <header>
             <nav>
                 <ul>
+                    {/* <li>
+                        <Link href="/login">login</Link>
+                    </li> */}
                     <li>
                         <Link href="/">news</Link>
                     </li>

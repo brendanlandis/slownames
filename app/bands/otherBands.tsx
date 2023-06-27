@@ -1,11 +1,10 @@
 'use client';
-
 import * as React from 'react';
 import { TextField } from '@mui/material';
 import { Autocomplete } from '@mui/material';
 
 async function getArtists() {
-    const res = await fetch('https://api.slownames.net/api/artists');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`);
     if (!res.ok) {
         throw new Error('Failed to fetch data');
     }
@@ -23,7 +22,7 @@ export default async function OtherBands() {
     });
 
     return (
-        <div>
+        <>
             <Autocomplete
                 multiple
                 freeSolo
@@ -32,13 +31,9 @@ export default async function OtherBands() {
                 getOptionLabel={(option) => option}
                 filterSelectedOptions
                 renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label="type some shit here"
-                        placeholder=""
-                    />
+                    <TextField {...params} label="other band names" placeholder="" />
                 )}
             />
-        </div>
+        </>
     );
 }
