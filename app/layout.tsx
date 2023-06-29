@@ -1,21 +1,25 @@
-import './css/screen.scss'
-import Header from './components/header'
+import './css/screen.scss';
+import NavDesktop from './components/navDesktop';
+import NavMobile from './components/navMobile';
 
 export const metadata = {
-  title: 'Slow Names',
-}
+    title: 'Slow Names',
+};
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body>
-        <Header />
-        { children }
-      </body>
-    </html>
-  )
+    return (
+        <html lang="en">
+            <body>
+                <header>
+                    <NavDesktop />
+                    <NavMobile />
+                </header>
+                {children}
+            </body>
+        </html>
+    );
 }

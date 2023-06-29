@@ -1,3 +1,5 @@
+// forms
+
 button[type='submit'] {
     @apply btn btn-outline;
     text-transform: none;
@@ -13,21 +15,41 @@ button[type='submit'] {
     }
 }
 
-.MuiAutocomplete-root, .MuiFormControl-root {
+.MuiAutocomplete-root,
+.MuiFormControl-root {
     width: 300px !important;
     margin: 0 auto;
     * {
         font-family: $font-body !important;
-    }
-    input[type=text]:not([role=combobox]) {
         box-shadow: none !important;
+    }
+    input[type='text']:not([role='combobox']),
+    input[type='password']:not([role='combobox']) {
         padding: 16.5px 14px !important;
     }
-    label[data-shrink=true] {
+    label[data-shrink='true'] {
         color: #000 !important;
     }
     fieldset {
         border-color: #000 !important;
         border-radius: 0 !important;
+    }
+}
+
+// dropdown
+
+.dropdown-content {
+    z-index: 1;
+    color: #fff;
+    border: 1px solid #fff;
+    margin-top: 1em;
+    position: absolute;
+    *[role='menuitem'] {
+        background: #000;
+        display: block;
+        padding: 1em 1em;
+        &.active {
+            background: rgba(0, 0, 0, 0.8);
+        }
     }
 }

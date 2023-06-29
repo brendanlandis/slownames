@@ -9,13 +9,21 @@ header {
     font-family: $font-header;
     font-weight: 300;
     letter-spacing: 0.1em;
+    nav {
+        font-weight: 100 !important;
+    }
 }
 
 main {
     font-family: $font-body;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: $font-header;
     font-weight: 700;
 }
@@ -26,4 +34,21 @@ h1 {
 
 h2 {
     font-size: 2em;
+}
+
+.nav-item {
+    a {
+        font-family: $font-header;
+        text-underline-offset: 2px;
+        transition: 100ms;
+        text-decoration: underline;
+    }
+    &:hover a,
+    &:focus a,
+    &:active a,
+    a:hover,
+    a:focus,
+    a:active {
+        text-underline-offset: 0.5em;
+    }
 }
