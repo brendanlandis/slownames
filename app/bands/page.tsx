@@ -9,7 +9,7 @@ async function getArtists() {
     return res.json();
 }
 
-export default async function Bands() {
+export default async function bands() {
     const artists = await getArtists();
 
     const artistsList: string[] = [];
@@ -24,28 +24,25 @@ export default async function Bands() {
                 <h1>What's your band called?</h1>
 
                 <div className="band-form-input">
-                    {/* <TextField
-                        id="outlined-basic"
-                        label="band name"
-                        variant="outlined"
-                    /> */}
+                    <label htmlFor="band-form-bandname">band name</label>
+                    <input
+                        type="text"
+                        id="band-form-bandname"
+                        className="form-input"
+                        placeholder="band name"
+                    />
                 </div>
+                <h2>Are you in any of these other bands?</h2>
+                <fieldset className="band-form-input">
+                    <legend>Check all the bands you're in:</legend>
 
-                <h2>Are you in any other bands?</h2>
-
-                <div className="band-form-input">
-                    {/* <Autocomplete
-                        multiple
-                        freeSolo
-                        id="tags-outlined"
-                        options={artistsList}
-                        getOptionLabel={(option) => option}
-                        filterSelectedOptions
-                        renderInput={(params) => (
-                            <TextField {...params} label="other band names" placeholder="" />
-                        )}
-                    /> */}
-                </div>
+                    {artists.data.map((artist, index) => (
+                        <div key={index}>
+                            <input type="checkbox" id={'artist-' + artist.id} name={'artist-' + artist.id} />
+                            <label htmlFor={'artist-' + artist.id}>{artist.attributes.name}</label>
+                        </div>
+                    ))}
+                </fieldset>
             </form>
 
             <div className="band-form-submit-wrapper">

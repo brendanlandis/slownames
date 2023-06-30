@@ -1,4 +1,4 @@
-export default function Videos() {
+export default function videos() {
     return (
         <main id="videos" className="container mx-auto prose">
             <h1>Videos</h1>

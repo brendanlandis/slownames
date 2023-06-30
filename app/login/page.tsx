@@ -2,26 +2,31 @@
 
 import * as React from 'react';
 
-export default function Login() {
+export default function login() {
     return (
         <main className="container mx-auto smallcontainer">
             <div className="login-form-container">
                 <form id="login-form">
-                    {/* <div className="login-form-input">
-                        <TextField
+                    <div className="login-form-input">
+                        <label htmlFor="login-form-login">
+                            login (user or email)
+                        </label>
+                        <input
+                            type="text"
                             id="login-form-login"
-                            label="login (user or email)"
-                            variant="outlined"
+                            className="form-input"
+                            placeholder="login (user or email)"
                         />
                     </div>
                     <div className="login-form-input">
-                        <TextField
-                            id="login-form-password"
-                            label="password"
-                            variant="outlined"
+                        <label htmlFor="login-form-password">password</label>
+                        <input
                             type="password"
+                            id="login-form-password"
+                            className="form-input "
+                            placeholder="password"
                         />
-                    </div> */}
+                    </div>
                 </form>
 
                 <div className="login-form-submit-wrapper">

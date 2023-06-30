@@ -1,4 +1,4 @@
-export default function Press() {
+export default function press() {
     return (
         <main id="press" className="container mx-auto prose">
             <h1>Press</h1>

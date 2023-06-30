@@ -20,7 +20,7 @@ function SettingsDropdown() {
                     />
                 </svg>
             </Menu.Button>
-            <Menu.Items className="dropdown-content">
+            <Menu.Items className="dropdown-content secondary-nav">
                 <Menu.Item>
                     {({ active }) => (
                         <Link className={`${active && 'active'}`} href="/login">

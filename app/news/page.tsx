@@ -1,4 +1,4 @@
-export default function News() {
+export default function news() {
     return (
         <main id="news" className="container mx-auto prose">
             <h1>News or Posts or Whatever</h1>

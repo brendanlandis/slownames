@@ -1,4 +1,4 @@
-export default function Recordings() {
+export default function recordings() {
     return (
         <main id="recordings" className="container mx-auto prose">
             <h1>Recordings</h1>

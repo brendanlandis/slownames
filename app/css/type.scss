@@ -52,3 +52,20 @@ h2 {
         text-underline-offset: 0.5em;
     }
 }
+
+.secondary-nav a[role='menuitem'] {
+    font-family: $font-header;
+    text-underline-offset: 2px;
+    transition: 100ms;
+    text-decoration: underline;
+    &:hover,
+    &:focus,
+    &:active {
+        text-underline-offset: 0.5em;
+    }
+}
+
+button[type='submit'] {
+    font-weight: 600 !important;
+    letter-spacing: 0.1em;
+}

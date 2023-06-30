@@ -1,4 +1,4 @@
-export default function Shows() {
+export default function shows() {
     return (
         <main id="shows" className="container mx-auto prose">
             <h1>Shows</h1>

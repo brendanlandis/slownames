@@ -1,4 +1,4 @@
-export default function Photos() {
+export default function photos() {
     return (
         <main id="photos" className="container mx-auto prose">
             <h1>Photos</h1>
