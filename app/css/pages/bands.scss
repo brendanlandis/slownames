@@ -9,4 +9,23 @@
     .band-form-input {
         margin-bottom: 1em;
     }
+    label[for=band-form-bandname], legend {
+        display: none;
+    }
+    fieldset {
+        display: grid;
+        grid-template-columns: fit-content(40%) fit-content(40%) fit-content(40%);
+        grid-column-gap: 1em;
+        grid-row-gap: 1em;
+        .checkbox-wrapper {
+            text-align: left;
+            display: grid;
+            grid-template-columns: 16px 1fr;
+            align-items: center;
+            grid-column-gap: 1em;
+            label, input {
+                cursor: pointer;
+            }
+        }
+    }
 }
