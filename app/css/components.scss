@@ -6,6 +6,7 @@ button[type='submit'] {
     transition-duration: 0ms;
     animation: none;
     transform: none;
+    background: #fff;
     &:active:hover,
     &:active:focus {
         animation: none;

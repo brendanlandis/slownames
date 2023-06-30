@@ -18,6 +18,7 @@ export default async function bands() {
     //     let name = artist.attributes.name;
     //     artistsList.push(name);
     // });
+
     return (
         <main id="yourband" className="container mx-auto smallcontainer">
             <form id="band-form">
@@ -32,12 +33,12 @@ export default async function bands() {
                         placeholder="band name"
                     />
                 </div>
-                <h2>Are you in any of these other bands?</h2>
+                <h2>Plus, are you in any of these other bands?</h2>
                 <fieldset className="band-form-input">
                     <legend>Check all the bands you're in:</legend>
 
-                    {artists.data.map((artist) => (
-                        <div className="checkbox-wrapper">
+                    {artists.data.map((artist, index) => (
+                        <div key={index} className="checkbox-wrapper">
                             <input
                                 type="checkbox"
                                 id={'artist-' + artist.id}
