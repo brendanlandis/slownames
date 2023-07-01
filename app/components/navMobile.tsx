@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import * as React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
@@ -62,47 +61,16 @@ export default function NavMobile() {
                                 </button>
                             </div>
                             <ul className="primary-nav">
-                                <NavMobileItem url="/" name="news" />
-                                <li className="nav-item">
-                                    <Link href="/press" onClick={closeModal}>
-                                        press
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link href="/shows" onClick={closeModal}>
-                                        shows
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link
-                                        href="/recordings"
-                                        onClick={closeModal}
-                                    >
-                                        recordings
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link href="/photos" onClick={closeModal}>
-                                        photos
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link href="/videos" onClick={closeModal}>
-                                        videos
-                                    </Link>
-                                </li>
+                                <NavMobileItem url="/" name="news" onClick={closeModal} />
+                                <NavMobileItem url="/press" name="press" onClick={closeModal} />
+                                <NavMobileItem url="/shows" name="shows" onClick={closeModal} />
+                                <NavMobileItem url="/recordings" name="recordings" onClick={closeModal} />
+                                <NavMobileItem url="/photos" name="photos" onClick={closeModal} />
+                                <NavMobileItem url="/videos" name="videos" onClick={closeModal} />
                             </ul>
                             <ul className="secondary-nav">
-                                <li className="nav-item">
-                                    <Link href="/login" onClick={closeModal}>
-                                        login
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link href="/bands" onClick={closeModal}>
-                                        my bands
-                                    </Link>
-                                </li>
+                                <NavMobileItem url="/login" name="login" onClick={closeModal} />
+                                <NavMobileItem url="/bands" name="my bands" onClick={closeModal} />
                             </ul>
                         </Dialog.Panel>
                     </Transition.Child>

@@ -1,4 +1,4 @@
-export default function InputText({id, label}) {
+export default function InputPass({id, label}) {
     return (
         <>
             <label htmlFor={id}>{label}</label>
