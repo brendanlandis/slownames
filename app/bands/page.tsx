@@ -1,5 +1,8 @@
 'use client';
 import * as React from 'react';
+import InputText from '../components/InputText';
+import InputCheckbox from '../components/InputCheckbox';
+import ButtonSubmit from '../components/ButtonSubmit';
 
 async function getArtists() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`);
@@ -12,55 +15,29 @@ async function getArtists() {
 export default async function bands() {
     const artists = await getArtists();
 
-    // const artistsList: string[] = [];
-
-    // artists.data.map((artist) => {
-    //     let name = artist.attributes.name;
-    //     artistsList.push(name);
-    // });
-
     return (
-        <main id="yourband" className="container mx-auto smallcontainer">
+        <main id="yourband" className="smallcontainer">
             <form id="band-form">
                 <h1>What's your band called?</h1>
 
-                <div className="band-form-input">
-                    <label htmlFor="band-form-bandname">band name</label>
-                    <input
-                        type="text"
-                        id="band-form-bandname"
-                        className="form-input"
-                        placeholder="band name"
-                    />
+                <div className="form-input-box">
+                    <InputText id="band-form-bandname" label="band name" />
                 </div>
                 <h2>Plus, are you in any of these other bands?</h2>
-                <fieldset className="band-form-input">
+                <fieldset className="form-input-box">
                     <legend>Check all the bands you're in:</legend>
 
                     {artists.data.map((artist, index) => (
-                        <div key={index} className="checkbox-wrapper">
-                            <input
-                                type="checkbox"
-                                id={'artist-' + artist.id}
-                                name={'artist-' + artist.id}
-                            />
-                            <label htmlFor={'artist-' + artist.id}>
-                                {artist.attributes.name}
-                            </label>
-                        </div>
+                        <InputCheckbox
+                            key={index}
+                            id={'artist-' + artist.id}
+                            label={artist.attributes.name}
+                        />
                     ))}
                 </fieldset>
             </form>
 
-            <div className="band-form-submit-wrapper">
-                <button
-                    id="primaryartist-form-submit"
-                    type="submit"
-                    value="submit"
-                >
-                    that's sick
-                </button>
-            </div>
+            <ButtonSubmit id="primaryartist-form-submit" label="that's sick" />
         </main>
     );
 }

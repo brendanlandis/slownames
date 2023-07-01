@@ -4,7 +4,10 @@
 
 @import "type";
 @import "layout";
-@import "components";
+@import "components/navdesktop";
+@import "components/navmobile";
+@import "components/dropdown";
+@import "components/forms";
 
 // pages
 @import "pages/login";

@@ -141,7 +141,7 @@ export default function news() {
 
                     <label htmlFor="news-form-relationship">relationship</label>
                     <select className="select select-primary" disabled>
-                        <option disabled selected>
+                        <option disabled>
                             cool, which one?
                         </option>
                         <option>one</option>

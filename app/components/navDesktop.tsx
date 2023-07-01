@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
-
 import { Menu } from '@headlessui/react';
+import NavDesktopItem from './NavDesktopItem';
 
 function SettingsDropdown() {
     return (
@@ -47,24 +47,12 @@ export default function NavDesktop() {
                 <SettingsDropdown />
             </div>
             <ul className="center">
-                <li className="nav-item">
-                    <Link href="/">news</Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="/press">press</Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="/shows">shows</Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="/recordings">recordings</Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="/photos">photos</Link>
-                </li>
-                <li className="nav-item">
-                    <Link href="/videos">videos</Link>
-                </li>
+                <NavDesktopItem url="/" name="news" />
+                <NavDesktopItem url="/press" name="press" />
+                <NavDesktopItem url="/shows" name="shows" />
+                <NavDesktopItem url="/recordings" name="recordings" />
+                <NavDesktopItem url="/photos" name="photos" />
+                <NavDesktopItem url="/videos" name="videos" />
             </ul>
             <div className="right"></div>
         </nav>

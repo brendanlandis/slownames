@@ -1,40 +1,25 @@
 'use client';
+import InputText from '../components/InputText';
+import InputPass from '../components/InputPass';
 
 import * as React from 'react';
+import ButtonSubmit from '../components/ButtonSubmit';
 
 export default function login() {
     return (
-        <main className="container mx-auto smallcontainer">
-            <div className="login-form-container">
-                <form id="login-form">
-                    <div className="login-form-input">
-                        <label htmlFor="login-form-login">
-                            login (user or email)
-                        </label>
-                        <input
-                            type="text"
-                            id="login-form-login"
-                            className="form-input"
-                            placeholder="login (user or email)"
-                        />
-                    </div>
-                    <div className="login-form-input">
-                        <label htmlFor="login-form-password">password</label>
-                        <input
-                            type="password"
-                            id="login-form-password"
-                            className="form-input "
-                            placeholder="password"
-                        />
-                    </div>
-                </form>
-
-                <div className="login-form-submit-wrapper">
-                    <button id="login-form-submit" type="submit" value="submit">
-                        jump!
-                    </button>
+        <main id="login" className="smallcontainer">
+            <form id="login-form">
+                <div className="form-input-box">
+                    <InputText
+                        id="login-form-login"
+                        label="login (user or email)"
+                    />
                 </div>
-            </div>
+                <div className="form-input-box">
+                    <InputPass id="login-form-password" label="password" />
+                </div>
+            </form>
+            <ButtonSubmit id="login-form-submit" label="might as well jump" />
         </main>
     );
 }

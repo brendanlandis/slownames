@@ -90,6 +90,28 @@
         top: 15px;
     }
 
+    .react-datepicker__day--selected,
+    .react-datepicker__day--in-selecting-range,
+    .react-datepicker__day--in-range,
+    .react-datepicker__month-text--selected,
+    .react-datepicker__month-text--in-selecting-range,
+    .react-datepicker__month-text--in-range,
+    .react-datepicker__quarter-text--selected,
+    .react-datepicker__quarter-text--in-selecting-range,
+    .react-datepicker__quarter-text--in-range,
+    .react-datepicker__year-text--selected,
+    .react-datepicker__year-text--in-selecting-range,
+    .react-datepicker__year-text--in-range {
+        background-color: #000;
+    }
+
+    .react-datepicker__day--keyboard-selected,
+    .react-datepicker__month-text--keyboard-selected,
+    .react-datepicker__quarter-text--keyboard-selected,
+    .react-datepicker__year-text--keyboard-selected {
+        background-color: #aaa;
+    }
+
     // WYSIWYG box
     .tox-tinymce {
         border: 1px solid #000;
@@ -141,6 +163,10 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2em;
+        input[type="radio"]:checked {
+            background-image: none;
+            --tw-ring-color: #000;
+        }
         label[for='news-form-relationship-type'] {
             grid-column-start: 1;
             grid-column-end: 3;

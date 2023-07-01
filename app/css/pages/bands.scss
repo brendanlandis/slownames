@@ -6,33 +6,8 @@
     h2 {
         margin-bottom: 0.5em;
     }
-    .band-form-input {
-        margin-bottom: 1em;
-    }
-    label[for=band-form-bandname], legend {
+    label[for='band-form-bandname'],
+    legend {
         display: none;
-    }
-    fieldset {
-        display: grid;
-        grid-template-columns: fit-content(30%) fit-content(30%) fit-content(30%);
-        grid-column-gap: 2em;
-        grid-row-gap: 1em;
-        justify-content: space-between;
-        .checkbox-wrapper {
-            text-align: left;
-            display: grid;
-            grid-template-columns: 16px 1fr;
-            align-items: center;
-            grid-column-gap: 1em;
-            input:checked {
-                background-color: #000;
-            }
-            input:focus {
-                box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
-            }
-            label, input {
-                cursor: pointer;
-            }
-        }
     }
 }

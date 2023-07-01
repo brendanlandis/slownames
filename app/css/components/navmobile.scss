@@ -1,0 +1,62 @@
+#mobile-menu-open,
+#mobile-menu-close {
+    display: block;
+    @media (min-width: $lg) {
+        display: none;
+    }
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    button {
+        padding: 0;
+        svg {
+            height: 40px;
+            width: 40px;
+        }
+    }
+}
+
+#mobile-menu {
+    display: block;
+    @media (min-width: $lg) {
+        display: none;
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #000;
+    color: #fff;
+    ul.primary-nav {
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        li a {
+            font-size: 2em;
+            display: block;
+            padding: 0.5em 0;
+        }
+    }
+    ul.secondary-nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        line-height: 50px;
+        font-size: 1em;
+        z-index: 2;
+        padding-left: 1em;
+        li:not(:last-child) {
+            margin-right: 1em;
+            &:after {
+                content: '|';
+                opacity: 0.5;
+                margin-left: 1em;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import * as React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
+import NavMobileItem from './NavMobileItem';
 
 export default function NavMobile() {
     let [isOpen, setIsOpen] = useState(false);
@@ -61,11 +62,7 @@ export default function NavMobile() {
                                 </button>
                             </div>
                             <ul className="primary-nav">
-                                <li className="nav-item">
-                                    <Link href="/" onClick={closeModal}>
-                                        news
-                                    </Link>
-                                </li>
+                                <NavMobileItem url="/" name="news" />
                                 <li className="nav-item">
                                     <Link href="/press" onClick={closeModal}>
                                         press
