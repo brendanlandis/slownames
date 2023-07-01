@@ -1,18 +1,16 @@
 // forms
 
 button[type='submit'] {
-    @apply btn btn-outline;
-    text-transform: none;
-    transition-duration: 0ms;
-    animation: none;
-    transform: none;
-    background: #fff;
+    @apply btn btn-neutral;
+    // text-transform: none;
+    // transition-duration: 0ms;
+    // animation: none;
+    // transform: none;
+
     &:active:hover,
     &:active:focus {
-        animation: none;
-        transform: none;
-        color: #fff;
-        background: #000;
+        // animation: none;
+        // transform: none;
     }
 }
 

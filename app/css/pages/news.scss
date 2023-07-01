@@ -1,0 +1,165 @@
+#news {
+    margin-bottom: 2em;
+    #news-form {
+        margin-bottom: 2em;
+    }
+    .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3em;
+        h1 {
+            margin: 0;
+            display: flex;
+            justify-content: flex-start;
+            gap: 0.3em;
+            align-items: center;
+            select {
+                border: 0;
+                border-bottom: 1px solid #000;
+                font-size: 1em;
+                padding: 0;
+                border-radius: 0;
+                line-height: 48px;
+                background-color: transparent;
+            }
+        }
+        select {
+            @apply select select-primary;
+        }
+        .new-or-old {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.4em;
+            div {
+                font-size: 0.8em;
+                line-height: 0.9em;
+                white-space: nowrap;
+            }
+            .new-stuff {
+                text-align: right;
+            }
+            .old-stuff {
+                text-align: left;
+            }
+            #new-or-old-toggle {
+                @apply toggle toggle-lg;
+                background-image: none;
+                --tw-bg-opacity: 1;
+            }
+        }
+    }
+    label[for='news-form-headline'],
+    label[for='news-form-date'],
+    label[for='news-form-text'],
+    label[for='news-form-band'],
+    label[for='news-form-attachment-link-text'],
+    label[for='news-form-relationship'] {
+        display: none;
+    }
+    .news-form-input:not(:last-child) {
+        margin-bottom: 2em;
+    }
+    .news-form-row {
+        display: grid;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2em;
+        column-gap: 2em;
+        &.headline-date {
+            grid-template-columns: 4fr 1fr;
+            .news-form-input {
+                margin-bottom: 0;
+            }
+            input[type='text'] {
+                width: 100%;
+            }
+        }
+    }
+
+    // date picker
+    .react-datepicker__header {
+        background: #fff;
+    }
+    .react-datepicker-popper * {
+        font-family: $font-body !important;
+    }
+    .react-datepicker__navigation--previous,
+    .react-datepicker__navigation--next {
+        top: 15px;
+    }
+
+    // WYSIWYG box
+    .tox-tinymce {
+        border: 1px solid #000;
+        border-radius: 0;
+        .tox-editor-header {
+            z-index: 0;
+            border-bottom: 1px solid #000;
+            .tox-tbtn:active,
+            .tox-tbtn:hover,
+            .tox-tbtn:focus {
+                background: #aaa;
+            }
+        }
+        .tox-statusbar__branding {
+            display: none;
+        }
+        .tox-statusbar {
+            border-top: 1px solid #000;
+        }
+        .tox-statusbar a,
+        .tox-statusbar__path-item,
+        .tox-statusbar__wordcount {
+            color: #000;
+        }
+        .tox-statusbar__resize-handle svg {
+            fill: #000;
+        }
+    }
+
+    // attachments
+
+    .attachments-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+        label[for='news-form-attachments'] {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        .file-input {
+            border-radius: 0;
+            max-width: none;
+        }
+    }
+
+    // relationship
+
+    .relationship-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+        label[for='news-form-relationship-type'] {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        .join {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+
+            .join-item {
+                width: 100%;
+            }
+        }
+        select:disabled {
+            opacity: 0.4;
+        }
+    }
+
+    .news-form-submit-wrapper {
+        text-align: center;
+    }
+}
