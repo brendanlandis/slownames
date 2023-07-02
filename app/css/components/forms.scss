@@ -3,6 +3,74 @@
     margin-bottom: 1em;
 }
 
+/* header */
+
+.form-header {
+    margin-bottom: 3em;
+    margin-top: 2em;
+    @media (min-width: $lg) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    h1 {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 0.3em;
+        align-items: center;
+        @media (min-width: $lg) {
+            justify-content: flex-start;
+        }
+        select {
+            border: 0;
+            border-bottom: 1px solid #000;
+            font-size: 1em;
+            padding: 0;
+            border-radius: 0;
+            line-height: 48px;
+            background-color: transparent;
+        }
+    }
+    select {
+        @apply select select-primary;
+        background-position: calc(100% - 10px) calc(1px + 50%),
+            calc(100% - 0px) calc(1px + 50%);
+        background-size: 10px 10px, 10px 10px;
+    }
+    .new-or-old {
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        grid-template-columns: 1fr 64px 1fr;
+        align-items: center;
+        margin-top: 1em;
+        gap: 0.4em;
+        div {
+            font-size: 0.8em;
+            line-height: 0.9em;
+            white-space: nowrap;
+        }
+        .new-stuff {
+            text-align: right;
+            justify-self: flex-end;
+        }
+        .old-stuff {
+            text-align: left;
+            justify-self: flex-start;
+        }
+        #new-or-old-toggle {
+            @apply toggle toggle-lg;
+            background-image: none;
+            --tw-bg-opacity: 1;
+        }
+        @media (min-width: $lg) {
+            display: flex;
+            margin-top: 0;
+        }
+    }
+}
+
 /* buttons */
 button[type='submit'] {
     @apply btn btn-neutral;
@@ -27,7 +95,12 @@ input[type='password'] {
 /* checkboxes */
 fieldset {
     display: grid;
-    grid-template-columns: fit-content(30%) fit-content(30%) fit-content(30%);
+    grid-template-columns: fit-content(50%) fit-content(50%);
+    @media (min-width: $sm) {
+        grid-template-columns: fit-content(30%) fit-content(30%) fit-content(
+                30%
+            );
+    }
     grid-column-gap: 2em;
     grid-row-gap: 1em;
     justify-content: space-between;
@@ -103,20 +176,27 @@ fieldset {
 }
 
 // date picker
-.react-datepicker-wrapper {
-    input#date {
+.react-datepicker-wrapper input#date {
+    @media (min-width: $lg) {
         text-align: center;
     }
 }
 .react-datepicker__header {
-    background: #fff;
+    background: #fff !important;
 }
 .react-datepicker-popper * {
     font-family: $font-body !important;
 }
+
+.react-datepicker__triangle {
+    @media (max-width: $lg) {
+        left: -50px !important;
+    }
+}
+
 .react-datepicker__navigation--previous,
 .react-datepicker__navigation--next {
-    top: 15px;
+    top: 15px !important;
 }
 
 .react-datepicker__day--selected,
@@ -131,12 +211,12 @@ fieldset {
 .react-datepicker__year-text--selected,
 .react-datepicker__year-text--in-selecting-range,
 .react-datepicker__year-text--in-range {
-    background-color: #000;
+    background-color: #000 !important;
 }
 
 .react-datepicker__day--keyboard-selected,
 .react-datepicker__month-text--keyboard-selected,
 .react-datepicker__quarter-text--keyboard-selected,
 .react-datepicker__year-text--keyboard-selected {
-    background-color: #aaa;
+    background-color: #aaa !important;
 }

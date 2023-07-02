@@ -29,6 +29,13 @@ body {
 main {
     @apply mx-auto;
     @apply prose;
+    max-width: $md;
+    padding-left: 1em;
+    padding-right: 1em;
+    @media (min-width: $md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
     display: grid;
     grid-template-columns: 1fr;
     align-content: center;
@@ -37,6 +44,9 @@ main {
     margin: 0 auto;
     min-height: 100vh;
     position: relative;
+    @media (min-width: $sm) {
+        min-height: calc(100vh - 70px);
+    }
     @media (min-width: $lg) {
         min-height: calc(100vh - 70px);
     }

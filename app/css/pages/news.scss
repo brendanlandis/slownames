@@ -2,57 +2,6 @@
     #news-form {
         margin-bottom: 2em;
     }
-    .form-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 3em;
-        margin-top: 2em;
-        h1 {
-            margin: 0;
-            display: flex;
-            justify-content: flex-start;
-            gap: 0.3em;
-            align-items: center;
-            select {
-                border: 0;
-                border-bottom: 1px solid #000;
-                font-size: 1em;
-                padding: 0;
-                border-radius: 0;
-                line-height: 48px;
-                background-color: transparent;
-            }
-        }
-        select {
-            @apply select select-primary;
-            background-position: calc(100% - 10px) calc(1px + 50%),
-                calc(100% - 0px) calc(1px + 50%);
-            background-size: 10px 10px, 10px 10px;
-        }
-        .new-or-old {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.4em;
-            div {
-                font-size: 0.8em;
-                line-height: 0.9em;
-                white-space: nowrap;
-            }
-            .new-stuff {
-                text-align: right;
-            }
-            .old-stuff {
-                text-align: left;
-            }
-            #new-or-old-toggle {
-                @apply toggle toggle-lg;
-                background-image: none;
-                --tw-bg-opacity: 1;
-            }
-        }
-    }
     label[for='news-form-headline'],
     label[for='news-form-date'],
     label[for='news-form-text'],
@@ -68,10 +17,27 @@
         display: grid;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2em;
         column-gap: 2em;
+        @media (min-width: $lg) {
+            margin-bottom: 2em;
+        }
         &.headline-date {
-            grid-template-columns: 4fr 1fr;
+            grid-template-columns: 1fr;
+            @media (min-width: $lg) {
+                grid-template-columns: 4fr 1fr;
+            }
+            .form-input-box-date {
+                order: 1;
+                .react-datepicker-wrapper {
+                    width: 100%;
+                }
+            }
+            .form-input-box-headline {
+                order: 2;
+                @media (min-width: $lg) {
+                    order: 1;
+                }
+            }
             .news-form-input {
                 margin-bottom: 0;
             }
@@ -85,11 +51,19 @@
 
     .attachments-wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2em;
+        grid-template-columns: 1fr;
+        gap: 1em;
         label[for='news-form-attachments'] {
-            grid-column-start: 1;
-            grid-column-end: 3;
+            text-align: justify;
+        }
+        @media (min-width: $lg) {
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            label[for='news-form-attachments'] {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                text-align: center;
+            }
         }
         .file-input {
             border-radius: 0;
@@ -101,15 +75,19 @@
 
     .relationship-wrapper {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 2em;
+        grid-template-columns: 1fr;
+        gap: 1em;
+        @media (min-width: $lg) {
+            grid-template-columns: 2fr 1fr;
+            gap: 2em;
+            label[for='news-form-relationship-type'] {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+        }
         input[type='radio']:checked {
             background-image: none;
             --tw-ring-color: #000;
-        }
-        label[for='news-form-relationship-type'] {
-            grid-column-start: 1;
-            grid-column-end: 3;
         }
         .join {
             width: 100%;

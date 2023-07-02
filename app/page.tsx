@@ -26,11 +26,11 @@ export default function news() {
 
             <form id="news-form">
                 <div className="news-form-row headline-date">
-                    <div className="form-input-box">
+                    <div className="form-input-box form-input-box-headline">
                         <InputText id="news-form-headline" label="headline" />
                     </div>
 
-                    <div className="form-input-box">
+                    <div className="form-input-box form-input-box-date">
                         <InputDate id="news-form-date" label="date" />
                     </div>
                 </div>

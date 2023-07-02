@@ -17,7 +17,7 @@ export default function InputRichText({ id, label }) {
                         'link template codesample charmap anchor toc advlist lists checklist wordcount charmap linkchecker emoticons',
                     toolbar:
                         'formatselect | bold italic underline strikethrough | ' +
-                        'link | alignleft aligncenter alignright alignjustify |' +
+                        'link | alignleft aligncenter alignright |' +
                         'numlist bullist | charmap emoticons | removeformat',
                 }}
             />
