@@ -14,11 +14,13 @@ export default function RootLayout({
     return (
         <html lang="en" data-theme="lofi">
             <body>
-                <header>
-                    <NavDesktop />
-                    <NavMobile />
-                </header>
-                {children}
+                <div id="background-wrapper">
+                    <header>
+                        <NavDesktop />
+                        <NavMobile />
+                    </header>
+                    {children}
+                </div>
             </body>
         </html>
     );

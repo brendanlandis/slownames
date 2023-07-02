@@ -7,7 +7,7 @@ import ButtonSubmit from '../components/forms/ButtonSubmit';
 
 export default function login() {
     return (
-        <main id="login" className="smallcontainer">
+        <main id="login">
             <form id="login-form">
                 <div className="form-input-box">
                     <InputText

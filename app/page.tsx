@@ -10,7 +10,7 @@ import ButtonSubmit from './components/forms/ButtonSubmit';
 
 export default function news() {
     return (
-        <main id="news" className="container mx-auto prose">
+        <main id="news">
             <div className="form-header">
                 <h1>
                     News for
@@ -22,7 +22,7 @@ export default function news() {
                 <NewOrOld />
             </div>
 
-            <div className="divider">OK SO FIRST</div>
+            <div className="divider first">OK SO FIRST</div>
 
             <form id="news-form">
                 <div className="news-form-row headline-date">

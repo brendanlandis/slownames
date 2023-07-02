@@ -1,16 +1,13 @@
 #news {
-    margin-bottom: 2em;
     #news-form {
         margin-bottom: 2em;
-    }
-    .divider {
-        margin-top: 5em;
     }
     .form-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 3em;
+        margin-top: 2em;
         h1 {
             margin: 0;
             display: flex;
@@ -29,7 +26,8 @@
         }
         select {
             @apply select select-primary;
-            background-position: calc(100% - 10px) calc(1px + 50%), calc(100% - 0px) calc(1px + 50%);
+            background-position: calc(100% - 10px) calc(1px + 50%),
+                calc(100% - 0px) calc(1px + 50%);
             background-size: 10px 10px, 10px 10px;
         }
         .new-or-old {
@@ -83,72 +81,6 @@
         }
     }
 
-    // date picker
-    .react-datepicker__header {
-        background: #fff;
-    }
-    .react-datepicker-popper * {
-        font-family: $font-body !important;
-    }
-    .react-datepicker__navigation--previous,
-    .react-datepicker__navigation--next {
-        top: 15px;
-    }
-
-    .react-datepicker__day--selected,
-    .react-datepicker__day--in-selecting-range,
-    .react-datepicker__day--in-range,
-    .react-datepicker__month-text--selected,
-    .react-datepicker__month-text--in-selecting-range,
-    .react-datepicker__month-text--in-range,
-    .react-datepicker__quarter-text--selected,
-    .react-datepicker__quarter-text--in-selecting-range,
-    .react-datepicker__quarter-text--in-range,
-    .react-datepicker__year-text--selected,
-    .react-datepicker__year-text--in-selecting-range,
-    .react-datepicker__year-text--in-range {
-        background-color: #000;
-    }
-
-    .react-datepicker__day--keyboard-selected,
-    .react-datepicker__month-text--keyboard-selected,
-    .react-datepicker__quarter-text--keyboard-selected,
-    .react-datepicker__year-text--keyboard-selected {
-        background-color: #aaa;
-    }
-
-    // WYSIWYG box
-    .richtext-wrapper {
-        height: 500px;
-    }
-    .tox-tinymce {
-        border: 1px solid #000;
-        border-radius: 0;
-        .tox-editor-header {
-            z-index: 0;
-            border-bottom: 1px solid #000;
-            .tox-tbtn:active,
-            .tox-tbtn:hover,
-            .tox-tbtn:focus {
-                background: #aaa;
-            }
-        }
-        .tox-statusbar__branding {
-            display: none;
-        }
-        .tox-statusbar {
-            border-top: 1px solid #000;
-        }
-        .tox-statusbar a,
-        .tox-statusbar__path-item,
-        .tox-statusbar__wordcount {
-            color: #000;
-        }
-        .tox-statusbar__resize-handle svg {
-            fill: #000;
-        }
-    }
-
     // attachments
 
     .attachments-wrapper {
@@ -169,9 +101,9 @@
 
     .relationship-wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
         gap: 2em;
-        input[type="radio"]:checked {
+        input[type='radio']:checked {
             background-image: none;
             --tw-ring-color: #000;
         }
@@ -182,7 +114,7 @@
         .join {
             width: 100%;
             display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-columns: 20% 20% 20% 20% 20%;
 
             .join-item {
                 width: 100%;
@@ -195,5 +127,6 @@
 
     .news-form-submit-wrapper {
         text-align: center;
+        margin-bottom: 1em;
     }
 }

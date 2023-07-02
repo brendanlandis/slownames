@@ -14,9 +14,8 @@ async function getArtists() {
 
 export default async function bands() {
     const artists = await getArtists();
-
     return (
-        <main id="yourband" className="smallcontainer">
+        <main id="yourband">
             <form id="band-form">
                 <h1>What's your band called?</h1>
 

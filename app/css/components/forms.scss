@@ -1,17 +1,30 @@
+/* wrappers */
 .form-input-box {
     margin-bottom: 1em;
 }
 
-
+/* buttons */
 button[type='submit'] {
     @apply btn btn-neutral;
+    &:hover {
+        color: #000;
+        background: #fff;
+        border-color: #000;
+        --tw-ring-color: #000;
+    }
 }
 
+/* inputs - text etc. */
 input[type='text'],
 input[type='password'] {
     border-color: #000;
+    &:focus {
+        border-color: #000;
+        --tw-ring-color: #000;
+    }
 }
 
+/* checkboxes */
 fieldset {
     display: grid;
     grid-template-columns: fit-content(30%) fit-content(30%) fit-content(30%);
@@ -26,8 +39,12 @@ fieldset {
     grid-template-columns: 16px 1fr;
     align-items: center;
     grid-column-gap: 1em;
-    input:checked {
+    input:checked,
+    input:focus,
+    input:active {
         background-color: #000;
+        color: #000;
+        --tw-ring-color: #000;
     }
     input:focus {
         box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
@@ -36,4 +53,90 @@ fieldset {
     input {
         cursor: pointer;
     }
+}
+
+/* WYSIWYG */
+.richtext-wrapper {
+    height: 500px;
+    .tox .tox-collection--toolbar .tox-collection__item--active,
+    .tox .tox-tbtn--enabled,
+    .tox .tox-tbtn--enabled:hover {
+        background-color: #aaa !important;
+    }
+    .tox-tinymce {
+        border: 1px solid #000;
+        border-radius: 0;
+        .tox-editor-header {
+            z-index: 0;
+            border-bottom: 1px solid #000 !important;
+            .tox-tbtn:active,
+            .tox-tbtn:hover,
+            .tox-tbtn:focus {
+                background: #aaa;
+            }
+        }
+        .tox-statusbar__branding {
+            display: none;
+        }
+        .tox-statusbar {
+            border-top: 1px solid #000;
+        }
+        .tox-statusbar a,
+        .tox-statusbar__path-item,
+        .tox-statusbar__wordcount {
+            color: #000;
+        }
+        .tox-statusbar__resize-handle svg {
+            fill: #000;
+        }
+    }
+}
+.tox .tox-button[title='Save'] {
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
+}
+
+.tox .tox-collection--toolbar .tox-collection__item--active,
+.tox .tox-collection--toolbar .tox-collection__item--enabled {
+    background-color: #ccc !important;
+}
+
+// date picker
+.react-datepicker-wrapper {
+    input#date {
+        text-align: center;
+    }
+}
+.react-datepicker__header {
+    background: #fff;
+}
+.react-datepicker-popper * {
+    font-family: $font-body !important;
+}
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next {
+    top: 15px;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+    background-color: #000;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+    background-color: #aaa;
 }

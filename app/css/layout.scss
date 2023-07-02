@@ -4,28 +4,13 @@ $lg: 1024px;
 $xl: 1280px;
 $xxl: 1536px;
 
-.container {
-    margin: 0 auto;
-    @apply mx-auto;
-}
-
-.smallcontainer {
-    @apply container;
-    padding-top: 0;
-    height: 100vh;
-    display: grid;
-    align-content: center;
-    text-align: center;
-    justify-content: center;
-}
-
 header {
     position: fixed;
     top: 0;
     width: 100vw;
     z-index: 1;
     @media (min-width: $lg) {
-        background: #fff;
+        height: 70px;
     }
 }
 
@@ -33,12 +18,29 @@ header {
 
 @import 'components/bodybg';
 body {
+    @apply background-img;
     background-color: #fff;
+    min-height: 100vh;
+    @media (min-width: $lg) {
+        padding-top: 70px;
+    }
 }
 
 main {
-    padding-top: 50px;
+    @apply mx-auto;
+    @apply prose;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
     @media (min-width: $lg) {
-        padding-top: 100px;
+        min-height: calc(100vh - 70px);
     }
+}
+.divider:not(.first) {
+    margin-top: 5em;
 }
