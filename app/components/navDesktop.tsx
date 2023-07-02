@@ -1,9 +1,11 @@
 'use client';
 import Link from 'next/link';
 import { Menu } from '@headlessui/react';
+import { usePathname } from 'next/navigation';
 import NavDesktopItem from './NavDesktopItem';
 
 function SettingsDropdown() {
+    const pathname = usePathname();
     return (
         <Menu>
             <Menu.Button>
@@ -22,18 +24,20 @@ function SettingsDropdown() {
             </Menu.Button>
             <Menu.Items className="dropdown-content secondary-nav">
                 <Menu.Item>
-                    {({ active }) => (
-                        <Link className={`${active && 'active'}`} href="/login">
-                            login
-                        </Link>
-                    )}
+                    <Link
+                        className={pathname == '/login' ? 'active' : ''}
+                        href="/login"
+                    >
+                        login
+                    </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    {({ active }) => (
-                        <Link className={`${active && 'active'}`} href="/bands">
-                            my bands
-                        </Link>
-                    )}
+                    <Link
+                        className={pathname == '/bands' ? 'active' : ''}
+                        href="/bands"
+                    >
+                        my bands
+                    </Link>
                 </Menu.Item>
             </Menu.Items>
         </Menu>

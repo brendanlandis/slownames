@@ -1,12 +1,12 @@
 'use client';
-import InputSelect from './components/InputSelect';
+import InputSelect from './components/forms/InputSelect';
 import NewOrOld from './components/NewOrOld';
-import InputText from './components/InputText';
-import InputDate from './components/InputDate';
-import InputRichText from './components/InputRichText';
-import InputFile from './components/InputFile';
-import InputRelationship from './components/InputRelationship';
-import ButtonSubmit from './components/ButtonSubmit';
+import InputText from './components/forms/InputText';
+import InputDate from './components/forms/InputDate';
+import InputRichText from './components/forms/InputRichText';
+import InputFile from './components/forms/InputFile';
+import InputRelationship from './components/forms/InputRelationship';
+import ButtonSubmit from './components/forms/ButtonSubmit';
 
 export default function news() {
     return (

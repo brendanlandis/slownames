@@ -4,7 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 export default function InputRichText({ id, label }) {
     const editorRef = useRef(null);
     return (
-        <div class="richtext-wrapper">
+        <div className="richtext-wrapper">
             <label htmlFor={id}>{label}</label>
             <Editor
                 onInit={(evt, editor) => (editorRef.current = editor)}

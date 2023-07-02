@@ -1,8 +1,8 @@
 'use client';
 import * as React from 'react';
-import InputText from '../components/InputText';
-import InputCheckbox from '../components/InputCheckbox';
-import ButtonSubmit from '../components/ButtonSubmit';
+import InputText from '../components/forms/InputText';
+import InputCheckbox from '../components/forms/InputCheckbox';
+import ButtonSubmit from '../components/forms/ButtonSubmit';
 
 async function getArtists() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`);

@@ -6,6 +6,7 @@ export default function NewOrOld() {
                 <br />
                 stuff
             </div>
+
             <input
                 type="checkbox"
                 id="new-or-old-toggle"

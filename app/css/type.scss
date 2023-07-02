@@ -34,43 +34,6 @@ h2 {
     font-size: 2em;
 }
 
-.nav-item {
-    a {
-        font-family: $font-header;
-        text-underline-offset: 2px;
-        transition: 100ms;
-        text-decoration: underline;
-        display: inline-block;
-    }
-    &:hover a,
-    &:focus a,
-    &:active a,
-    a:hover,
-    a:focus,
-    a:active,
-    &.active a {
-        text-underline-offset: 0.5em;
-    }
-    &.active a {
-        transform: rotate(4deg);
-    }
-}
-
-/* .secondary-nav .nav-item {
-    font-family: $font-header;
-    text-underline-offset: 2px;
-    transition: 100ms;
-    text-decoration: underline;
-    &:hover,
-    &:focus,
-    &:active,
-    &.active a {
-        text-underline-offset: 0.5em;
-    }
-    &.active a {
-        transform: rotate(4deg)
-    }
-} */
 
 button[type='submit'] {
     font-weight: 600 !important;

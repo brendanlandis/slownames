@@ -32,12 +32,12 @@ export default function InputRelationship({ id, label }) {
             </div>
 
             <label htmlFor="news-form-relationship">relationship</label>
-            <select className="select select-primary" disabled>
-                <option disabled>cool, which one?</option>
-                <option>one</option>
-                <option>two</option>
-                <option>three</option>
-                <option>four</option>
+            <select className="select select-primary" defaultValue="0" disabled>
+                <option value="0" disabled>cool, which one?</option>
+                <option value="1">one</option>
+                <option value="2">two</option>
+                <option value="3">three</option>
+                <option value="4">four</option>
             </select>
         </>
     );
