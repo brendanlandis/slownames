@@ -1,57 +1,25 @@
+import InputSelect from "./InputSelect";
 
-export default function InputRelationship({ id, label }) {
+export default function InputRelationship({ id, label, values, secondarylabel, secondaryvalues }) {
     return (
         <>
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id + '-type'}>{label}</label>
             <div className="join">
-                <input
-                    className="join-item btn"
-                    type="radio"
-                    name={id}
-                    value="1"
-                    aria-label="band"
-                    defaultChecked={true}
-                />
-                <input
-                    className="join-item btn"
-                    type="radio"
-                    name={id}
-                    value="2"
-                    aria-label="work"
-                />
-                <input
-                    className="join-item btn"
-                    type="radio"
-                    name={id}
-                    value="3"
-                    aria-label="press"
-                />
-                <input
-                    className="join-item btn"
-                    type="radio"
-                    name={id}
-                    value="4"
-                    aria-label="show(s)"
-                />
-                <input
-                    className="join-item btn"
-                    type="radio"
-                    name={id}
-                    value="5"
-                    aria-label="video"
-                />
+                {values.map((value, index) => (
+                    <input
+                        className={"join-item btn grid-col-" + (index + 1)}
+                        type="radio"
+                        name={id + '-type'}
+                        value={index}
+                        aria-label={value}
+                    />
+                ))}
             </div>
-
-            <label htmlFor="news-form-relationship">relationship</label>
-            <select className="select select-primary" defaultValue="0" disabled>
-                <option value="0" disabled>
-                    cool, which one?
-                </option>
-                <option value="1">one</option>
-                <option value="2">two</option>
-                <option value="3">three</option>
-                <option value="4">four</option>
-            </select>
+            <InputSelect
+                id={id}
+                label={secondarylabel}
+                options={secondaryvalues}
+            />
         </>
     );
 }

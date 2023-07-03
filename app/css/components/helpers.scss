@@ -1,0 +1,14 @@
+@for $i from 1 through 10 {
+    $start: $i;
+    .grid-col-#{$i} {
+        grid-column-start: $start;
+    }
+}
+
+@for $i from 1 through 5 {
+    $base: 100;
+    $height: $base * $i;
+    .height-#{$height} {
+        height: $height + 0px;
+    }
+}

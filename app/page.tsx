@@ -17,6 +17,7 @@ export default function news() {
                     <InputSelect
                         id="news-form-band"
                         label="what band is this for?"
+                        options={["Star Card", "Receive", "Receiver"]}
                     />
                 </h1>
                 <NewOrOld />
@@ -36,7 +37,7 @@ export default function news() {
                 </div>
 
                 <div className="form-input-box">
-                    <InputRichText id="news-form-text" label="text" />
+                    <InputRichText id="news-form-text" label="text" height="500" />
                 </div>
 
                 <div className="divider">THEN</div>
@@ -59,8 +60,15 @@ export default function news() {
 
                 <div className="form-input-box relationship-wrapper">
                     <InputRelationship
-                        id="news-form-relationship-type"
+                        id="news-form-relationship"
                         label="Is this about the band generally, or a specific thing?"
+                        values={["band", "work", "press", "show(s)", "video"]}
+                        secondarylabel="relationship"
+                        secondaryvalues={[
+                            'this one',
+                            'no that one',
+                            'no actually this other one',
+                        ]}
                     />
                 </div>
             </form>

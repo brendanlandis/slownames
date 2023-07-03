@@ -22,11 +22,14 @@
         @media (min-width: $lg) {
             justify-content: flex-start;
         }
+        label {
+            display: none;
+        }
         select {
             border: 0;
             border-bottom: 1px solid #000;
             font-size: 1em;
-            padding: 0;
+            padding: 0 1em 0 0;
             border-radius: 0;
             line-height: 48px;
             background-color: transparent;
@@ -69,6 +72,26 @@
             margin-top: 0;
         }
     }
+}
+
+
+[type='text']:focus,
+[type='email']:focus,
+[type='url']:focus,
+[type='password']:focus,
+[type='number']:focus,
+[type='date']:focus,
+[type='datetime-local']:focus,
+[type='month']:focus,
+[type='search']:focus,
+[type='tel']:focus,
+[type='time']:focus,
+[type='week']:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+    --tw-ring-color: #000;
+    border-color: #000;
 }
 
 /* buttons */
@@ -129,8 +152,11 @@ fieldset {
 }
 
 /* WYSIWYG */
+
 .richtext-wrapper {
-    height: 500px;
+    textarea {
+        display: none;
+    }
     .tox .tox-collection--toolbar .tox-collection__item--active,
     .tox .tox-tbtn--enabled,
     .tox .tox-tbtn--enabled:hover {
@@ -176,6 +202,9 @@ fieldset {
 }
 
 // date picker
+.form-input-box-date label {
+    display: none;
+}
 .react-datepicker-wrapper input#date {
     @media (min-width: $lg) {
         text-align: center;
@@ -220,3 +249,5 @@ fieldset {
 .react-datepicker__year-text--keyboard-selected {
     background-color: #aaa !important;
 }
+
+/* select, etc. */
