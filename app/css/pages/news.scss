@@ -25,6 +25,9 @@
                 grid-template-columns: 4fr 1fr;
             }
             .form-input-box-date {
+                label {
+                    display: none;
+                }
                 order: 1;
                 .react-datepicker-wrapper {
                     width: 100%;

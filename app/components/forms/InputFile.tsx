@@ -5,6 +5,7 @@ export default function InputFile({ id, label }) {
             <input
                 type="file"
                 id={id}
+                multiple
                 className="file-input file-input-bordered file-input-primary"
             />
         </>

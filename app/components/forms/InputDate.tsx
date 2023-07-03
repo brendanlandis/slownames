@@ -1,16 +1,22 @@
-'use client'
+'use client';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
 import { useState } from 'react';
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import enGB from 'date-fns/locale/en-GB';
+registerLocale('en-GB', enGB)
+
 export default function InputDate({ id, label }) {
     const [startDate, setStartDate] = useState(new Date());
     return (
         <>
-            <label htmlFor="news-form-date">{id}</label>
+            <label htmlFor="news-form-date">{label}</label>
             <DatePicker
                 selected={startDate}
-                id={label}
+                id={id}
                 onChange={(date) => setStartDate(date)}
+                locale="en-GB"
+                placeholderText="Weeks start on Monday"
             />
         </>
     );

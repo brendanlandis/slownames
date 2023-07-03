@@ -202,9 +202,6 @@ fieldset {
 }
 
 // date picker
-.form-input-box-date label {
-    display: none;
-}
 .react-datepicker-wrapper input#date {
     @media (min-width: $lg) {
         text-align: center;

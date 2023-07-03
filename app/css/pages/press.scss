@@ -2,8 +2,6 @@
     #press-form {
         margin-bottom: 2em;
     }
-    label[for='press-form-type'],
-    label[for='press-form-visibility'],
     label[for='press-form-relationship'],
     label[for='press-form-attachment-link-text'] {
         display: none;
@@ -23,6 +21,11 @@
             grid-template-columns: 1fr;
             select, input {
                 width: 100%;
+            }
+            label {
+                text-align: center;
+                display: block;
+                margin-bottom: 0.5em;
             }
             @media (min-width: $lg) {
                 grid-template-columns: 1fr 1fr 1fr;
@@ -46,6 +49,7 @@
         }
         label[for='press-form-attachments'] {
             text-align: justify;
+            line-height: 1.3em;
         }
     }
 

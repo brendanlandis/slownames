@@ -30,9 +30,8 @@ export default function press() {
                     <div className="form-input-box form-input-box-type">
                         <InputSelect
                             id="press-form-type"
-                            label="what type of press is this?"
+                            label="What type of press is this?"
                             options={[
-                                'what type of press is this?',
                                 'a review',
                                 'an interview',
                                 'an article',
@@ -42,17 +41,16 @@ export default function press() {
                     <div className="form-input-box form-input-box-visibility">
                         <InputSelect
                             id="press-form-visibility"
-                            label="where should this be visible?"
+                            label="Where should it be visible?"
                             options={[
-                                'where should this be visible?',
-                                'resume / CV',
+                                'CV / home page',
                                 "only next to the thing it's about",
-                                'hidden entirely',
+                                'hidden (just archiving)',
                             ]}
                         />
                     </div>
                     <div className="form-input-box form-input-box-date">
-                        <InputDate id="press-form-date" label="date" />
+                        <InputDate id="press-form-date" label="When was it written?" />
                     </div>
                 </div>
 
