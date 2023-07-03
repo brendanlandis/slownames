@@ -1,0 +1,32 @@
+.explanation {
+    margin-top: 0;
+}
+
+[type='text'],
+[type='email'],
+[type='url'],
+[type='password'],
+[type='number'],
+[type='date'],
+[type='datetime-local'],
+[type='month'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='week'],
+[type='file'],
+[multiple],
+textarea,
+select {
+    &:focus {
+        --tw-ring-color: #000 !important;
+        border-color: #000 !important;
+        border-radius: 0;
+    }
+}
+
+input[type='text'],
+input[type='password'],
+select {
+    height: 48px;
+}

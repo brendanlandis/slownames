@@ -39,7 +39,9 @@
             @media (min-width: $lg) {
                 grid-template-columns: 1fr 1fr 1fr;
             }
-            .form-input-box-date {
+            .form-input-box-date,
+            .form-input-box-doors,
+            .form-input-box-sound {
                 .react-datepicker-wrapper {
                     width: 100%;
                 }
@@ -60,6 +62,9 @@
                 column-gap: 1em;
                 grid-template-columns: 1fr 1fr 1fr;
             }
+        }
+        &.documentation {
+            align-items: flex-end;
         }
         &.date-doors-sound {
             input {

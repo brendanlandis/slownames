@@ -1,5 +1,13 @@
 #yourband {
+    #band-form {
+        @media (max-width: $lg) {
+            margin-top: 2em;
+        }
+    }
     text-align: center;
+    input[type=text] {
+        text-align: center;
+    }
     h1 {
         margin-bottom: 0.5em;
     }
@@ -12,5 +20,16 @@
     }
     #primaryartist-form-submit {
         margin-bottom: 1em;
+    }
+    .new-secondary-bands {
+        label {
+            display: none;
+        }
+        display: grid;
+        gap: 1em;
+        grid-template-columns: 1fr;
+        @media (min-width: $lg) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }

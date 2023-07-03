@@ -1,0 +1,62 @@
+.form-header {
+    margin-bottom: 3em;
+    margin-top: 2em;
+    @media (min-width: $lg) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    h1 {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 0.3em;
+        align-items: center;
+        @media (min-width: $lg) {
+            justify-content: flex-start;
+        }
+        label { display: none; }
+    }
+    select {
+        @apply select select-primary;
+        border: 0;
+        border-bottom: 1px solid #000;
+        font-size: 1em;
+        padding: 0 1em 0 0;
+        border-radius: 0;
+        line-height: 48px;
+        background-color: transparent;
+        background-position: calc(100% - 10px) calc(1px + 50%),
+            calc(100% - 0px) calc(1px + 50%);
+        background-size: 10px 10px, 10px 10px;
+    }
+    .new-or-old {
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        grid-template-columns: 1fr 64px 1fr;
+        align-items: center;
+        gap: 0.4em;
+        div {
+            font-size: 0.8em;
+            line-height: 0.9em;
+            white-space: nowrap;
+        }
+        .new-stuff {
+            text-align: right;
+            justify-self: flex-end;
+        }
+        .old-stuff {
+            text-align: left;
+            justify-self: flex-start;
+        }
+        #new-or-old-toggle {
+            @apply toggle toggle-lg;
+            background-image: none;
+            --tw-bg-opacity: 1;
+        }
+        @media (min-width: $lg) {
+            display: flex;
+        }
+    }
+}

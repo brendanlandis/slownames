@@ -1,0 +1,9 @@
+button[type='submit'] {
+    @apply btn btn-neutral;
+    &:hover {
+        color: #000;
+        background: #fff;
+        border-color: #000;
+        --tw-ring-color: #000;
+    }
+}

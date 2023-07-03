@@ -1,0 +1,52 @@
+.richtext-wrapper {
+    // hide textarea to prevent layout shift
+    textarea {
+        display: none;
+    }
+
+    .tox .tox-collection--toolbar .tox-collection__item--active,
+    .tox .tox-tbtn--enabled,
+    .tox .tox-tbtn--enabled:hover {
+        background-color: #aaa !important;
+    }
+    .tox-tinymce {
+        border: 1px solid #000;
+        border-radius: 0;
+        .tox-editor-header {
+            z-index: 0;
+            border-bottom: 1px solid #000 !important;
+            .tox-tbtn:active,
+            .tox-tbtn:hover,
+            .tox-tbtn:focus {
+                background: #aaa;
+            }
+        }
+        .tox-statusbar__branding {
+            display: none;
+        }
+        .tox-statusbar {
+            border-top: 1px solid #000;
+        }
+        .tox-statusbar a,
+        .tox-statusbar__path-item,
+        .tox-statusbar__wordcount {
+            color: #000;
+        }
+        .tox-statusbar__resize-handle svg {
+            fill: #000;
+        }
+    }
+}
+
+// save button in link popup
+.tox .tox-button[title='Save'] {
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
+}
+
+// buttons in list popups
+.tox .tox-collection--toolbar .tox-collection__item--active,
+.tox .tox-collection--toolbar .tox-collection__item--enabled {
+    background-color: #ccc !important;
+}

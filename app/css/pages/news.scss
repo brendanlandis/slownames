@@ -9,15 +9,15 @@
         display: none;
     }
     .news-form-input:not(:last-child) {
-        margin-bottom: 2em;
+        margin-bottom: 1em;
     }
     .news-form-row {
         display: grid;
         justify-content: space-between;
         align-items: center;
-        column-gap: 2em;
+        column-gap: 1em;
         @media (min-width: $lg) {
-            margin-bottom: 2em;
+            margin-bottom: 1em;
         }
         &.headline-date {
             grid-template-columns: 1fr;

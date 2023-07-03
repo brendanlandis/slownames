@@ -8,7 +8,14 @@
 @import "components/navdesktop";
 @import "components/navmobile";
 @import "components/navstates";
-@import "components/forms";
+
+// forms
+@import "forms/general";
+@import "forms/header";
+@import "forms/buttons";
+@import "forms/checkboxes";
+@import "forms/datetime";
+@import "forms/richtext";
 
 // pages
 @import "pages/login";

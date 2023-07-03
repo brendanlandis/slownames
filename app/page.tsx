@@ -17,13 +17,18 @@ export default function news() {
                     <InputSelect
                         id="news-form-band"
                         label="what band is this for?"
-                        options={["Star Card", "Receive", "Receiver"]}
+                        options={['Star Card', 'Receive', 'Receiver']}
                     />
                 </h1>
                 <NewOrOld />
             </div>
 
-            <div className="divider first">OK SO FIRST</div>
+            <div className="divider first">FIRST</div>
+
+            <p className="explanation">
+                Write out the headline and content, plus the date you'd like
+                this to go live on.
+            </p>
 
             <form id="news-form">
                 <div className="news-form-row headline-date">
@@ -37,7 +42,11 @@ export default function news() {
                 </div>
 
                 <div className="form-input-box">
-                    <InputRichText id="news-form-text" label="text" height="500" />
+                    <InputRichText
+                        id="news-form-text"
+                        label="text"
+                        height="500"
+                    />
                 </div>
 
                 <div className="divider">THEN</div>
@@ -62,7 +71,13 @@ export default function news() {
                     <InputRelationship
                         id="news-form-relationship"
                         label="Is this about the band generally, or a specific thing?"
-                        values={["band", "recording", "press", "show(s)", "video"]}
+                        values={[
+                            'band',
+                            'recording',
+                            'press',
+                            'show(s)',
+                            'video',
+                        ]}
                         secondarylabel="relationship"
                         secondaryvalues={[
                             'this one',
