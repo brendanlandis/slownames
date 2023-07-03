@@ -21,6 +21,9 @@
         }
         &.type-visibility-date {
             grid-template-columns: 1fr;
+            select, input {
+                width: 100%;
+            }
             @media (min-width: $lg) {
                 grid-template-columns: 1fr 1fr 1fr;
             }
@@ -35,12 +38,10 @@
         display: grid;
         justify-content: space-between;
         align-items: center;
-        column-gap: 2em;
-        @media (min-width: $lg) {
-            margin-bottom: 2em;
-        }
+        gap: 2em;
         grid-template-columns: 1fr;
         @media (min-width: $lg) {
+            margin-bottom: 2em;
             grid-template-columns: 1fr 1fr 1fr;
         }
         label[for='press-form-attachments'] {

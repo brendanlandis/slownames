@@ -62,7 +62,7 @@ export default function news() {
                     <InputRelationship
                         id="news-form-relationship"
                         label="Is this about the band generally, or a specific thing?"
-                        values={["band", "work", "press", "show(s)", "video"]}
+                        values={["band", "recording", "press", "show(s)", "video"]}
                         secondarylabel="relationship"
                         secondaryvalues={[
                             'this one',

@@ -23,7 +23,7 @@ export default function press() {
                 <NewOrOld />
             </div>
 
-            <div className="divider first">OK SO FIRST</div>
+            <div className="divider first">FIRST</div>
 
             <form id="press-form">
                 <div className="press-form-row type-visibility-date">
@@ -62,7 +62,7 @@ export default function press() {
                     <InputRelationship
                         id="press-form-relationship"
                         label="Is this about an album, or a show, or what?"
-                        values={['work', 'show(s)', 'a video', 'the band']}
+                        values={['recording', 'show(s)', 'video', 'band']}
                         secondarylabel="relationship"
                         secondaryvalues={[
                             'awesome, which one?',
