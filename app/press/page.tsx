@@ -23,22 +23,17 @@ export default function press() {
                 <NewOrOld />
             </div>
 
-            <div className="divider first">FIRST</div>
-
             <form id="press-form">
-                <div className="press-form-row type-visibility-date">
-                    <div className="form-input-box form-input-box-type">
+                <div className="divider first">FIRST</div>
+                <div className="form-row one-one-one">
+                    <div>
                         <InputSelect
                             id="press-form-type"
                             label="What type of press is this?"
-                            options={[
-                                'a review',
-                                'an interview',
-                                'an article',
-                            ]}
+                            options={['a review', 'an interview', 'an article']}
                         />
                     </div>
-                    <div className="form-input-box form-input-box-visibility">
+                    <div>
                         <InputSelect
                             id="press-form-visibility"
                             label="Where should it be visible?"
@@ -49,18 +44,24 @@ export default function press() {
                             ]}
                         />
                     </div>
-                    <div className="form-input-box form-input-box-date">
-                        <InputDate id="press-form-date" label="When was it written?" />
+                    <div>
+                        <InputDate
+                            id="press-form-date"
+                            label="When was it written?"
+                        />
                     </div>
                 </div>
 
                 <div className="divider">AND</div>
+                <p className="explanation">
+                    Is this about an album, or a show, or what?
+                </p>
 
-                <div className="form-input-box relationship-wrapper">
+                <div className="form-row two-one">
                     <InputRelationship
                         id="press-form-relationship"
-                        label="Is this about an album, or a show, or what?"
-                        values={['recording', 'show(s)', 'video', 'band']}
+                        label="subject of press"
+                        values={['work', 'show', 'video', 'band']}
                         secondarylabel="relationship"
                         secondaryvalues={[
                             'awesome, which one?',
@@ -72,32 +73,40 @@ export default function press() {
                 </div>
 
                 <div className="divider">THEN</div>
+                <p className="explanation">
+                    What's a really good quote to highlight?
+                </p>
 
-                <div className="form-input-box">
+                <div>
                     <InputRichText
                         id="press-form-quote"
-                        label="What's a really good quote to highlight?"
+                        label="quote"
                         height="250"
                     />
                 </div>
 
                 <div className="divider">FINALLY</div>
 
-                <div className="press-form-row url-pic">
-                    <div className="form-input-box url-pic-wrapper">
+                <p className="explanation">
+                    Drop a link to the writeup. (Or, if it's not online
+                    anywhere, you can attach a pic or two from the magazine it's in.)
+                </p>
+
+                <div className="form-row one-one">
+                    <div>
                         <InputText
                             id="press-form-attachment-link-text"
-                            label="link to the writeup"
+                            label="link to writeup"
                         />
-                        <InputFile
-                            id="press-form-attachments"
-                            label="Or, if it's not online anywhere, you can attach a pic from the magazine. (This won't display anywhere, it's just for archival purposes.)"
-                        />
+                    </div>
+                    <div>
+                        <InputFile id="press-form-attachments" label="pic of writeup" />
                     </div>
                 </div>
             </form>
-
-            <ButtonSubmit id="press-form-submit" label="i get up" />
+            <div className="submit-wrapper">
+                <ButtonSubmit id="press-form-submit" label="i get up" />
+            </div>
         </main>
     );
 }

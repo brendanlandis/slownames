@@ -1,43 +1,12 @@
 #press {
-    #press-form {
-        margin-bottom: 2em;
-    }
+    label[for='press-form-relationship-type'],
     label[for='press-form-relationship'],
-    label[for='press-form-attachment-link-text'] {
+    label[for='press-form-attachment-link-text'],
+    label[for='press-form-quote'],
+    label[for='press-form-attachments'] {
         display: none;
     }
-    .news-form-input:not(:last-child) {
-        margin-bottom: 2em;
-    }
-    .press-form-row {
-        display: grid;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 2em;
-        @media (min-width: $lg) {
-            margin-bottom: 2em;
-        }
-        &.type-visibility-date {
-            grid-template-columns: 1fr;
-            select, input {
-                width: 100%;
-                text-align: center;
-            }
-            label {
-                text-align: center;
-                display: block;
-                margin-bottom: 0.5em;
-            }
-            @media (min-width: $lg) {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-            .form-input-box-date {
-                .react-datepicker-wrapper {
-                    width: 100%;
-                }
-            }
-        }
-    }
+    
     .url-pic-wrapper {
         display: grid;
         justify-content: space-between;
@@ -52,50 +21,6 @@
             text-align: justify;
             line-height: 1.3em;
         }
-    }
-
-    .relationship-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1em;
-        label[for='press-form-relationship-type'] {
-            text-align: center;
-        }
-        @media (min-width: $lg) {
-            grid-template-columns: 2fr 1fr;
-            gap: 1em;
-            label[for='press-form-relationship-type'] {
-                grid-column-start: 1;
-                grid-column-end: 3;
-            }
-        }
-        input[type='radio']:checked {
-            background-image: none;
-            --tw-ring-color: #000;
-        }
-        .join {
-            width: 100%;
-            display: grid;
-            grid-auto-columns: 1fr;
-
-            .join-item {
-                width: 100%;
-            }
-        }
-        select:disabled {
-            opacity: 0.4;
-        }
-    }
-
-    label[for='press-form-quote'] {
-        text-align: center;
-        margin-bottom: 1em;
-        display: block;
-    }
-
-    .press-form-submit-wrapper {
-        text-align: center;
-        margin-bottom: 1em;
     }
 
 }

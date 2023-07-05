@@ -1,113 +1,21 @@
 #news {
-    #news-form {
-        margin-bottom: 2em;
-    }
     label[for='news-form-headline'],
+    label[for='news-form-date'],
     label[for='news-form-text'],
+    label[for='news-form-attachments'],
     label[for='news-form-attachment-link-text'],
-    label[for='news-form-relationship'] {
+    label[for='news-form-relationship'],
+    label[for='news-form-relationship-type'] {
         display: none;
     }
-    .news-form-input:not(:last-child) {
-        margin-bottom: 1em;
-    }
-    .news-form-row {
-        display: grid;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 1em;
+
+    .wrapper-date {
+        order: -1;
         @media (min-width: $lg) {
-            margin-bottom: 1em;
+            order: 2;
         }
-        &.headline-date {
-            grid-template-columns: 1fr;
-            @media (min-width: $lg) {
-                grid-template-columns: 4fr 1fr;
-            }
-            .form-input-box-date {
-                label {
-                    display: none;
-                }
-                order: 1;
-                .react-datepicker-wrapper {
-                    width: 100%;
-                }
-            }
-            .form-input-box-headline {
-                order: 2;
-                @media (min-width: $lg) {
-                    order: 1;
-                }
-            }
-            .news-form-input {
-                margin-bottom: 0;
-            }
-            input[type='text'] {
-                width: 100%;
-            }
-        }
-    }
-
-    // attachments
-
-    .attachments-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1em;
-        label[for='news-form-attachments'] {
-            text-align: justify;
-        }
-        @media (min-width: $lg) {
-            grid-template-columns: 1fr 1fr;
-            gap: 2em;
-            label[for='news-form-attachments'] {
-                grid-column-start: 1;
-                grid-column-end: 3;
-            }
-        }
-        .file-input {
-            border-radius: 0;
-            max-width: none;
-        }
-    }
-
-    // relationship
-
-    .relationship-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1em;
-        label[for='news-form-relationship-type'] {
-            text-align: center;
-        }
-        @media (min-width: $lg) {
-            grid-template-columns: 2fr 1fr;
-            gap: 2em;
-            label[for='news-form-relationship-type'] {
-                grid-column-start: 1;
-                grid-column-end: 3;
-            }
-        }
-        input[type='radio']:checked {
-            background-image: none;
-            --tw-ring-color: #000;
-        }
-        .join {
+        .react-datepicker-wrapper {
             width: 100%;
-            display: grid;
-            grid-auto-columns: 1fr;
-
-            .join-item {
-                width: 100%;
-            }
         }
-        select:disabled {
-            opacity: 0.4;
-        }
-    }
-
-    .news-form-submit-wrapper {
-        text-align: center;
-        margin-bottom: 1em;
     }
 }

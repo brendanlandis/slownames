@@ -15,15 +15,18 @@ async function getArtists() {
 export default async function bands() {
     const artists = await getArtists();
     return (
-        <main id="yourband">
-            <form id="band-form">
+        <main id="bands">
+            <form id="band-form" className='tiny'>
+
                 <h1>What's your main band called?</h1>
 
-                <div className="form-input-box">
+                <div>
                     <InputText id="band-form-bandname" label="band name" />
                 </div>
+
                 <h2>Plus, are you in any of these other bands?</h2>
-                <fieldset className="form-input-box">
+
+                <fieldset>
                     <legend>Check all the bands you're in:</legend>
 
                     {artists.data.map((artist, index) => (
@@ -34,9 +37,10 @@ export default async function bands() {
                         />
                     ))}
                 </fieldset>
+
                 <h2>Or, any that aren't listed here?</h2>
 
-                <div className="form-input-box new-secondary-bands">
+                <div className="new-secondary-bands">
                     <div>
                         <InputText
                             id="band-form-new-secondary-band-1"
@@ -57,8 +61,12 @@ export default async function bands() {
                     </div>
                 </div>
             </form>
-
-            <ButtonSubmit id="primaryartist-form-submit" label="that's sick" />
+            <div className="submit-wrapper">
+                <ButtonSubmit
+                    id="primaryartist-form-submit"
+                    label="that's sick"
+                />
+            </div>
         </main>
     );
 }

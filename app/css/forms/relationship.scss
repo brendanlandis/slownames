@@ -1,0 +1,13 @@
+.join {
+    width: 100%;
+    display: grid;
+    grid-auto-columns: 1fr;
+
+    input[type='radio'] {
+        width: 100%;
+    }
+    .join-item:checked {
+        background-image: none;
+        --tw-ring-color: #000;
+    }
+}

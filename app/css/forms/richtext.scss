@@ -4,6 +4,10 @@
         display: none;
     }
 
+    .tox-dialog-wrap * {
+        font-family: $font-body !important;
+    }
+
     .tox .tox-collection--toolbar .tox-collection__item--active,
     .tox .tox-tbtn--enabled,
     .tox .tox-tbtn--enabled:hover {

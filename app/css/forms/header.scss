@@ -16,6 +16,12 @@
             justify-content: flex-start;
         }
         label { display: none; }
+        .inbetween {
+            font-size: 0.8em;
+            line-height: 1.3em;
+            display: inline-block;
+            margin: 0 0.5em;
+        }
     }
     select {
         @apply select select-primary;
@@ -37,6 +43,7 @@
         grid-template-columns: 1fr 64px 1fr;
         align-items: center;
         gap: 0.4em;
+        margin-top: 1em;
         div {
             font-size: 0.8em;
             line-height: 0.9em;
@@ -57,6 +64,7 @@
         }
         @media (min-width: $lg) {
             display: flex;
+            margin-top: 0;
         }
     }
 }

@@ -1,26 +1,14 @@
-#yourband {
-    #band-form {
-        @media (max-width: $lg) {
-            margin-top: 2em;
-        }
-    }
+#bands {
     text-align: center;
-    input[type=text] {
+
+    input[type='text'] {
         text-align: center;
-    }
-    h1 {
-        margin-bottom: 0.5em;
-    }
-    h2 {
-        margin-bottom: 0.5em;
     }
     label[for='band-form-bandname'],
     legend {
         display: none;
     }
-    #primaryartist-form-submit {
-        margin-bottom: 1em;
-    }
+    
     .new-secondary-bands {
         label {
             display: none;
@@ -30,6 +18,12 @@
         grid-template-columns: 1fr;
         @media (min-width: $lg) {
             grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    @media (max-width: $lg) {
+        form {
+            margin-top: 2em;
         }
     }
 }

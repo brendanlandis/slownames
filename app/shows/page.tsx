@@ -26,24 +26,24 @@ export default function shows() {
                 <NewOrOld />
             </div>
 
-            <div className="divider first">WHEN & WHERE</div>
-
             <form id="show-form">
-                <div className="show-form-row date-doors-sound">
-                    <div className="form-input-box form-input-box-date">
+                <div className="divider first">WHEN</div>
+
+                <div className="form-row one-one-one">
+                    <div>
                         <InputDate
                             id="show-form-date"
-                            label="When's the show?"
+                            label="What day is the show?"
                         />
                     </div>
-                    <div className="form-input-box form-input-box-doors">
+                    <div>
                         <InputTime
                             id="show-form-doors"
                             label="When are doors?"
                             hour="20"
                         />
                     </div>
-                    <div className="form-input-box form-input-box-sound">
+                    <div>
                         <InputTime
                             id="show-form-sound"
                             label="When does sound start?"
@@ -52,37 +52,30 @@ export default function shows() {
                     </div>
                 </div>
 
-                <div className="show-form-row city-venue-url">
-                    <div className="form-input-box form-input-box-city">
-                        <InputText
-                            id="show-form-city"
-                            label="city"
-                        />
+                <div className="divider">WHERE</div>
+
+                <div className="form-row one-one-one">
+                    <div>
+                        <InputText id="show-form-city" label="city" />
                     </div>
-                    <div className="form-input-box form-input-box-venue">
-                        <InputText
-                            id="show-form-venue"
-                            label="venue"
-                        />
+                    <div>
+                        <InputText id="show-form-venue" label="venue" />
                     </div>
-                    <div className="form-input-box form-input-box-url">
-                        <InputText
-                            id="show-form-url"
-                            label="show link"
-                        />
+                    <div>
+                        <InputText id="show-form-url" label="show link" />
                     </div>
                 </div>
 
-                <div className="divider">THEN</div>
+                <div className="divider">THEN WHAT ELSE</div>
 
-                <div className="show-form-row otherbands-notes">
-                    <div className="form-input-box form-input-box-other-bands">
+                <div className="form-row one-one">
+                    <div>
                         <InputText
                             id="show-form-other-bands"
                             label="Who else is playing?"
                         />
                     </div>
-                    <div className="form-input-box form-input-box-venue">
+                    <div>
                         <InputText
                             id="show-form-notes"
                             label="Any other details"
@@ -90,11 +83,11 @@ export default function shows() {
                     </div>
                 </div>
 
-                <div className="show-form-row flyers-tour-visibility">
-                    <div className="form-input-box form-input-box-flyers">
+                <div className="form-row one-one-one">
+                    <div>
                         <InputFile id="show-form-flyers" label="Flyers" />
                     </div>
-                    <div className="form-input-box form-input-box-tour">
+                    <div>
                         <InputSelect
                             id="show-form-tour"
                             label="Is this part of a tour?"
@@ -106,10 +99,10 @@ export default function shows() {
                         />
                     </div>
 
-                    <div className="form-input-box form-input-box-visibility">
+                    <div>
                         <InputSelect
                             id="show-form-visibility"
-                            label="Once it's passed, where should it be visible?"
+                            label="After it's over, where should it be visible?"
                             options={[
                                 'CV / home page',
                                 'only in the gig log',
@@ -120,32 +113,43 @@ export default function shows() {
                 </div>
 
                 <div className="divider">AFTERWARDS</div>
+                <p className="explanation">
+                    Come back and put documentation here once it's over.
+                </p>
 
-                <div className="show-form-row documentation">
-                    <div className="form-input-box form-input-box-documentation">
+                <div className="form-row one-one">
+                    <div className="form-input-box-documentation">
                         <InputFile
                             id="show-form-documentation"
                             label="Pics or it didn't happen"
                         />
                     </div>
-                    <div className="form-input-box form-input-box-videos">
-                        <InputSelect
-                            id="show-form-video-host"
-                            label="host"
-                            options={['youtube', 'vimeo']}
-                        />
+                    <div>
+                        <p className="explanation">Videos are cool too</p>
+                        <div className="form-row one-one">
+                            <div>
+                                <InputText
+                                    id="show-form-video-url"
+                                    label="video link"
+                                />
+                            </div>
 
-                        <InputText id="show-form-video-id" label="video ID" />
-
-                        <InputText
-                            id="show-form-video-credit"
-                            label="credit"
-                        />
+                            <div>
+                                <InputText
+                                    id="show-form-video-credit"
+                                    label="video credit"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
-
-            <ButtonSubmit id="show-form-submit" label="nothin' gets me down" />
+            <div className="submit-wrapper">
+                <ButtonSubmit
+                    id="show-form-submit"
+                    label="nothin' gets me down"
+                />
+            </div>
         </main>
     );
 }

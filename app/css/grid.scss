@@ -1,0 +1,85 @@
+form {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr;
+    &:not(.tiny) {
+        input,
+        select {
+            margin: 0 auto;
+            width: 100%;
+        }
+    }
+    .form-row {
+        display: grid;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+        text-align: center;
+        &.one-one {
+            grid-template-columns: 1fr;
+            @media (min-width: $lg) {
+                align-items: flex-end;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        &.one-one-one {
+            grid-template-columns: 1fr;
+            gap: 2em;
+            label {
+                display: block;
+                text-align: left;
+            }
+            @media (min-width: $lg) {
+                grid-template-columns: 1fr 1fr 1fr;
+                align-items: flex-end;
+                gap: 1em;
+                label {
+                    display: block;
+                    text-align: center;
+                }
+                select,
+                input:not([type='file']) {
+                    text-align: center;
+                }
+            }
+        }
+        &.two-one {
+            grid-template-columns: 1fr;
+            @media (min-width: $lg) {
+                align-items: flex-end;
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        &.four-one {
+            grid-template-columns: 1fr;
+            @media (min-width: $lg) {
+                align-items: flex-end;
+                grid-template-columns: 4fr 1fr;
+            }
+        }
+    }
+}
+
+.divider {
+    margin: 0;
+    &:not(.first) {
+        margin-top: 10em;
+    }
+}
+.explanation {
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+    @media (min-width: $lg) {
+        width: 75%;
+        text-align: center;
+    }
+}
+
+.submit-wrapper {
+    text-align: center;
+    margin: 6em 0 1em 0;
+    .tiny & {
+        margin: 1em 0;
+    }
+}
