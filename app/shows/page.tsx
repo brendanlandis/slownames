@@ -15,12 +15,14 @@ export default function shows() {
                         id="show-form-show-or-tour"
                         label="Is this a show or a tour?"
                         options={['Show', 'Tour']}
+                        labeldisplay={false}
                     />
                     <span className="inbetween">for</span>
                     <InputSelect
                         id="show-form-band"
                         label="What band is this for?"
                         options={['Star Card', 'Receive', 'Receiver']}
+                        labeldisplay={false}
                     />
                 </h1>
                 <NewOrOld />
@@ -34,6 +36,7 @@ export default function shows() {
                         <InputDate
                             id="show-form-date"
                             label="What day is the show?"
+                            labeldisplay={true}
                         />
                     </div>
                     <div>
@@ -41,6 +44,7 @@ export default function shows() {
                             id="show-form-doors"
                             label="When are doors?"
                             hour="20"
+                            labeldisplay={true}
                         />
                     </div>
                     <div>
@@ -48,6 +52,7 @@ export default function shows() {
                             id="show-form-sound"
                             label="When does sound start?"
                             hour="21"
+                            labeldisplay={true}
                         />
                     </div>
                 </div>
@@ -56,13 +61,25 @@ export default function shows() {
 
                 <div className="form-row one-one-one">
                     <div>
-                        <InputText id="show-form-city" label="city" />
+                        <InputText
+                            id="show-form-city"
+                            label="city"
+                            labeldisplay={false}
+                        />
                     </div>
                     <div>
-                        <InputText id="show-form-venue" label="venue" />
+                        <InputText
+                            id="show-form-venue"
+                            label="venue"
+                            labeldisplay={false}
+                        />
                     </div>
                     <div>
-                        <InputText id="show-form-url" label="show link" />
+                        <InputText
+                            id="show-form-url"
+                            label="show link"
+                            labeldisplay={false}
+                        />
                     </div>
                 </div>
 
@@ -73,24 +90,27 @@ export default function shows() {
                         <InputText
                             id="show-form-other-bands"
                             label="Who else is playing?"
+                            labeldisplay={false}
                         />
                     </div>
                     <div>
                         <InputText
                             id="show-form-notes"
                             label="Any other details"
+                            labeldisplay={false}
                         />
                     </div>
                 </div>
 
                 <div className="form-row one-one-one">
                     <div>
-                        <InputFile id="show-form-flyers" label="Flyers" />
+                        <InputFile id="show-form-flyers" label="Flyers" labeldisplay={true} />
                     </div>
                     <div>
                         <InputSelect
                             id="show-form-tour"
                             label="Is this part of a tour?"
+                            labeldisplay={true}
                             options={[
                                 'world tour 2024',
                                 'world tour 2025',
@@ -103,6 +123,7 @@ export default function shows() {
                         <InputSelect
                             id="show-form-visibility"
                             label="After it's over, where should it be visible?"
+                            labeldisplay={true}
                             options={[
                                 'CV / home page',
                                 'only in the gig log',
@@ -122,6 +143,7 @@ export default function shows() {
                         <InputFile
                             id="show-form-documentation"
                             label="Pics or it didn't happen"
+                            labeldisplay={true}
                         />
                     </div>
                     <div>
@@ -131,6 +153,7 @@ export default function shows() {
                                 <InputText
                                     id="show-form-video-url"
                                     label="video link"
+                                    labeldisplay={false}
                                 />
                             </div>
 
@@ -138,6 +161,7 @@ export default function shows() {
                                 <InputText
                                     id="show-form-video-credit"
                                     label="video credit"
+                                    labeldisplay={false}
                                 />
                             </div>
                         </div>

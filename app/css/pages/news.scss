@@ -1,14 +1,4 @@
 #news {
-    label[for='news-form-headline'],
-    label[for='news-form-date'],
-    label[for='news-form-text'],
-    label[for='news-form-attachments'],
-    label[for='news-form-attachment-link-text'],
-    label[for='news-form-relationship'],
-    label[for='news-form-relationship-type'] {
-        display: none;
-    }
-
     .wrapper-date {
         order: -1;
         @media (min-width: $lg) {

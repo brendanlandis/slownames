@@ -18,6 +18,7 @@ export default function press() {
                         id="press-form-band"
                         label="what band is this for?"
                         options={['Star Card', 'Receive', 'Receiver']}
+                        labeldisplay={false}
                     />
                 </h1>
                 <NewOrOld />
@@ -31,6 +32,7 @@ export default function press() {
                             id="press-form-type"
                             label="What type of press is this?"
                             options={['a review', 'an interview', 'an article']}
+                            labeldisplay={false}
                         />
                     </div>
                     <div>
@@ -42,12 +44,14 @@ export default function press() {
                                 "only next to the thing it's about",
                                 'hidden (just archiving)',
                             ]}
+                            labeldisplay={false}
                         />
                     </div>
                     <div>
                         <InputDate
                             id="press-form-date"
                             label="When was it written?"
+                            labeldisplay={false}
                         />
                     </div>
                 </div>
@@ -62,6 +66,8 @@ export default function press() {
                         id="press-form-relationship"
                         label="subject of press"
                         values={['work', 'show', 'video', 'band']}
+                        labeldisplay={false}
+                        secondarylabeldisplay={false}
                         secondarylabel="relationship"
                         secondaryvalues={[
                             'awesome, which one?',
@@ -82,6 +88,7 @@ export default function press() {
                         id="press-form-quote"
                         label="quote"
                         height="250"
+                        labeldisplay={false}
                     />
                 </div>
 
@@ -97,10 +104,11 @@ export default function press() {
                         <InputText
                             id="press-form-attachment-link-text"
                             label="link to writeup"
+                            labeldisplay={false}
                         />
                     </div>
                     <div>
-                        <InputFile id="press-form-attachments" label="pic of writeup" />
+                        <InputFile id="press-form-attachments" label="pic of writeup" labeldisplay={false} />
                     </div>
                 </div>
             </form>

@@ -16,24 +16,30 @@ export default async function bands() {
     const artists = await getArtists();
     return (
         <main id="bands">
-            <form id="band-form" className='tiny'>
-
+            <form id="band-form" className="tiny">
                 <h1>What's your main band called?</h1>
 
                 <div>
-                    <InputText id="band-form-bandname" label="band name" />
+                    <InputText
+                        id="band-form-bandname"
+                        label="band name"
+                        labeldisplay={false}
+                    />
                 </div>
 
                 <h2>Plus, are you in any of these other bands?</h2>
 
                 <fieldset>
-                    <legend>Check all the bands you're in:</legend>
+                    <legend className="hidden">
+                        Check all the bands you're in:
+                    </legend>
 
                     {artists.data.map((artist, index) => (
                         <InputCheckbox
                             key={index}
                             id={'artist-' + artist.id}
                             label={artist.attributes.name}
+                            labeldisplay={true}
                         />
                     ))}
                 </fieldset>
@@ -45,18 +51,21 @@ export default async function bands() {
                         <InputText
                             id="band-form-new-secondary-band-1"
                             label="band name"
+                            labeldisplay={false}
                         />
                     </div>
                     <div>
                         <InputText
                             id="band-form-new-secondary-band-2"
                             label="band name"
+                            labeldisplay={false}
                         />
                     </div>
                     <div>
                         <InputText
                             id="band-form-new-secondary-band-3"
                             label="band name"
+                            labeldisplay={false}
                         />
                     </div>
                 </div>

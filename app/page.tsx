@@ -18,6 +18,7 @@ export default function news() {
                         id="news-form-band"
                         label="what band is this for?"
                         options={['Star Card', 'Receive', 'Receiver']}
+                        labeldisplay={false}
                     />
                 </h1>
                 <NewOrOld />
@@ -31,11 +32,19 @@ export default function news() {
                 </p>
                 <div className="form-row four-one">
                     <div className="wrapper-headline">
-                        <InputText id="news-form-headline" label="headline" />
+                        <InputText
+                            id="news-form-headline"
+                            label="headline"
+                            labeldisplay={false}
+                        />
                     </div>
 
                     <div className="wrapper-date">
-                        <InputDate id="news-form-date" label="date" />
+                        <InputDate
+                            id="news-form-date"
+                            label="date"
+                            labeldisplay={false}
+                        />
                     </div>
                 </div>
                 <div>
@@ -43,6 +52,7 @@ export default function news() {
                         id="news-form-text"
                         label="text"
                         height="500"
+                        labeldisplay={false}
                     />
                 </div>
                 <div className="divider">THEN</div>
@@ -57,12 +67,14 @@ export default function news() {
                         <InputFile
                             id="news-form-attachments"
                             label="attachment"
+                            labeldisplay={false}
                         />
                     </div>
                     <div>
                         <InputText
                             id="news-form-attachment-link-text"
                             label="link text (e.g. check out this score)"
+                            labeldisplay={false}
                         />
                     </div>
                 </div>
@@ -75,13 +87,9 @@ export default function news() {
                     <InputRelationship
                         id="news-form-relationship"
                         label="subject of post"
-                        values={[
-                            'band',
-                            'work',
-                            'press',
-                            'show',
-                            'video',
-                        ]}
+                        values={['band', 'work', 'press', 'show', 'video']}
+                        labeldisplay={false}
+                        secondarylabeldisplay={false}
                         secondarylabel="relationship"
                         secondaryvalues={[
                             'which one?',
