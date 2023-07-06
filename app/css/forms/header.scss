@@ -8,14 +8,23 @@
     }
     h1 {
         margin: 0;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-bottom: 1em;
         justify-content: center;
         gap: 0.3em;
         align-items: center;
+        flex-wrap: wrap;
         @media (min-width: $lg) {
+            display: flex;
             justify-content: flex-start;
+            text-align: left;
+            margin-bottom: 0;
         }
-        label { display: none; }
+        label {
+            display: none;
+        }
         .inbetween {
             font-size: 0.8em;
             line-height: 1.3em;

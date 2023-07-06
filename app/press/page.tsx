@@ -14,12 +14,14 @@ export default function press() {
             <div className="form-header">
                 <h1>
                     Press for
-                    <InputSelect
-                        id="press-form-band"
-                        label="what band is this for?"
-                        options={['Star Card', 'Receive', 'Receiver']}
-                        labeldisplay={false}
-                    />
+                    <span>
+                        <InputSelect
+                            id="press-form-band"
+                            label="what band is this for?"
+                            options={['Star Card', 'Receive', 'Receiver']}
+                            labeldisplay={false}
+                        />
+                    </span>
                 </h1>
                 <NewOrOld />
             </div>
@@ -96,7 +98,8 @@ export default function press() {
 
                 <p className="explanation">
                     Drop a link to the writeup. (Or, if it's not online
-                    anywhere, you can attach a pic or two from the magazine it's in.)
+                    anywhere, you can attach a pic or two from the magazine it's
+                    in.)
                 </p>
 
                 <div className="form-row one-one">
@@ -108,7 +111,11 @@ export default function press() {
                         />
                     </div>
                     <div>
-                        <InputFile id="press-form-attachments" label="pic of writeup" labeldisplay={false} />
+                        <InputFile
+                            id="press-form-attachments"
+                            label="pic of writeup"
+                            labeldisplay={false}
+                        />
                     </div>
                 </div>
             </form>

@@ -12,19 +12,23 @@ export default function recordings() {
         <main id="recordings">
             <div className="form-header">
                 <h1>
-                    <InputSelect
-                        id="show-form-show-or-tour"
-                        label="Is this a show or a tour?"
-                        options={['Recording', 'Edition']}
-                        labeldisplay={false}
-                    />
+                    <span>
+                        <InputSelect
+                            id="show-form-show-or-tour"
+                            label="Is this a show or a tour?"
+                            options={['Recording', 'Edition']}
+                            labeldisplay={false}
+                        />
+                    </span>
                     <span className="inbetween">for</span>
-                    <InputSelect
-                        id="show-form-band"
-                        label="What band is this for?"
-                        options={['Star Card', 'Receive', 'Receiver']}
-                        labeldisplay={false}
-                    />
+                    <span>
+                        <InputSelect
+                            id="show-form-band"
+                            label="What band is this for?"
+                            options={['Star Card', 'Receive', 'Receiver']}
+                            labeldisplay={false}
+                        />
+                    </span>
                 </h1>
                 <NewOrOld />
             </div>
@@ -58,7 +62,7 @@ export default function recordings() {
                     <div>
                         <InputTextArea
                             id="recording-form-tracklist"
-                            label="tracklist (one track per line, no numbers)"
+                            label="tracklist (one track per line, no numbers needed)"
                             height="300"
                             labeldisplay={false}
                         />

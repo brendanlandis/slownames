@@ -14,12 +14,14 @@ export default function news() {
             <div className="form-header">
                 <h1>
                     News for
-                    <InputSelect
-                        id="news-form-band"
-                        label="what band is this for?"
-                        options={['Star Card', 'Receive', 'Receiver']}
-                        labeldisplay={false}
-                    />
+                    <span>
+                        <InputSelect
+                            id="news-form-band"
+                            label="what band is this for?"
+                            options={['Star Card', 'Receive', 'Receiver']}
+                            labeldisplay={false}
+                        />
+                    </span>
                 </h1>
                 <NewOrOld />
             </div>
