@@ -1,7 +1,7 @@
-export default function InputText({id, label}) {
+export default function InputText({id, label, labeldisplay}) {
     return (
         <>
-            <label htmlFor={id}>{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor={id}>{label}</label>
             <input
                 type="text"
                 id={id}

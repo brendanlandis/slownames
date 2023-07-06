@@ -1,12 +1,12 @@
-export default function InputFile({ id, label }) {
+export default function InputFile({ id, label, labeldisplay }) {
     return (
         <>
-            <label htmlFor={id}>{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor={id}>{label}</label>
             <input
                 type="file"
                 id={id}
                 multiple
-                className="file-input file-input-bordered file-input-primary"
+                className='file-input file-input-bordered file-input-primary'
             />
         </>
     );

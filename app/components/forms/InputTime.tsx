@@ -5,13 +5,13 @@ import { useState } from 'react';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 
-export default function InputTime({ id, label, hour }) {
+export default function InputTime({ id, label, hour, labeldisplay }) {
     const [startDate, setStartDate] = useState(
         setHours(setMinutes(new Date(), 0o0), hour)
       );
     return (
         <>
-            <label htmlFor="news-form-date">{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor="news-form-date">{label}</label>
             <DatePicker
                 selected={startDate}
                 id={id}

@@ -1,4 +1,4 @@
-export default function InputCheckbox({ id, key, label }) {
+export default function InputCheckbox({ id, key, label, labeldisplay }) {
     return (
         <div key={key} className="checkbox-wrapper">
             <input
@@ -6,7 +6,7 @@ export default function InputCheckbox({ id, key, label }) {
                 id={id}
                 name={id}
             />
-            <label htmlFor={id}>
+            <label htmlFor={id} className={labeldisplay ? '' : 'hidden'}>
                 {label}
             </label>
         </div>

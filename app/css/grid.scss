@@ -9,6 +9,14 @@ form {
             width: 100%;
         }
     }
+    .side-by-side {
+        display: flex;
+        flex-wrap: none;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        white-space: nowrap;
+    }
     .form-row {
         display: grid;
         justify-content: space-between;
@@ -22,6 +30,7 @@ form {
                 grid-template-columns: 1fr 1fr;
             }
         }
+        
         &.one-one-one {
             grid-template-columns: 1fr;
             gap: 2em;

@@ -4,13 +4,15 @@ export default function InputRelationship({
     id,
     label,
     values,
+    labeldisplay, 
     secondarylabel,
     secondaryvalues,
+    secondarylabeldisplay
 }) {
     return (
         <>
             <div>
-                <label htmlFor={id + '-type'}>{label}</label>
+                <label className={labeldisplay ? '' : 'hidden'} htmlFor={id + '-type'}>{label}</label>
                 <div className="join">
                     {values.map((value, index) => (
                         <input
@@ -18,6 +20,7 @@ export default function InputRelationship({
                             type="radio"
                             name={id + '-type'}
                             value={index}
+                            key={index}
                             aria-label={value}
                         />
                     ))}
@@ -28,6 +31,7 @@ export default function InputRelationship({
                     id={id}
                     label={secondarylabel}
                     options={secondaryvalues}
+                    labeldisplay={secondarylabeldisplay}
                 />
             </div>
         </>

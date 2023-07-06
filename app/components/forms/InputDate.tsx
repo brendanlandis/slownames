@@ -6,11 +6,11 @@ import { registerLocale, setDefaultLocale } from  "react-datepicker";
 import enGB from 'date-fns/locale/en-GB';
 registerLocale('en-GB', enGB)
 
-export default function InputDate({ id, label }) {
+export default function InputDate({ id, label, labeldisplay }) {
     const [startDate, setStartDate] = useState(new Date());
     return (
         <>
-            <label htmlFor="news-form-date">{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor="news-form-date">{label}</label>
             <DatePicker
                 selected={startDate}
                 id={id}

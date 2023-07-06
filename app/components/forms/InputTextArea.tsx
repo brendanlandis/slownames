@@ -1,11 +1,10 @@
-export default function InputPass({id, label, labeldisplay}) {
+export default function InputTextArea({id, label, height, labeldisplay}) {
     return (
         <>
             <label className={labeldisplay ? '' : 'hidden'} htmlFor={id}>{label}</label>
-            <input
-                type="password"
+            <textarea
                 id={id}
-                className='form-input'
+                className={"form-textarea height-" + height}
                 placeholder={label}
             />
         </>

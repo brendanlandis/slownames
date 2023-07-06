@@ -1,10 +1,10 @@
-export default function InputSelect({ id, label, options }) {
+export default function InputSelect({ id, label, options, labeldisplay }) {
     return (
         <>
-            <label htmlFor={id}>{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor={id}>{label}</label>
             <select defaultValue="0" id={id}>
                 {options.map((option, index) => (
-                    <option value={index}>{option}</option>
+                    <option key={index} value={index}>{option}</option>
                 ))}
             </select>
         </>
