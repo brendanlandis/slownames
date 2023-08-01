@@ -5,6 +5,7 @@ export default function InputPass({id, label, labeldisplay}) {
             <input
                 type="password"
                 id={id}
+                name={id}
                 className='form-input'
                 placeholder={label}
             />

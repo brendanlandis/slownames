@@ -6,37 +6,52 @@ import ButtonSubmit from '../components/forms/ButtonSubmit';
 
 const axios = require('axios').default;
 
-axios
-    .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`, {
-        data: {
-            name: 'Bwip',
-        },
-    })
-    .then(function (response) {
-        console.log('wow the post response');
-        console.log(response);
-        console.log('that\'s all you get');
-    })
-    .catch(function (error) {
-        console.log('wow the post error');
-        console.log(error);
-        console.log('that\'s all you get');
-    });
+// POST A NEW ARTIST
+// axios
+//     .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`, {
+//         data: {
+//             name: 'Bwip',
+//         },
+//     })
+//     .then(function (response) {
+//         console.log('wow the post response');
+//         console.log(response);
+//         console.log('that\'s all you get');
+//     })
+//     .catch(function (error) {
+//         console.log('wow the post error');
+//         console.log(error);
+//         console.log('that\'s all you get');
+//     });
+
+// GET ARTISTS
+// axios
+//     .get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`)
+//     .then(function (response) {
+//         console.log('wow the get response');
+//         console.log(response.data);
+//         console.log("that's all you get");
+//     })
+//     .catch(function (error) {
+//         console.log('wow the get error');
+//         console.log(error);
+//         console.log("that's all you get");
+//     })
+//     .finally(function () {
+//         console.log('yay!');
+//     });
 
 axios
-    .get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`)
+    .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`, {
+        identifier: 'brendanlandis',
+        password: '',
+    })
     .then(function (response) {
-        console.log('wow the get response');
-        console.log(response.data);
-        console.log('that\'s all you get');
+        console.log('User profile', response.data.user);
+        console.log('User token', response.data.jwt);
     })
     .catch(function (error) {
-        console.log('wow the get error');
-        console.log(error);
-        console.log('that\'s all you get');
-    })
-    .finally(function () {
-        console.log('yay!');
+        console.log('oh no:', error.response);
     });
 
 export default function login() {

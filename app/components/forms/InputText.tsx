@@ -5,6 +5,7 @@ export default function InputText({id, label, labeldisplay}) {
             <input
                 type="text"
                 id={id}
+                name={id}
                 className="form-input"
                 placeholder={label}
             />
