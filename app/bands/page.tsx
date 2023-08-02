@@ -4,6 +4,7 @@ import InputText from '../components/forms/InputText';
 import InputCheckbox from '../components/forms/InputCheckbox';
 import ButtonSubmit from '../components/forms/ButtonSubmit';
 
+// TODO find out why this throws an error after 30 or 60 seconds
 async function getArtists() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`);
     if (!res.ok) {

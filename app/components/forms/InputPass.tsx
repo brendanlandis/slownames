@@ -1,3 +1,5 @@
+// TODO make 'required' optional
+
 export default function InputPass({id, label, labeldisplay}) {
     return (
         <>
@@ -8,6 +10,7 @@ export default function InputPass({id, label, labeldisplay}) {
                 name={id}
                 className='form-input'
                 placeholder={label}
+                required
             />
         </>
     );

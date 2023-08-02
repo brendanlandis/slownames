@@ -8,7 +8,7 @@ function SettingsDropdown() {
     const pathname = usePathname();
     return (
         <Menu>
-            <Menu.Button>
+            <Menu.Button id="mobile-menu-button">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
