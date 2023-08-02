@@ -8,7 +8,11 @@ function SettingsDropdown() {
     const pathname = usePathname();
     return (
         <Menu>
-            <Menu.Button id="mobile-menu-button">
+            <Link
+                id="mobile-menu-button"
+                className={pathname == '/settings' ? 'active' : ''}
+                href="/settings"
+            >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -21,7 +25,7 @@ function SettingsDropdown() {
                         clipRule="evenodd"
                     />
                 </svg>
-            </Menu.Button>
+            </Link>
             <Menu.Items className="dropdown-content secondary-nav">
                 <Menu.Item>
                     <Link

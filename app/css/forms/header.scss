@@ -6,7 +6,7 @@
         justify-content: space-between;
         align-items: center;
     }
-    h1 {
+    h1, h2 {
         margin: 0;
         display: grid;
         grid-template-columns: 1fr;
@@ -30,6 +30,9 @@
             line-height: 1.3em;
             display: inline-block;
             margin: 0 0.5em;
+            select {
+                font-size: 1.2em;
+            }
         }
     }
     select {
