@@ -16,7 +16,7 @@ export default function InputRichText({ id, label, height, labeldisplay }) {
                         menubar: false,
                         placeholder: label,
                         plugins:
-                            'link template codesample charmap anchor toc advlist lists wordcount charmap emoticons',
+                            'link codesample charmap anchor toc advlist lists wordcount charmap emoticons',
                         toolbar:
                             'formatselect | bold italic underline strikethrough | ' +
                             'link | alignleft aligncenter alignright |' +

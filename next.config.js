@@ -14,7 +14,16 @@ const nextConfig = {
     },
     sassOptions: {
         includePaths: [path.join(__dirname, 'css')],
-    }
+    },
+    // async redirects() {
+    //   return [
+    //     {
+    //       source: '/settings',
+    //       destination: '/press',
+    //       permanent: false,
+    //     }
+    //   ]
+    // }
 }
 
 module.exports = nextConfig

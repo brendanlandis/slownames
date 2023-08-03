@@ -12,7 +12,7 @@
     "@auth/core": "^0.10.0",
     "@headlessui/react": "^1.7.16",
     "@tinymce/tinymce-react": "^4.3.0",
-    "@types/node": "20.4.5",
+    "@types/node": "20.4.6",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
