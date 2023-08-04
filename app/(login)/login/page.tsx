@@ -2,11 +2,12 @@
 
 'use client';
 import * as React from 'react';
-import InputText from '../components/forms/InputText';
-import InputPass from '../components/forms/InputPass';
-import ButtonSubmit from '../components/forms/ButtonSubmit';
+import InputText from '../../(admin)/components/forms/InputText';
+import InputPass from '../../(admin)/components/forms/InputPass';
+import ButtonSubmit from '../../(admin)/components/forms/ButtonSubmit';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
+import LoginLayout from '../layout';
 
 const axios = require('axios').default;
 
@@ -45,7 +46,7 @@ const axios = require('axios').default;
 //         console.log('yay!');
 //     });
 
-export default function login() {
+export default function Login() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = async (event) => {
@@ -71,9 +72,23 @@ export default function login() {
                 // }
             })
             .catch(function (error) {
-                setErrorMessage(
-                    `Probably a bad user or pass. The robot says: "${error.response.data.error.message}"`
-                );
+                if (!error) {
+                    setErrorMessage(
+                        `Login didn't work, and the robot won't even say why. Ask Brendan.`
+                    );
+                } else if (error.response.data.error.message) {
+                    setErrorMessage(
+                        `Seems like bad user/pass. If you're sure you're typing the right thing, tell Brendan that the robot says: "${error.response.data.error.message}"`
+                    );
+                } else if (error.message) {
+                    setErrorMessage(
+                        `Login didn't work. Tell Brendan that the robot says "${error.message}"`
+                    );
+                } else {
+                    setErrorMessage(
+                        `Login didn't work. Tell Brendan that the robot says "${error}"`
+                    );
+                }
             });
     };
 
@@ -105,3 +120,7 @@ export default function login() {
         </main>
     );
 }
+
+Login.getLayout = (page) => {
+    return <LoginLayout>{page}</LoginLayout>;
+};

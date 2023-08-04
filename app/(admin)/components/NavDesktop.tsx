@@ -8,11 +8,7 @@ function SettingsDropdown() {
     const pathname = usePathname();
     return (
         <Menu>
-            <Link
-                id="mobile-menu-button"
-                className={pathname == '/settings' ? 'active' : ''}
-                href="/settings"
-            >
+            <Menu.Button id="mobile-menu-button">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -25,7 +21,7 @@ function SettingsDropdown() {
                         clipRule="evenodd"
                     />
                 </svg>
-            </Link>
+            </Menu.Button>
             <Menu.Items className="dropdown-content secondary-nav">
                 <Menu.Item>
                     <Link
@@ -37,10 +33,10 @@ function SettingsDropdown() {
                 </Menu.Item>
                 <Menu.Item>
                     <Link
-                        className={pathname == '/bands' ? 'active' : ''}
-                        href="/bands"
+                        className={pathname == '/settings' ? 'active' : ''}
+                        href="/settings"
                     >
-                        my bands
+                        settings
                     </Link>
                 </Menu.Item>
             </Menu.Items>

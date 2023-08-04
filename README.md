@@ -1,4 +1,20 @@
-- replace /login and /bands with one /settings page
+- let's try Strapi's authentication again
+    + check out the chatgpt description of how to implement the middleware
+    + make the login page work again
+        + send user and pass to strapi
+        + if they're right, set the cookie
+        + if they're wrong, show an error
+    + btw also update strapi
+    - now recreate the login page
+        - create middleware that checks for a basic cookie - say, "name" or something
+        - if that cookie is not present, redirect to login
+        - if that cookie is present, do whatever you want
+
+
+
+
+
+
 
 
 TODO after auth stuff:
