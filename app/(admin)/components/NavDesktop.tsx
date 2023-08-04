@@ -3,9 +3,15 @@ import Link from 'next/link';
 import { Menu } from '@headlessui/react';
 import { usePathname } from 'next/navigation';
 import NavDesktopItem from './NavDesktopItem';
+import { removeAllCookies } from './removeCookies';
 
 function SettingsDropdown() {
     const pathname = usePathname();
+    const handleLogout = async (event) => {
+        event.preventDefault();
+        removeAllCookies();
+        window.location.href = '/login';
+    }
     return (
         <Menu>
             <Menu.Button id="mobile-menu-button">
@@ -25,10 +31,11 @@ function SettingsDropdown() {
             <Menu.Items className="dropdown-content secondary-nav">
                 <Menu.Item>
                     <Link
-                        className={pathname == '/login' ? 'active' : ''}
-                        href="/login"
+                        className={pathname == '/logout' ? 'active' : ''}
+                        href="/logout"
+                        onClick={handleLogout}
                     >
-                        login
+                        logout
                     </Link>
                 </Menu.Item>
                 <Menu.Item>

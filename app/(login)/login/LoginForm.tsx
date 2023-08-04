@@ -11,7 +11,7 @@ const axios = require('axios').default;
 export default function LoginForm() {
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSubmit = async (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault();
         axios
             .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`, {
@@ -28,9 +28,9 @@ export default function LoginForm() {
                     sameSite: 'strict',
                     expires: 7,
                 });
-                // if (response.status == 200) {
-                //     window.location.href = '/';
-                // }
+                if (response.status == 200) {
+                    window.location.href = '/';
+                }
             })
             .catch(function (error) {
                 if (!error) {
@@ -53,7 +53,7 @@ export default function LoginForm() {
             });
     };
     return (
-        <form id="loginForm" onSubmit={handleSubmit}>
+        <form id="loginForm" onSubmit={handleLogin}>
             <div>
                 <InputText
                     id="loginFormLogin"
