@@ -4,6 +4,11 @@ import InputText from '../components/forms/InputText';
 import InputTextArea from '../components/forms/InputTextArea';
 import NewOrOld from '../components/NewOrOld';
 import ButtonSubmit from '../components/forms/ButtonSubmit';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Videos',
+};
 
 export default function videos() {
     return (

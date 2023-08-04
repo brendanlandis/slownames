@@ -6,6 +6,11 @@ import ButtonSubmit from '../components/forms/ButtonSubmit';
 import InputRichText from '../components/forms/InputRichText';
 import InputDate from '../components/forms/InputDate';
 import InputTextArea from '../components/forms/InputTextArea';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Recordings',
+};
 
 export default function recordings() {
     return (

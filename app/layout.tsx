@@ -1,8 +1,7 @@
 import './css/screen.scss';
-import NavMobile from './(admin)/components/NavMobile';
-import NavDesktop from './(admin)/components/NavDesktop';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: 'Slow Names',
 };
 

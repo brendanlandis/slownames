@@ -1,4 +1,3 @@
-'use client';
 import InputSelect from '../components/forms/InputSelect';
 import NewOrOld from '../components/NewOrOld';
 import InputDate from '../components/forms/InputDate';
@@ -7,6 +6,11 @@ import InputRichText from '../components/forms/InputRichText';
 import InputFile from '../components/forms/InputFile';
 import InputText from '../components/forms/InputText';
 import ButtonSubmit from '../components/forms/ButtonSubmit';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Press',
+};
 
 export default function press() {
     return (

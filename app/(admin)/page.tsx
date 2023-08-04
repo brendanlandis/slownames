@@ -1,4 +1,3 @@
-'use client';
 import InputSelect from './components/forms/InputSelect';
 import NewOrOld from './components/NewOrOld';
 import InputText from './components/forms/InputText';
@@ -7,6 +6,11 @@ import InputRichText from './components/forms/InputRichText';
 import InputFile from './components/forms/InputFile';
 import InputRelationship from './components/forms/InputRelationship';
 import ButtonSubmit from './components/forms/ButtonSubmit';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'News',
+};
 
 export default function news() {
     return (

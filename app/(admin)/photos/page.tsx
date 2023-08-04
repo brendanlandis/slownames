@@ -3,6 +3,11 @@ import InputSelect from '../components/forms/InputSelect';
 import InputText from '../components/forms/InputText';
 import NewOrOld from '../components/NewOrOld';
 import ButtonSubmit from '../components/forms/ButtonSubmit';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Photos',
+};
 
 export default function photos() {
     return (

@@ -5,6 +5,11 @@ import InputTime from '../components/forms/InputTime';
 import InputText from '../components/forms/InputText';
 import InputFile from '../components/forms/InputFile';
 import ButtonSubmit from '../components/forms/ButtonSubmit';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Shows',
+};
 
 export default function shows() {
     return (
