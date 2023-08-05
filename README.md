@@ -1,15 +1,20 @@
-- let's try Strapi's authentication again
-    + check out the chatgpt description of how to implement the middleware
-    + make the login page work again
-        + send user and pass to strapi
-        + if they're right, set the cookie
-        + if they're wrong, show an error
-    + btw also update strapi
-    - now recreate the login page
-        - create middleware that checks for a basic cookie - say, "name" or something
-        - if that cookie is not present, redirect to login
-        - if that cookie is present, do whatever you want
++ First goal is get data populating in the dropdown.
+- Then adjust the permissions in Strapi to only allow authenticated users to do that.
+- then figure out how to send that get request authenticatedly
+- Then figure out how to load the page authenticatedly
+- Then figure out how to send a post request authenticatedly (i.e. change the user's primary band)
+- Then do the other stuff on the page
 
+- So, I'm in SettingsForm.tsx, trying to get a db call of artists going.
+- Eventually I'll want to make this call only if I have a valid token, but first let's get the call going.
+- I'm trying to make the call asynchronously, but I think I can only do that in server components. So, I might need to split this up.
+- The open tabs are:
+    - https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating
+    - https://axios-http.com/docs/example
+    - https://chat.openai.com/?model=text-davinci-002-render-sha
+
+
+Once this is done, I'll need to make sure I have a valid token each time I load a page, or make a db call.
 
 
 

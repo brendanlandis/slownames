@@ -6,13 +6,10 @@ export const metadata: Metadata = {
     title: 'Settings',
 };
 
-export default async function settings() {
+export default function settings() {
 
     return (
         <main id="settings">
-            <div className="form-header">
-                <h1>Settings</h1>
-            </div>
             <SettingsForm />
         </main>
     );
