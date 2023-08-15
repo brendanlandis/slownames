@@ -1,8 +1,14 @@
 #settings {
     text-align: center;
-    h1, h2 {
+    h1,
+    h2 {
         flex-grow: 1;
         justify-content: center;
+    }
+
+    .human-name {
+        text-transform: uppercase;
+        font-size: 0.9em;
     }
 
     #band-form {
@@ -10,7 +16,7 @@
             margin: 0;
         }
     }
-    
+
     .new-secondary-bands {
         label {
             display: none;

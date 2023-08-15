@@ -1,3 +1,5 @@
+- make some Receive art with this: https://aniso.studiofreight.com/
+
 + First goal is get data populating in the dropdown.
 - Then adjust the permissions in Strapi to only allow authenticated users to do that.
 - then figure out how to send that get request authenticatedly
