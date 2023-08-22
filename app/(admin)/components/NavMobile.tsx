@@ -3,8 +3,14 @@ import * as React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import NavMobileItem from './NavMobileItem';
+import { removeAllCookies } from './removeCookies';
 
 export default function NavMobile() {
+    const handleLogout = async (event) => {
+        event.preventDefault();
+        removeAllCookies();
+        window.location.href = '/login';
+    }
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -69,7 +75,7 @@ export default function NavMobile() {
                                 <NavMobileItem url="/videos" name="videos" onClick={closeModal} />
                             </ul>
                             <ul className="secondary-nav">
-                                <NavMobileItem url="/login" name="login" onClick={closeModal} />
+                                <NavMobileItem url="/logout" name="logout" onClick={handleLogout} />
                                 <NavMobileItem url="/settings" name="settings" onClick={closeModal} />
                             </ul>
                         </Dialog.Panel>

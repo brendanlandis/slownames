@@ -1,6 +1,6 @@
-export default function InputCheckbox({ id, key, label, labeldisplay }) {
+export default function InputCheckbox({ id, keyNum, label, labeldisplay }) {
     return (
-        <div key={key} className="checkbox-wrapper">
+        <div key={keyNum} className="checkbox-wrapper">
             <input
                 type="checkbox"
                 id={id}

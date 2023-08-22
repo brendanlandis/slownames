@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Metadata } from 'next';
 import InputText from '../components/forms/InputText';
 import ButtonSubmit from '../components/forms/ButtonSubmit';
-import { GetHumanName } from '../utils/api';
-import { GetMainBand } from '../utils/api';
+import GetHumanName from './GetHumanName';
+import MainBandDropdown from './MainBandDropdown';
+import OtherBandsChecklist from './OtherBandsChecklist';
 
 export const metadata: Metadata = {
     title: 'Settings',
@@ -23,62 +24,37 @@ export default function settings() {
                 </h1>
             </div>
             <form id="band-form">
-                <div className="form-header">
-                    <h2>
-                        <span>Your main band is</span>
-                        <span className="inbetween">
-                            <label className="hidden" htmlFor="mainBand">
-                                What's your main band?
-                            </label>
-                            <select defaultValue="0" id="mainBand">
-                                <GetMainBand />
-                            </select>
-                        </span>
-                    </h2>
-                </div>
 
-                {/* <h2>Plus, you're in these other bands</h2>
+                <div className="divider first">FIRST</div>
+                <p className="explanation">Check all the bands you're in.</p>
+                <OtherBandsChecklist />
 
-                <fieldset>
-                    <legend className="hidden">
-                        Check all the bands you're in:
-                    </legend>
-
-                    {data.data.map((artist, index) => (
-                        <InputCheckbox
-                            key={index}
-                            id={'artist-' + artist.id}
-                            label={artist.attributes.name}
-                            labeldisplay={true}
-                        />
-                    ))}
-                </fieldset> */}
-
-                <h2>Do you need to add any new bands?</h2>
-
-                <div className="new-secondary-bands">
-                    <div>
+                <div className="divider">THEN</div>
+                <p className="explanation">
+                    Add a new band if you don't see yours above.
+                </p>
+                <div className="new-secondary-band">
+                    <div className="input-wrapper">
                         <InputText
-                            id="band-form-new-secondary-band-1"
+                            id="band-form-new-secondary-band"
                             label="band name"
                             labeldisplay={false}
                         />
                     </div>
                     <div>
-                        <InputText
-                            id="band-form-new-secondary-band-2"
-                            label="band name"
-                            labeldisplay={false}
-                        />
-                    </div>
-                    <div>
-                        <InputText
-                            id="band-form-new-secondary-band-3"
-                            label="band name"
-                            labeldisplay={false}
+                        <ButtonSubmit
+                            id="primaryartist-form-submit"
+                            label="add band"
                         />
                     </div>
                 </div>
+
+                <div className="divider">FINALLY</div>
+                <p className="explanation">Select your main band.</p>
+                <label className="hidden" htmlFor="mainBand">
+                    What's your main band?
+                </label>
+                <MainBandDropdown />
                 <div className="submit-wrapper">
                     <ButtonSubmit
                         id="primaryartist-form-submit"

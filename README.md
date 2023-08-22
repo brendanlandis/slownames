@@ -44,8 +44,9 @@ POTENTIALLY COOL PLUGINS AND STUFF:
 
 
 
-
-
+COULD BE COOL FOR OTHER SITES:
+- static site generator: https://astro.build/
+- svelte and sveltekit also seem cool: https://svelte.dev/ https://kit.svelte.dev/
 
 
 
