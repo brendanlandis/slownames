@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import useAxios from 'axios-hooks';
 const axios = require('axios');
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');

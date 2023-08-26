@@ -1,4 +1,4 @@
-export default function NewOrOld() {
+export default function NewOrOld({ isChecked, onToggle }) {
     return (
         <div className="new-or-old">
             <div className="new-stuff">
@@ -10,13 +10,14 @@ export default function NewOrOld() {
             <input
                 type="checkbox"
                 id="new-or-old-toggle"
-                // defaultChecked
+                checked={isChecked}
+                onChange={onToggle}
             />
 
             <div className="old-stuff">
-                fuck around
+                mess with
                 <br />
-                with old stuff
+                old stuff
             </div>
         </div>
     );
