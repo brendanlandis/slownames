@@ -1,11 +1,11 @@
-import InputSelect from '../components/forms/InputSelect';
-import NewOrOld from '../components/NewOrOld';
-import InputDate from '../components/forms/InputDate';
-import InputRelationship from '../components/forms/InputRelationship';
-import InputRichText from '../components/forms/InputRichText';
-import InputFile from '../components/forms/InputFile';
-import InputText from '../components/forms/InputText';
-import ButtonSubmit from '../components/forms/ButtonSubmit';
+import InputSelect from '../sharedcomponents/forms/InputSelect';
+import NewOrOld from '../sharedcomponents/NewOrOld';
+import InputDate from '../sharedcomponents/forms/InputDate';
+import InputRelationship from '../sharedcomponents/forms/InputRelationship';
+import InputRichText from '../sharedcomponents/forms/InputRichText';
+import InputFile from '../sharedcomponents/forms/InputFile';
+import InputText from '../sharedcomponents/forms/InputText';
+import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

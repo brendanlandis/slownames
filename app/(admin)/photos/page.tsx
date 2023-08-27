@@ -1,8 +1,8 @@
-import InputFile from '../components/forms/InputFile';
-import InputSelect from '../components/forms/InputSelect';
-import InputText from '../components/forms/InputText';
-import NewOrOld from '../components/NewOrOld';
-import ButtonSubmit from '../components/forms/ButtonSubmit';
+import InputFile from '../sharedcomponents/forms/InputFile';
+import InputSelect from '../sharedcomponents/forms/InputSelect';
+import InputText from '../sharedcomponents/forms/InputText';
+import NewOrOld from '../sharedcomponents/NewOrOld';
+import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

@@ -1,8 +1,8 @@
 // TODO re-style the elements on this page
 'use client';
-import InputText from '../../(admin)/components/forms/InputText';
-import InputPass from '../../(admin)/components/forms/InputPass';
-import ButtonSubmit from '../../(admin)/components/forms/ButtonSubmit';
+import InputText from '../../(admin)/sharedcomponents/forms/InputText';
+import InputPass from '../../(admin)/sharedcomponents/forms/InputPass';
+import ButtonSubmit from '../../(admin)/sharedcomponents/forms/ButtonSubmit';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
 

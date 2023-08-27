@@ -1,5 +1,5 @@
-import NavMobile from './components/NavMobile';
-import NavDesktop from './components/NavDesktop';
+import NavMobile from './sharedcomponents/NavMobile';
+import NavDesktop from './sharedcomponents/NavDesktop';
 
 export default function RootLayout({
     children,

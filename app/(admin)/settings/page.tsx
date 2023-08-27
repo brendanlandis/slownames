@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Metadata } from 'next';
-import GetHumanName from './GetHumanName';
 import SettingsForm from './SettingsForm';
 
 export const metadata: Metadata = {
@@ -12,15 +11,7 @@ export default function settings() {
 
     return (
         <main id="settings">
-            <div className="form-header">
-                <h1>
-                    Settings for Registered Human #{humanNum}
-                    <span className="human-name">
-                        <GetHumanName />
-                    </span>
-                </h1>
-            </div>
-            <SettingsForm />
+            <SettingsForm humanNum={humanNum} />
         </main>
     );
 }

@@ -24,7 +24,7 @@ export default function OtherBandsChecklist() {
             }
         );
         let reqAllBands = axios.get(
-            `${process.env.NEXT_PUBLIC_STRAPI_URL}/artists`,
+            `${process.env.NEXT_PUBLIC_STRAPI_URL}/bands`,
             {
                 headers: {
                     Authorization: `bearer ${accessToken}`,

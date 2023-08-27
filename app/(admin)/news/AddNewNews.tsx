@@ -1,9 +1,9 @@
-import InputText from '../components/forms/InputText';
-import InputDate from '../components/forms/InputDate';
-import InputRichText from '../components/forms/InputRichText';
-import InputFile from '../components/forms/InputFile';
-import InputRelationship from '../components/forms/InputRelationship';
-import ButtonSubmit from '../components/forms/ButtonSubmit';
+import InputText from '../sharedcomponents/forms/InputText';
+import InputDate from '../sharedcomponents/forms/InputDate';
+import InputRichText from '../sharedcomponents/forms/InputRichText';
+import InputFile from '../sharedcomponents/forms/InputFile';
+import InputRelationship from '../sharedcomponents/forms/InputRelationship';
+import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 
 export default function AddNewNews() {
     return (

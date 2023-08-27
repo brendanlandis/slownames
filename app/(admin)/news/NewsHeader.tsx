@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import InputSelect from '../components/forms/InputSelect';
-import NewOrOld from '../components/NewOrOld';
+import InputSelect from '../sharedcomponents/forms/InputSelect';
+import NewOrOld from '../sharedcomponents/NewOrOld';
 import AddNewNews from './AddNewNews';
 import ViewOldNews from './ViewOldNews';
 
