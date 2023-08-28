@@ -5,7 +5,7 @@ import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 
-export default function AddNewNews() {
+export default function NewsForm() {
     return (
         <form id="news-form">
             <div className="divider first">FIRST</div>

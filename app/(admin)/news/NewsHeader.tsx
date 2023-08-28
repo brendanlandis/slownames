@@ -1,42 +1,39 @@
 'use client';
 import React, { useState } from 'react';
-import InputSelect from '../sharedcomponents/forms/InputSelect';
 import NewOrOld from '../sharedcomponents/NewOrOld';
-import AddNewNews from './AddNewNews';
+import NewsForm from './NewsForm';
 import ViewOldNews from './ViewOldNews';
+import WhichBand from '../sharedcomponents/WhichBand';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-export default function NewsForm() {
+const queryClient = new QueryClient();
+
+export default function NewsHeader() {
     const [showNewNews, setShowNewNews] = useState(false);
 
     function toggleNewNews() {
         setShowNewNews(!showNewNews);
     }
+
     return (
-        <>
+        <QueryClientProvider client={queryClient}>
             <div className="form-header">
                 <h1>
                     News for
                     <span>
-                        <InputSelect
-                            id="news-form-band"
-                            label="what band is this for?"
-                            options={['Star Card', 'Receive', 'Receiver']}
-                            labeldisplay={false}
-                        />
+                        <WhichBand />
                     </span>
                 </h1>
-                <NewOrOld
-                    isChecked={showNewNews}
-                    onToggle={toggleNewNews}
-                />
+                <NewOrOld isChecked={showNewNews} onToggle={toggleNewNews} />
             </div>
             {showNewNews ? (
                 // show the grid of old news items
                 <ViewOldNews />
             ) : (
                 // show the form to add a new news item
-                <AddNewNews />
+                // or edit an existing one
+                <NewsForm />
             )}
-        </>
+        </QueryClientProvider>
     );
 }

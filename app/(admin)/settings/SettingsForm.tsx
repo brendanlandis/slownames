@@ -4,16 +4,10 @@ import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import MainBandDropdown from './MainBandDropdown';
 import OtherBandsChecklist from './OtherBandsChecklist';
 import GetHumanName from '../api/GetHumanName';
-import {
-    QueryClient,
-    QueryClientProvider,
-} from '@tanstack/react-query';
-
-const queryClient = new QueryClient();
 
 export default function SettingsForm(props) {
     return (
-        <QueryClientProvider client={queryClient}>
+        <>
             <div className="form-header">
                 <h1>
                     Settings for Registered Human #{props.humanNum}
@@ -60,6 +54,6 @@ export default function SettingsForm(props) {
                     />
                 </div>
             </form>
-        </QueryClientProvider>
+        </>
     );
 }
