@@ -67,7 +67,7 @@ export default function NavMobile() {
                                 </button>
                             </div>
                             <ul className="primary-nav">
-                                <NavMobileItem url="/" name="news" onClick={closeModal} />
+                                <NavMobileItem url="/" name="posts" onClick={closeModal} />
                                 <NavMobileItem url="/press" name="press" onClick={closeModal} />
                                 <NavMobileItem url="/shows" name="shows" onClick={closeModal} />
                                 <NavMobileItem url="/recordings" name="recordings" onClick={closeModal} />

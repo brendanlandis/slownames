@@ -14,3 +14,11 @@ export interface User {
     updatedAt: string;
     username: string;
 }
+
+export interface Post {
+    id: number;
+    date: string;
+    subject: string;
+    text: string;
+    // bands: (string | number)[];
+}

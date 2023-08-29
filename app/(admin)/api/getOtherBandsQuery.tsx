@@ -6,12 +6,14 @@ import { Band } from '@/app/types';
 
 const fetchBands = async () => {
     try {
-    const response = await axios
-        .get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/me/?populate=*`, {
-            headers: {
-                Authorization: `bearer ${accessToken}`,
-            },
-        });
+        const response = await axios.get(
+            `${process.env.NEXT_PUBLIC_STRAPI_URL}/users/me/?populate=*`,
+            {
+                headers: {
+                    Authorization: `bearer ${accessToken}`,
+                },
+            }
+        );
         return response.data;
     } catch (error) {
         console.error(error);
@@ -29,18 +31,18 @@ const transformBandsData = (data) => {
         id: data.mainband.id,
         bandname: data.mainband.bandname,
         selected: true,
-    }
+    };
     transformedBandsArray.unshift(mainBand);
     return transformedBandsArray;
-}
-
-const getOtherBandsQuery = () => {
-    const { data, ...rest } = useQuery(['bandsDropDown'], fetchBands);
-    const transformedData = data ? transformBandsData(data) : [];
-    return  {
-        data: transformedData,
-        ...rest
-    }
 };
 
-export default getOtherBandsQuery;
+const GetOtherBandsQuery = () => {
+    const { data, ...rest } = useQuery(['bandsDropDown'], fetchBands);
+    const transformedData = data ? transformBandsData(data) : [];
+    return {
+        data: transformedData,
+        ...rest,
+    };
+};
+
+export default GetOtherBandsQuery;

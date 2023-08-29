@@ -10,7 +10,7 @@
 
 
 TODO after auth stuff:
-- news page -> relationship picker is too wide for mobile
+- posts page -> relationship picker is too wide for mobile
 - decide on case & tone or whatever for labels sitewide
 
 

@@ -11,7 +11,7 @@ export default function InputTime({ id, label, hour, labeldisplay }) {
       );
     return (
         <>
-            <label className={labeldisplay ? '' : 'hidden'} htmlFor="news-form-date">{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor="posts-form-date">{label}</label>
             <DatePicker
                 selected={startDate}
                 id={id}

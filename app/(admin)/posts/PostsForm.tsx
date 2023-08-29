@@ -5,9 +5,9 @@ import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 
-export default function NewsForm() {
+export default function PostsForm() {
     return (
-        <form id="news-form">
+        <form id="posts-form">
             <div className="divider first">FIRST</div>
             <p className="explanation">
                 Write out the headline and content, plus the date you'd like
@@ -16,7 +16,7 @@ export default function NewsForm() {
             <div className="form-row four-one">
                 <div className="wrapper-headline">
                     <InputText
-                        id="news-form-headline"
+                        id="posts-form-headline"
                         label="headline"
                         labeldisplay={false}
                     />
@@ -24,7 +24,7 @@ export default function NewsForm() {
 
                 <div className="wrapper-date">
                     <InputDate
-                        id="news-form-date"
+                        id="posts-form-date"
                         label="date"
                         labeldisplay={false}
                     />
@@ -32,7 +32,7 @@ export default function NewsForm() {
             </div>
             <div>
                 <InputRichText
-                    id="news-form-text"
+                    id="posts-form-text"
                     label="text"
                     height="500"
                     labeldisplay={false}
@@ -48,14 +48,14 @@ export default function NewsForm() {
             <div className="form-row one-one">
                 <div>
                     <InputFile
-                        id="news-form-attachments"
+                        id="posts-form-attachments"
                         label="attachment"
                         labeldisplay={false}
                     />
                 </div>
                 <div>
                     <InputText
-                        id="news-form-attachment-link-text"
+                        id="posts-form-attachment-link-text"
                         label="link text (e.g. check out this score)"
                         labeldisplay={false}
                     />
@@ -68,7 +68,7 @@ export default function NewsForm() {
 
             <div className="form-row two-one">
                 <InputRelationship
-                    id="news-form-relationship"
+                    id="posts-form-relationship"
                     label="subject of post"
                     values={['band', 'work', 'press', 'show', 'video']}
                     labeldisplay={false}
@@ -83,7 +83,7 @@ export default function NewsForm() {
                 />
             </div>
             <div className="submit-wrapper">
-                <ButtonSubmit id="news-form-submit" label="go ahead and jump" />
+                <ButtonSubmit id="posts-form-submit" label="go ahead and jump" />
             </div>
         </form>
     );

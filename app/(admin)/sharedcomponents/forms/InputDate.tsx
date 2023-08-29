@@ -10,7 +10,7 @@ export default function InputDate({ id, label, labeldisplay }) {
     const [startDate, setStartDate] = useState(new Date());
     return (
         <>
-            <label className={labeldisplay ? '' : 'hidden'} htmlFor="news-form-date">{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor="posts-form-date">{label}</label>
             <DatePicker
                 selected={startDate}
                 id={id}

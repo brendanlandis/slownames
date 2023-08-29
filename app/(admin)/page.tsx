@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
-import NewsHeader from './news/NewsHeader';
+import PostsHeader from './posts/PostsHeader';
 
 export const metadata: Metadata = {
-    title: 'News',
+    title: 'Posts',
 };
 
-export default function news() {
+export default function PostsPage() {
     return (
-        <main id="news">
-            <NewsHeader />
+        <main id="posts">
+            <PostsHeader />
         </main>
     );
 }

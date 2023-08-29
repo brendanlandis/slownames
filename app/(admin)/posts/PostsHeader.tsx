@@ -1,38 +1,37 @@
 'use client';
 import React, { useState } from 'react';
 import NewOrOld from '../sharedcomponents/NewOrOld';
-import NewsForm from './NewsForm';
-import ViewOldNews from './ViewOldNews';
+import PostsForm from './PostsForm';
+import ViewOldPosts from './ViewOldPosts';
 import WhichBand from '../sharedcomponents/WhichBand';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
 
-export default function NewsHeader() {
-    const [showNewNews, setShowNewNews] = useState(false);
+export default function PostsHeader() {
+    const [showNewPosts, setShowNewPosts] = useState(false);
 
-    function toggleNewNews() {
-        setShowNewNews(!showNewNews);
+    function toggleNewPosts() {
+        setShowNewPosts(!showNewPosts);
     }
 
     return (
         <QueryClientProvider client={queryClient}>
             <div className="form-header">
                 <h1>
-                    News for
+                    Posts for
                     <span>
                         <WhichBand />
                     </span>
                 </h1>
-                <NewOrOld isChecked={showNewNews} onToggle={toggleNewNews} />
+                <NewOrOld isChecked={showNewPosts} onToggle={toggleNewPosts} />
             </div>
-            {showNewNews ? (
-                // show the grid of old news items
-                <ViewOldNews />
+            {showNewPosts ? (
+                // show the grid of old posts
+                <ViewOldPosts />
             ) : (
-                // show the form to add a new news item
-                // or edit an existing one
-                <NewsForm />
+                // show the form to add a new post or edit an existing one
+                <PostsForm />
             )}
         </QueryClientProvider>
     );
