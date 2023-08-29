@@ -20,5 +20,8 @@ export interface Post {
     date: string;
     subject: string;
     text: string;
-    // bands: (string | number)[];
+    bands: Array<{
+        id: number;
+        bandname: string;
+    }>;
 }

@@ -19,6 +19,7 @@ export default function ViewOldPosts() {
                         <th>date</th>
                         <th>subject</th>
                         <th>text</th>
+                        <th>bands</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,14 @@ export default function ViewOldPosts() {
                             <td>{post.date}</td>
                             <td>{post.subject}</td>
                             <td>{post.text}</td>
+                            <td>
+                                {post.bands.map((band) => (
+                                    <>
+                                        <div>id: {band.id}</div>
+                                        <div>bandname: {band.bandname}</div>
+                                    </>
+                                ))}
+                            </td>
                         </tr>
                     ))}
                 </tbody>

@@ -1,13 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
-import { Post } from "@/app/types";
+import { Post } from '@/app/types';
 
 const fetchPosts = async () => {
     try {
         const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts`,
+            `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts?populate=bands`,
             {
                 headers: {
                     Authorization: `bearer ${accessToken}`,
@@ -27,8 +27,18 @@ const filterPostsData = (data) => {
         date: post.attributes.date,
         subject: post.attributes.subject,
         text: post.attributes.text,
+        bands: post.attributes.bands.data.map((band) => ({
+            id: band.id,
+            bandname: band.attributes.bandname,
+        })),
     }));
-    return filteredPostsData;
+
+    const targetBandId = 1;
+
+    const filteredPostsForTargetBand: Post[] = filteredPostsData.filter(
+        (post) => post.bands.some((band) => band.id === targetBandId)
+    );
+    return filteredPostsForTargetBand;
 };
 
 const GetPostsQuery = () => {
