@@ -1,7 +1,7 @@
-import GetPostsQuery from '../api/GetPostsQuery';
+import GetPosts from '../api/GetPosts';
 
-export default function ViewOldPosts() {
-    const { data: posts, isLoading, isError } = GetPostsQuery();
+export default function ViewPosts() {
+    const { data: posts, isLoading, isError } = GetPosts();
 
     if (isLoading) {
         return <>loading posts...</>;
@@ -30,10 +30,10 @@ export default function ViewOldPosts() {
                             <td>{post.text}</td>
                             <td>
                                 {post.bands.map((band) => (
-                                    <>
+                                    <div key={band.id}>
                                         <div>id: {band.id}</div>
                                         <div>bandname: {band.bandname}</div>
-                                    </>
+                                    </div>
                                 ))}
                             </td>
                         </tr>

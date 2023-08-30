@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Menu } from '@headlessui/react';
 import { usePathname } from 'next/navigation';
 import NavDesktopItem from './NavDesktopItem';
-import { removeAllCookies } from './removeCookies';
+import { removeAllCookies } from '../api/RemoveCookies';
 
 function SettingsDropdown() {
     const pathname = usePathname();

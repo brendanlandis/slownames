@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import NavMobileItem from './NavMobileItem';
-import { removeAllCookies } from './removeCookies';
+import { removeAllCookies } from '../api/RemoveCookies';
 
 export default function NavMobile() {
     const handleLogout = async (event) => {

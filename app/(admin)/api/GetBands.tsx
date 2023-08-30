@@ -36,8 +36,8 @@ const transformBandsData = (data) => {
     return transformedBandsArray;
 };
 
-const GetOtherBandsQuery = () => {
-    const { data, ...rest } = useQuery(['bandsDropDown'], fetchBands);
+const GetBands = () => {
+    const { data, ...rest } = useQuery(['bandsDropdown'], fetchBands);
     const transformedData = data ? transformBandsData(data) : [];
     return {
         data: transformedData,
@@ -45,4 +45,4 @@ const GetOtherBandsQuery = () => {
     };
 };
 
-export default GetOtherBandsQuery;
+export default GetBands;

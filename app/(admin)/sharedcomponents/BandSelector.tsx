@@ -1,7 +1,7 @@
-import GetOtherBandsQuery from '../api/GetOtherBandsQuery';
+import GetBands from '../api/GetBands';
 
-export default function WhichBand() {
-    const { data: selectedBands, isLoading, isError } = GetOtherBandsQuery();
+export default function BandSelector() {
+    const { data: selectedBands, isLoading, isError } = GetBands();
 
     if (isLoading) {
         return <>loading...</>;

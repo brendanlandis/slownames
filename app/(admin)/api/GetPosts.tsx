@@ -41,7 +41,7 @@ const filterPostsData = (data) => {
     return filteredPostsForTargetBand;
 };
 
-const GetPostsQuery = () => {
+const GetPosts = () => {
     const { data, ...rest } = useQuery(['posts'], fetchPosts);
     const filteredData = data ? filterPostsData(data) : [];
     return {
@@ -50,4 +50,4 @@ const GetPostsQuery = () => {
     };
 };
 
-export default GetPostsQuery;
+export default GetPosts;
