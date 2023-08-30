@@ -1,5 +1,6 @@
 import GetBands from '../api/GetBands';
-import { useQueryClient } from '@tanstack/react-query';
+import React from 'react';
+import { useSelectedBand } from '../api/SelectedBandContext';
 
 export default function BandSelector({ forPage }) {
     const { data: selectedBands, isLoading, isError } = GetBands();
@@ -12,11 +13,11 @@ export default function BandSelector({ forPage }) {
         return <>error fetching data</>;
     }
 
-    const queryClient = useQueryClient();
+    const { setSelectedBand } = useSelectedBand();
 
     const handleBandSelect = (event) => {
-        const selectedValue = event.target.value;
-        queryClient.setQueryData(['selectedBand'], selectedValue);
+        const selectedBand = parseInt(event.target.value, 10);
+        setSelectedBand(selectedBand);
     };
 
     return (

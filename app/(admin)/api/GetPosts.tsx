@@ -3,6 +3,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
 import { Post } from '@/app/types';
+import React from 'react';
+import { useSelectedBand } from './SelectedBandContext';
 
 const fetchPosts = async () => {
     try {
@@ -33,10 +35,10 @@ const filterPostsData = (data) => {
         })),
     }));
 
-    const targetBandId = 1;
+    const { selectedBand } = useSelectedBand();
 
     const filteredPostsForTargetBand: Post[] = filteredPostsData.filter(
-        (post) => post.bands.some((band) => band.id === targetBandId)
+        (post) => post.bands.some((band) => band.id === selectedBand)
     );
     return filteredPostsForTargetBand;
 };
