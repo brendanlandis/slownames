@@ -5,6 +5,7 @@ import NewPost from './NewPost';
 import ViewPosts from './ViewPosts';
 import BandSelector from '../sharedcomponents/BandSelector';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const queryClient = new QueryClient();
 
@@ -21,7 +22,7 @@ export default function PostsHeader() {
                 <h1>
                     Posts for
                     <span>
-                        <BandSelector />
+                        <BandSelector forPage="posts" />
                     </span>
                 </h1>
                 <NewOrOld isChecked={showNewPosts} onToggle={toggleNewPosts} />
@@ -33,6 +34,7 @@ export default function PostsHeader() {
                 // show the form to add a new post or edit an existing one
                 <NewPost />
             )}
+            <ReactQueryDevtools initialIsOpen />
         </QueryClientProvider>
     );
 }

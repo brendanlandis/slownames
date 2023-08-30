@@ -1,6 +1,6 @@
 import GetBands from '../api/GetBands';
 
-export default function BandSelector() {
+export default function BandSelector({ forPage }) {
     const { data: selectedBands, isLoading, isError } = GetBands();
 
     if (isLoading) {
@@ -8,15 +8,15 @@ export default function BandSelector() {
     }
 
     if (isError) {
-        return <>error fetching data</>
+        return <>error fetching data</>;
     }
 
     return (
         <>
-            <label className="hidden" htmlFor="posts-form-band">
+            <label className="hidden" htmlFor={forPage + "-form-band"}>
                 what band is this for?
             </label>
-            <select defaultValue="0" id="posts-form-band">
+            <select defaultValue="0" id={forPage + "-form-band"}>
                 {selectedBands.map((band) => (
                     <option key={band.id} value={band.id}>
                         {band.bandname}
