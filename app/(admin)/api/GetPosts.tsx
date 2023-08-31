@@ -3,7 +3,6 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
 import { Post } from '@/app/types';
-import React from 'react';
 import { useSelectedBand } from './SelectedBandContext';
 
 const fetchPosts = async () => {
