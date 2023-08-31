@@ -1,9 +1,25 @@
 import GetBands from '../api/GetBands';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelectedBand } from '../api/SelectedBandContext';
 
 export default function BandSelector({ forPage }) {
     const { data: selectedBands, isLoading, isError } = GetBands();
+
+    const { setSelectedBand } = useSelectedBand();
+
+    const [selectedBandId, setSelectedBandId] = useState(0);
+
+    const handleBandSelect = (event) => {
+        const selectedBand = parseInt(event.target.value, 10);
+        setSelectedBand(selectedBand);
+    };
+
+    useEffect(() => {
+        if (selectedBands.length > 0) {
+            setSelectedBandId(selectedBands[0].id);
+            setSelectedBand(selectedBands[0].id);
+        }
+    }, [selectedBands]);
 
     if (isLoading) {
         return <>loading...</>;
@@ -13,20 +29,13 @@ export default function BandSelector({ forPage }) {
         return <>error fetching data</>;
     }
 
-    const { setSelectedBand } = useSelectedBand();
-
-    const handleBandSelect = (event) => {
-        const selectedBand = parseInt(event.target.value, 10);
-        setSelectedBand(selectedBand);
-    };
-
     return (
         <>
             <label className="hidden" htmlFor={forPage + '-form-band'}>
                 what band is this for?
             </label>
             <select
-                defaultValue="0"
+                defaultValue={selectedBandId}
                 id={forPage + '-form-band'}
                 onChange={handleBandSelect}
             >
