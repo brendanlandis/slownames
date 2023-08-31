@@ -5,21 +5,25 @@ import { useSelectedBand } from '../api/SelectedBandContext';
 export default function BandSelector({ forPage }) {
     const { data: selectedBands, isLoading, isError } = GetBands();
 
-    const { setSelectedBand } = useSelectedBand();
+    const { selectedBand, setSelectedBand } = useSelectedBand();
 
-    const [selectedBandId, setSelectedBandId] = useState(0);
+    const [defaultBandId, setDefaultBandId] = useState(0);
+    const [hasManuallySelected, setHasManuallySelected] = useState(false);
 
     const handleBandSelect = (event) => {
         const selectedBand = parseInt(event.target.value, 10);
         setSelectedBand(selectedBand);
+        setHasManuallySelected(true);
     };
 
     useEffect(() => {
         if (selectedBands.length > 0) {
-            setSelectedBandId(selectedBands[0].id);
-            setSelectedBand(selectedBands[0].id);
+            setDefaultBandId(selectedBands[0].id);
+            if (!hasManuallySelected) {
+                setSelectedBand(selectedBands[0].id);
+            }
         }
-    }, [selectedBands]);
+    }, [selectedBands, hasManuallySelected]);
 
     if (isLoading) {
         return <>loading...</>;
@@ -35,7 +39,7 @@ export default function BandSelector({ forPage }) {
                 what band is this for?
             </label>
             <select
-                defaultValue={selectedBandId}
+                value={selectedBand}
                 id={forPage + '-form-band'}
                 onChange={handleBandSelect}
             >

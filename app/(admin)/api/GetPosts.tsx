@@ -22,7 +22,8 @@ const fetchPosts = async () => {
     }
 };
 
-const filterPostsData = (data) => {
+
+const filterPostsData = (data, selectedBand) => {
     const filteredPostsData: Post[] = data.data.map((post) => ({
         id: post.id,
         date: post.attributes.date,
@@ -34,8 +35,6 @@ const filterPostsData = (data) => {
         })),
     }));
 
-    const { selectedBand } = useSelectedBand();
-
     const filteredPostsForTargetBand: Post[] = filteredPostsData.filter(
         (post) => post.bands.some((band) => band.id === selectedBand)
     );
@@ -44,7 +43,8 @@ const filterPostsData = (data) => {
 
 const GetPosts = () => {
     const { data, ...rest } = useQuery(['posts'], fetchPosts);
-    const filteredData = data ? filterPostsData(data) : [];
+    const { selectedBand } = useSelectedBand();
+    const filteredData = data ? filterPostsData(data, selectedBand) : [];
     return {
         data: filteredData,
         ...rest,
