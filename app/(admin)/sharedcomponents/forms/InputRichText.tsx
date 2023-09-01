@@ -1,11 +1,35 @@
 'use client';
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-export default function InputRichText({ id, label, height, labeldisplay }) {
+import TurndownService from 'turndown';
+
+const turndownService = new TurndownService();
+
+const convertHtmlToMarkdown = (html) => {
+    return turndownService.turndown(html);
+}
+
+export default function InputRichText({
+    id,
+    label,
+    name,
+    height,
+    labeldisplay,
+    updateRichTextContent,
+}) {
     const editorRef = useRef(null);
+
+    const handleEditorChange = (content) => {
+        const markdownContent = convertHtmlToMarkdown(content);
+        document.getElementById(name)?.setAttribute('value', markdownContent);
+        updateRichTextContent(markdownContent);
+    };
+
     return (
         <div>
-            <label className={labeldisplay ? '' : 'hidden'} htmlFor={id}>{label}</label>
+            <label className={labeldisplay ? '' : 'hidden'} htmlFor={id}>
+                {label}
+            </label>
             <div className={'richtext-wrapper height-' + height}>
                 <Editor
                     // @ts-ignore
@@ -23,8 +47,10 @@ export default function InputRichText({ id, label, height, labeldisplay }) {
                             'link | alignleft aligncenter alignright |' +
                             'numlist bullist | charmap emoticons | removeformat',
                     }}
+                    onEditorChange={handleEditorChange}
                 />
             </div>
+            <textarea id={name} name={name} className="hidden" />
         </div>
     );
 }

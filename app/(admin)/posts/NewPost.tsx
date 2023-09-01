@@ -1,44 +1,69 @@
 import InputText from '../sharedcomponents/forms/InputText';
-import InputDate from '../sharedcomponents/forms/InputDate';
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { registerLocale, setDefaultLocale } from 'react-datepicker';
+import enGB from 'date-fns/locale/en-GB';
+registerLocale('en-GB', enGB);
+
 import InputRichText from '../sharedcomponents/forms/InputRichText';
 import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
-
-const handleSubmit = (event) => {
-    event.preventDefault();
-
-    axios
-        .post(
-            `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts`,
-            {
-                data: {
-                    subject: 'holy shitttttttt',
-                    text: 'wowwwwwwwwwwwwwwwww',
-                    date: '2023-08-23',
-                    bands: [4],
-                },
-            },
-            {
-                headers: {
-                    Authorization: `bearer ${accessToken}`,
-                },
-            }
-        )
-        .then((response) => {
-            console.log('oh yes');
-            console.log(response.data);
-        })
-        .catch((error) => {
-            console.log('oh no');
-            console.error(error);
-        });
-};
+import { useSelectedBand } from '../api/SelectedBandContext';
 
 export default function PostsForm() {
+    const postBandObj = useSelectedBand();
+    const editorRef = useRef(null);
+    const [formData, setFormData] = useState({
+        headline: '',
+        date: new Date(),
+        text: '',
+    });
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios
+            .post(
+                `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts`,
+                JSON.stringify({
+                    data: {
+                        ...formData,
+                        bands: [postBandObj && postBandObj.selectedBand],
+                    },
+                }),
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `bearer ${accessToken}`,
+                    },
+                }
+            )
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleDateChange = (date) => {
+        setFormData({ ...formData, date });
+    };
+
+    const updateRichTextContent = (content) => {
+        setFormData({ ...formData, text: content });
+    };
+
     return (
         <form id="posts-form" onSubmit={handleSubmit}>
             <div className="divider first">FIRST</div>
@@ -48,18 +73,31 @@ export default function PostsForm() {
             </p>
             <div className="form-row four-one">
                 <div className="wrapper-headline">
-                    <InputText
+                    <label className="hidden" htmlFor="posts-form-headline">
+                        headline
+                    </label>
+                    <input
+                        type="text"
                         id="posts-form-headline"
-                        label="headline"
-                        labeldisplay={false}
+                        name="headline"
+                        className="form-input"
+                        placeholder="headline"
+                        value={formData.headline}
+                        onChange={handleInputChange}
                     />
                 </div>
 
                 <div className="wrapper-date">
-                    <InputDate
+                    <label className="hidden" htmlFor="posts-form-date">
+                        date
+                    </label>
+                    <DatePicker
+                        selected={formData.date}
                         id="posts-form-date"
-                        label="date"
-                        labeldisplay={false}
+                        name="date"
+                        onChange={handleDateChange}
+                        locale="en-GB"
+                        placeholderText="Weeks start on Monday"
                     />
                 </div>
             </div>
@@ -67,8 +105,10 @@ export default function PostsForm() {
                 <InputRichText
                     id="posts-form-text"
                     label="text"
+                    name="text"
                     height="500"
                     labeldisplay={false}
+                    updateRichTextContent={updateRichTextContent}
                 />
             </div>
             <div className="divider">THEN</div>
@@ -82,6 +122,7 @@ export default function PostsForm() {
                 <div>
                     <InputFile
                         id="posts-form-attachments"
+                        name="attachments"
                         label="attachment"
                         labeldisplay={false}
                     />
@@ -102,7 +143,7 @@ export default function PostsForm() {
             <div className="form-row two-one">
                 <InputRelationship
                     id="posts-form-relationship"
-                    label="subject of post"
+                    label="headline of post"
                     values={[
                         'the band',
                         'a release',

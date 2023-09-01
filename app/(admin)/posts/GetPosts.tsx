@@ -3,7 +3,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
 import { Post } from '@/app/types';
-import { useSelectedBand } from './SelectedBandContext';
+import { useSelectedBand } from '../api/SelectedBandContext';
 
 const fetchPosts = async () => {
     try {
@@ -27,7 +27,7 @@ const filterPostsData = (data, selectedBand) => {
     const filteredPostsData: Post[] = data.data.map((post) => ({
         id: post.id,
         date: post.attributes.date,
-        subject: post.attributes.subject,
+        headline: post.attributes.headline,
         text: post.attributes.text,
         bands: post.attributes.bands.data.map((band) => ({
             id: band.id,

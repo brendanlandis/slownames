@@ -12,7 +12,7 @@ export interface User {
 export interface Post {
     id: number;
     date: string;
-    subject: string;
+    headline: string;
     text: string;
     bands: Array<{
         id: number;
