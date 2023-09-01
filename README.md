@@ -1,11 +1,6 @@
-- make some Receive art with this: https://aniso.studiofreight.com/
-
-+ First goal is get data populating in the dropdown.
-+ Then adjust the permissions in Strapi to only allow authenticated users to do that.
-+ then figure out how to send that get request authenticatedly
-+ Then figure out how to load the page authenticatedly
-- Then figure out how to send a post request authenticatedly (i.e. change the user's primary band)
-- Then do the other stuff on the page
+- remove duplicates from band selector dropdown
+- get New Post form sending a new post correctly
+- get edit post functionality working
 
 
 
@@ -23,3 +18,4 @@ POTENTIALLY COOL PLUGINS AND STUFF:
 COULD BE COOL FOR OTHER SITES:
 - static site generator: https://astro.build/
 - svelte and sveltekit also seem cool: https://svelte.dev/ https://kit.svelte.dev/
+- make some Receive art with this: https://aniso.studiofreight.com/

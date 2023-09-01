@@ -12,7 +12,7 @@ export default function InputText({id, label, labeldisplay}) {
                 name={id}
                 className="form-input"
                 placeholder={label}
-                required
+                // required
             />
         </>
     );

@@ -5,7 +5,6 @@ import NewPost from './NewPost';
 import ViewPosts from './ViewPosts';
 import BandSelector from '../sharedcomponents/BandSelector';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { SelectedBandProvider } from '../api/SelectedBandContext';
 
 const queryClient = new QueryClient();
