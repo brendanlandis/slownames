@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
 import enGB from 'date-fns/locale/en-GB';
 registerLocale('en-GB', enGB);
+import { format } from 'date-fns';
 
 import InputRichText from '../sharedcomponents/forms/InputRichText';
 import InputFile from '../sharedcomponents/forms/InputFile';
@@ -19,11 +20,14 @@ import { useSelectedBand } from '../api/SelectedBandContext';
 export default function PostsForm() {
     const postBandObj = useSelectedBand();
     const editorRef = useRef(null);
+
     const [formData, setFormData] = useState({
         headline: '',
         date: new Date(),
         text: '',
     });
+
+    const formattedDate = format(formData.date, 'yyyy-MM-dd');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -33,6 +37,7 @@ export default function PostsForm() {
                 JSON.stringify({
                     data: {
                         ...formData,
+                        date: formattedDate,
                         bands: [postBandObj && postBandObj.selectedBand],
                     },
                 }),
@@ -97,7 +102,7 @@ export default function PostsForm() {
                         name="date"
                         onChange={handleDateChange}
                         locale="en-GB"
-                        placeholderText="Weeks start on Monday"
+                        placeholderText="date"
                     />
                 </div>
             </div>
