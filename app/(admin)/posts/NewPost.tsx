@@ -114,7 +114,7 @@ export default function PostsForm() {
                 Is this about the band generally, or a specific thing?
             </p>
 
-            <div className="form-row two-one">
+            <div className="form-row one">
                 <InputRelationship
                     id="posts-form-relationship"
                     label="headline of post"

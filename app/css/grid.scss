@@ -23,6 +23,9 @@ form {
         align-items: center;
         gap: 1em;
         text-align: center;
+        &.one {
+            grid-template-columns: 1fr;
+        }
         &.one-one {
             grid-template-columns: 1fr;
             @media (min-width: $lg) {
