@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
 import enGB from 'date-fns/locale/en-GB';
 registerLocale('en-GB', enGB);
-import { format } from 'date-fns';
 
 export default function InputDate({
     id,
@@ -19,7 +18,7 @@ export default function InputDate({
     const handleChange = (date) => {
         setStartDate(date);
         handleDateChange(date);
-    }
+    };
     return (
         <>
             <label

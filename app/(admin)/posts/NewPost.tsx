@@ -1,19 +1,21 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
+const accessToken = Cookies.get('accessToken');
+
+import { useSelectedBand } from '../api/SelectedBandContext';
+
 import InputText from '../sharedcomponents/forms/InputText';
-import { format } from 'date-fns';
 import InputDate from '../sharedcomponents/forms/InputDate';
 import InputRichText from '../sharedcomponents/forms/InputRichText';
 import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
-import { useState, useRef } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-const accessToken = Cookies.get('accessToken');
-import { useSelectedBand } from '../api/SelectedBandContext';
+
+import { useState } from 'react';
+import { format } from 'date-fns';
 
 export default function PostsForm() {
     const postBandObj = useSelectedBand();
-    const editorRef = useRef(null);
 
     const [formData, setFormData] = useState({
         headline: '',
@@ -50,7 +52,7 @@ export default function PostsForm() {
             });
     };
 
-    const handleInputChange = (e) => {
+    const handleTextChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
@@ -72,17 +74,13 @@ export default function PostsForm() {
             </p>
             <div className="form-row four-one">
                 <div className="wrapper-headline">
-                    <label className="hidden" htmlFor="posts-form-headline">
-                        headline
-                    </label>
-                    <input
-                        type="text"
+                    <InputText
                         id="posts-form-headline"
                         name="headline"
-                        className="form-input"
-                        placeholder="headline"
-                        value={formData.headline}
-                        onChange={handleInputChange}
+                        label="headline"
+                        labeldisplay={false}
+                        required={false}
+                        handleTextChange={handleTextChange}
                     />
                 </div>
 
@@ -126,8 +124,11 @@ export default function PostsForm() {
                 <div>
                     <InputText
                         id="posts-form-attachment-link-text"
+                        name="attachmentlinktext"
                         label="link text (e.g. check out this score)"
                         labeldisplay={false}
+                        required={false}
+                        handleTextChange={handleTextChange}
                     />
                 </div>
             </div>
