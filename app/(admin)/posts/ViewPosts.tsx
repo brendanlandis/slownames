@@ -1,4 +1,5 @@
 import GetPosts from './GetPosts';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 export default function ViewPosts() {
     const { data: posts, isLoading, isError } = GetPosts();
@@ -27,7 +28,7 @@ export default function ViewPosts() {
                         <tr key={post.id}>
                             <td>{post.date}</td>
                             <td>{post.headline}</td>
-                            <td>{post.text}</td>
+                            <td><ReactMarkdown>{post.text}</ReactMarkdown></td>
                             <td>
                                 {post.bands.map((band) => (
                                     <div key={band.id}>
