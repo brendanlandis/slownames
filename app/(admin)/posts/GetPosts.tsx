@@ -8,7 +8,7 @@ import { useSelectedBand } from '../api/SelectedBandContext';
 const fetchPosts = async () => {
     try {
         const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts?populate=bands`,
+            `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts?populate=bands&sort=date:desc&pagination[pageSize]=100`,
             {
                 headers: {
                     Authorization: `bearer ${accessToken}`,
@@ -21,7 +21,6 @@ const fetchPosts = async () => {
         throw error;
     }
 };
-
 
 const filterPostsData = (data, selectedBand) => {
     const filteredPostsData: Post[] = data.data.map((post) => ({
@@ -38,6 +37,7 @@ const filterPostsData = (data, selectedBand) => {
     const filteredPostsForTargetBand: Post[] = filteredPostsData.filter(
         (post) => post.bands.some((band) => band.id === selectedBand)
     );
+
     return filteredPostsForTargetBand;
 };
 

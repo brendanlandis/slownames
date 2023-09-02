@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useSelectedBand } from '../api/SelectedBandContext';
+import submitPost from '../api/SubmitPost';
+
 import InputText from '../sharedcomponents/forms/InputText';
 import InputDate from '../sharedcomponents/forms/InputDate';
 import InputRichText from '../sharedcomponents/forms/InputRichText';
 import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
-import submitPost from '../api/SubmitPost';
 
 export default function PostsForm() {
     const postBandObj = useSelectedBand();
@@ -15,7 +16,7 @@ export default function PostsForm() {
         event.preventDefault();
         try {
             const responseData = await submitPost(formData, postBandObj);
-            // console.log(responseData);
+            console.log(responseData);
         } catch (error) {
             console.error(error);
         }
