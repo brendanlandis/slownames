@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
+import { useSelectedBand } from '../../api/SelectedBandContext';
 
 export default function InputRelationship({
     id,
@@ -15,20 +16,25 @@ export default function InputRelationship({
     const [relationshipType, setRelationshipType] = useState(values[0]);
     const [relationshipOptions, setRelationshipOptions] =
         useState(secondaryvalues);
+    const { selectedBand } = useSelectedBand();
 
     useEffect(() => {
         if (relationshipType === 'the band') {
             setRelationshipOptions(secondaryvalues);
         } else if (relationshipType === 'a release') {
             axios
-                .get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/releases`, {
+                .get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/releases?populate=*`, {
                     headers: {
                         Authorization: `bearer ${accessToken}`,
                     },
                 })
                 .then((response) => {
                     const data = response.data.data;
-                    const releaseTitles = data.map(
+                    const filteredReleases = data.filter(
+                        (release) =>
+                            release.attributes.bands.data[0].id === selectedBand
+                    );
+                    const releaseTitles = filteredReleases.map(
                         (release) => release.attributes.title
                     );
                     setRelationshipOptions(releaseTitles);
@@ -48,12 +54,19 @@ export default function InputRelationship({
                 )
                 .then((response) => {
                     const data = response.data.data;
-                    console.log(data);
-                    const editionTitles = data.map(
+                    const filteredEditions = data.filter(
                         (edition) =>
-                            edition.attributes.releases.data[0].attributes.title +
+                            edition.attributes.bands.data[0].id === selectedBand
+                    );
+                    const editionTitles = filteredEditions.map(
+                        (edition) =>
+                            edition.attributes.bands.data[0].attributes
+                                .bandname +
                             ' - ' +
-                            edition.attributes.catalogNumber + 
+                            edition.attributes.releases.data[0].attributes
+                                .title +
+                            ' - ' +
+                            edition.attributes.catalogNumber +
                             ' (' +
                             edition.attributes.label +
                             ')'
@@ -64,7 +77,7 @@ export default function InputRelationship({
                     console.error(error);
                 });
         }
-    }, [relationshipType]);
+    }, [relationshipType, selectedBand]);
 
     return (
         <>
