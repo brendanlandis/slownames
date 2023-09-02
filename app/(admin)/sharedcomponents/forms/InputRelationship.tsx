@@ -3,6 +3,10 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
 import { useSelectedBand } from '../../api/SelectedBandContext';
+import {
+    getRelatedReleases,
+    getRelatedEditions,
+} from '../../api/GetRelationships';
 
 export default function InputRelationship({
     id,
@@ -22,55 +26,16 @@ export default function InputRelationship({
         if (relationshipType === 'the band') {
             setRelationshipOptions(secondaryvalues);
         } else if (relationshipType === 'a release') {
-            axios
-                .get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/releases?populate=*`, {
-                    headers: {
-                        Authorization: `bearer ${accessToken}`,
-                    },
-                })
-                .then((response) => {
-                    const data = response.data.data;
-                    const filteredReleases = data.filter(
-                        (release) =>
-                            release.attributes.bands.data[0].id === selectedBand
-                    );
-                    const releaseTitles = filteredReleases.map(
-                        (release) => release.attributes.title
-                    );
+            getRelatedReleases(selectedBand)
+                .then((releaseTitles) => {
                     setRelationshipOptions(releaseTitles);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         } else if (relationshipType === 'an edition') {
-            axios
-                .get(
-                    `${process.env.NEXT_PUBLIC_STRAPI_URL}/editions?populate=*`,
-                    {
-                        headers: {
-                            Authorization: `bearer ${accessToken}`,
-                        },
-                    }
-                )
-                .then((response) => {
-                    const data = response.data.data;
-                    const filteredEditions = data.filter(
-                        (edition) =>
-                            edition.attributes.bands.data[0].id === selectedBand
-                    );
-                    const editionTitles = filteredEditions.map(
-                        (edition) =>
-                            edition.attributes.bands.data[0].attributes
-                                .bandname +
-                            ' - ' +
-                            edition.attributes.releases.data[0].attributes
-                                .title +
-                            ' - ' +
-                            edition.attributes.catalogNumber +
-                            ' (' +
-                            edition.attributes.label +
-                            ')'
-                    );
+            getRelatedEditions(selectedBand)
+                .then((editionTitles) => {
                     setRelationshipOptions(editionTitles);
                 })
                 .catch((error) => {
