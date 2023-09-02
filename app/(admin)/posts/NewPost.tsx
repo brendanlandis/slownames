@@ -1,12 +1,6 @@
 import InputText from '../sharedcomponents/forms/InputText';
-
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { registerLocale, setDefaultLocale } from 'react-datepicker';
-import enGB from 'date-fns/locale/en-GB';
-registerLocale('en-GB', enGB);
 import { format } from 'date-fns';
-
+import InputDate from '../sharedcomponents/forms/InputDate';
 import InputRichText from '../sharedcomponents/forms/InputRichText';
 import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
@@ -93,16 +87,13 @@ export default function PostsForm() {
                 </div>
 
                 <div className="wrapper-date">
-                    <label className="hidden" htmlFor="posts-form-date">
-                        date
-                    </label>
-                    <DatePicker
-                        selected={formData.date}
+                    <InputDate
                         id="posts-form-date"
                         name="date"
-                        onChange={handleDateChange}
-                        locale="en-GB"
-                        placeholderText="date"
+                        label="date"
+                        labeldisplay={false}
+                        handleDateChange={handleDateChange}
+                        selectedDate={formData.date}
                     />
                 </div>
             </div>
