@@ -135,8 +135,6 @@ export default function PostsForm() {
                         'a tour',
                         'a video',
                     ]}
-                    handleRelationshipChange={handleRelationshipChange}
-                    selectedObject={selectedObject}
                 />
             </div>
             <div className="submit-wrapper">

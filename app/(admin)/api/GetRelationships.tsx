@@ -18,10 +18,10 @@ export const getRelatedReleases = async (selectedBand) => {
                 (band) => band.id === selectedBand
             );
         });
-        const releaseTitles = filteredReleases.map((release) => {
+        const relatedReleases = filteredReleases.map((release) => {
             return [release.id, release.attributes.title];
         });
-        return releaseTitles;
+        return relatedReleases;
     } catch (error) {
         console.error(error);
         return [];
@@ -44,16 +44,18 @@ export const getRelatedEditions = async (selectedBand) => {
                 (band) => band.id === selectedBand
             );
         });
-        const editionTitles = filteredEditions.map(
-            (edition) =>
+        const relatedEditions = filteredEditions.map((edition) => {
+            return [
+                edition.id,
                 edition.attributes.releases.data[0].attributes.title +
-                ' - ' +
-                edition.attributes.catalogNumber +
-                ' (' +
-                edition.attributes.label +
-                ')'
-        );
-        return editionTitles;
+                    ' - ' +
+                    edition.attributes.catalogNumber +
+                    ' (' +
+                    edition.attributes.label +
+                    ')',
+            ];
+        });
+        return relatedEditions;
     } catch (error) {
         console.error(error);
         return [];

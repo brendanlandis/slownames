@@ -5,55 +5,36 @@ import {
     getRelatedEditions,
 } from '../../api/GetRelationships';
 
-export default function InputRelationship({
-    id,
-    values,
-    handleRelationshipChange,
-    selectedObject,
-}) {
-    const [relationshipType, setRelationshipType] = useState(values[0]);
-    const [relationshipObjects, setRelationshipObjects] = useState([
-        [0, 'ok cool'],
-    ]);
-    const [selectedValue, setSelectedValue] = useState('');
-
+export default function InputRelationship({ id, values }) {
     const { selectedBand } = useSelectedBand();
 
-    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedValue(e.target.value);
-    };
+    const [relType, setRelType] = useState(values[0]);
+    const [relObjects, setRelObjects] = useState([
+        [0, ''],
+    ]);
+
 
     useEffect(() => {
-        if (relationshipType === 'the band') {
-            setRelationshipObjects([[0, 'ok cool']]);
-        } else if (relationshipType === 'a release') {
+        if (relType === 'the band') {
+            setRelObjects([[0, '']]);
+        } else if (relType === 'a release') {
             getRelatedReleases(selectedBand)
-                .then((releaseTitles) => {
-                    setRelationshipObjects(releaseTitles);
+                .then((relatedReleases) => {
+                    setRelObjects(relatedReleases);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
-        } else if (relationshipType === 'an edition') {
+        } else if (relType === 'an edition') {
             getRelatedEditions(selectedBand)
-                .then((editionTitles) => {
-                    setRelationshipObjects(editionTitles);
+                .then((relatedEditions) => {
+                    setRelObjects(relatedEditions);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         }
-    }, [relationshipType, selectedBand]);
-
-    useEffect(() => {
-        handleRelationshipChange(relationshipType, selectedValue);
-    }, [relationshipType, selectedValue, handleRelationshipChange]);
-
-    useEffect(() => {
-        if (relationshipObjects.length > 0) {
-            setSelectedValue(String(relationshipObjects[0][0]));
-        }
-    }, [relationshipObjects]);
+    }, [relType, selectedBand]);
 
     return (
         <>
@@ -70,8 +51,8 @@ export default function InputRelationship({
                             value={value}
                             key={index}
                             aria-label={value}
-                            checked={value === relationshipType}
-                            onChange={() => setRelationshipType(value)}
+                            checked={value === relType}
+                            onChange={() => setRelType(value)}
                         />
                     ))}
                 </div>
@@ -83,10 +64,9 @@ export default function InputRelationship({
                 <select
                     defaultValue="0"
                     id={id + '-object'}
-                    disabled={relationshipType === 'the band'}
-                    onChange={handleSelectChange}
+                    disabled={relType === 'the band'}
                 >
-                    {relationshipObjects.map((object, index) => (
+                    {relObjects.map((object, index) => (
                         <option key={index} value={object[0]}>
                             {object[1]}
                         </option>
