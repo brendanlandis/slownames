@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-const accessToken = Cookies.get('accessToken');
 import { useSelectedBand } from '../../api/SelectedBandContext';
 import {
     getRelatedReleases,
@@ -10,25 +7,29 @@ import {
 
 export default function InputRelationship({
     id,
-    label,
     values,
-    labeldisplay,
-    secondarylabel,
-    secondaryvalues,
-    secondarylabeldisplay,
+    handleRelationshipChange,
+    selectedObject,
 }) {
     const [relationshipType, setRelationshipType] = useState(values[0]);
-    const [relationshipOptions, setRelationshipOptions] =
-        useState(secondaryvalues);
+    const [relationshipObjects, setRelationshipObjects] = useState([
+        [0, 'ok cool'],
+    ]);
+    const [selectedValue, setSelectedValue] = useState('');
+
     const { selectedBand } = useSelectedBand();
+
+    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedValue(e.target.value);
+    };
 
     useEffect(() => {
         if (relationshipType === 'the band') {
-            setRelationshipOptions(secondaryvalues);
+            setRelationshipObjects([[0, 'ok cool']]);
         } else if (relationshipType === 'a release') {
             getRelatedReleases(selectedBand)
                 .then((releaseTitles) => {
-                    setRelationshipOptions(releaseTitles);
+                    setRelationshipObjects(releaseTitles);
                 })
                 .catch((error) => {
                     console.error(error);
@@ -36,7 +37,7 @@ export default function InputRelationship({
         } else if (relationshipType === 'an edition') {
             getRelatedEditions(selectedBand)
                 .then((editionTitles) => {
-                    setRelationshipOptions(editionTitles);
+                    setRelationshipObjects(editionTitles);
                 })
                 .catch((error) => {
                     console.error(error);
@@ -44,16 +45,23 @@ export default function InputRelationship({
         }
     }, [relationshipType, selectedBand]);
 
+    useEffect(() => {
+        handleRelationshipChange(relationshipType, selectedValue);
+    }, [relationshipType, selectedValue, handleRelationshipChange]);
+
+    useEffect(() => {
+        if (relationshipObjects.length > 0) {
+            setSelectedValue(String(relationshipObjects[0][0]));
+        }
+    }, [relationshipObjects]);
+
     return (
         <>
             <div>
-                <label
-                    className={labeldisplay ? '' : 'hidden'}
-                    htmlFor={id + '-type'}
-                >
-                    {label}
+                <label className="hidden" htmlFor={id + '-type'}>
+                    What kind of thing is this about?
                 </label>
-                <div className="join">
+                <div className="join" id={id + '-type-wrapper'}>
                     {values.map((value, index) => (
                         <input
                             className={'join-item btn grid-col-' + (index + 1)}
@@ -69,20 +77,18 @@ export default function InputRelationship({
                 </div>
             </div>
             <div>
-                <label
-                    className={secondarylabeldisplay ? '' : 'hidden'}
-                    htmlFor={id}
-                >
-                    {secondarylabel}
+                <label className="hidden" htmlFor={id}>
+                    And then, which one specifically is this about?
                 </label>
                 <select
                     defaultValue="0"
-                    id={id}
+                    id={id + '-object'}
                     disabled={relationshipType === 'the band'}
+                    onChange={handleSelectChange}
                 >
-                    {relationshipOptions.map((option, index) => (
-                        <option key={index} value={index}>
-                            {option}
+                    {relationshipObjects.map((object, index) => (
+                        <option key={index} value={object[0]}>
+                            {object[1]}
                         </option>
                     ))}
                 </select>

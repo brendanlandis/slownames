@@ -18,9 +18,9 @@ export const getRelatedReleases = async (selectedBand) => {
                 (band) => band.id === selectedBand
             );
         });
-        const releaseTitles = filteredReleases.map(
-            (release) => release.attributes.title
-        );
+        const releaseTitles = filteredReleases.map((release) => {
+            return [release.id, release.attributes.title];
+        });
         return releaseTitles;
     } catch (error) {
         console.error(error);

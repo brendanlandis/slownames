@@ -11,6 +11,15 @@ import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 
 export default function PostsForm() {
     const postBandObj = useSelectedBand();
+    const [relationshipType, setRelationshipType] = useState('');
+    const [selectedObject, setSelectedObject] = useState('');
+
+    const [formData, setFormData] = useState({
+        headline: '',
+        date: new Date(),
+        text: '',
+        attachmentlinktext: '',
+    });
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -21,13 +30,6 @@ export default function PostsForm() {
             console.error(error);
         }
     };
-
-    const [formData, setFormData] = useState({
-        headline: '',
-        date: new Date(),
-        text: '',
-        attachmentlinktext: '',
-    });
 
     const handleTextChange = (e) => {
         const { name, value } = e.target;
@@ -41,6 +43,13 @@ export default function PostsForm() {
     const updateRichTextContent = (content) => {
         setFormData({ ...formData, text: content });
     };
+
+    const handleRelationshipChange = (type, object) => {
+        console.log('type:' + type);
+        console.log('object:' + object);
+        setRelationshipType(type);
+        setSelectedObject(object);
+    }
 
     return (
         <form id="posts-form" onSubmit={handleSubmit}>
@@ -117,7 +126,6 @@ export default function PostsForm() {
             <div className="form-row one">
                 <InputRelationship
                     id="posts-form-relationship"
-                    label="headline of post"
                     values={[
                         'the band',
                         'a release',
@@ -127,10 +135,8 @@ export default function PostsForm() {
                         'a tour',
                         'a video',
                     ]}
-                    labeldisplay={false}
-                    secondarylabeldisplay={false}
-                    secondarylabel="relationship"
-                    secondaryvalues={['ok great']}
+                    handleRelationshipChange={handleRelationshipChange}
+                    selectedObject={selectedObject}
                 />
             </div>
             <div className="submit-wrapper">

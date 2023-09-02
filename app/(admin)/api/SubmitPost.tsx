@@ -13,6 +13,7 @@ const submitPost = async (formData, postBandObj) => {
                     ...formData,
                     date: formattedDate,
                     bands: [postBandObj && postBandObj.selectedBand],
+                    editions: 1,
                 },
             }),
             {
