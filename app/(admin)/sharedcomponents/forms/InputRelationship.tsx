@@ -1,4 +1,3 @@
-import InputSelect from './InputSelect';
 import { useState } from 'react';
 
 export default function InputRelationship({
@@ -10,7 +9,8 @@ export default function InputRelationship({
     secondaryvalues,
     secondarylabeldisplay,
 }) {
-    const [relationshipValue, setRelationshipValue] = useState(values[0]);
+    const [relationshipType, setRelationshipType] = useState(values[0]);
+    const [relationshipOptions, setRelationshipOptions] = useState(secondaryvalues);
     return (
         <>
             <div>
@@ -29,19 +29,26 @@ export default function InputRelationship({
                             value={value}
                             key={index}
                             aria-label={value}
-                            checked={value === relationshipValue}
-                            onChange={() => setRelationshipValue(value)}
+                            checked={value === relationshipType}
+                            onChange={() => setRelationshipType(value)}
                         />
                     ))}
                 </div>
             </div>
             <div>
-                <InputSelect
-                    id={id}
-                    label={secondarylabel}
-                    options={secondaryvalues}
-                    labeldisplay={secondarylabeldisplay}
-                />
+                <label
+                    className={secondarylabeldisplay ? '' : 'hidden'}
+                    htmlFor={id}
+                >
+                    {secondarylabel}
+                </label>
+                <select defaultValue="0" id={id} disabled={relationshipType === 'the band'}>
+                    {relationshipOptions.map((option, index) => (
+                        <option key={index} value={index}>
+                            {option}
+                        </option>
+                    ))}
+                </select>
             </div>
         </>
     );

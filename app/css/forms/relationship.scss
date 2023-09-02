@@ -6,9 +6,22 @@
         margin: 0;
         flex-grow: 1;
         white-space: nowrap;
+        &:first-child {
+            border-top-left-radius: 1em;
+            border-bottom-left-radius: 1em;
+        }
+        &:last-child {
+            border-top-right-radius: 1em;
+            border-bottom-right-radius: 1em;
+        }
     }
     .join-item:checked {
         background-image: none;
         --tw-ring-color: #000;
+        background-color: #000 !important;
     }
+}
+
+select:disabled {
+    opacity: 0.2;
 }

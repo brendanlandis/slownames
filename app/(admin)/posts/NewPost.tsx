@@ -130,12 +130,7 @@ export default function PostsForm() {
                     labeldisplay={false}
                     secondarylabeldisplay={false}
                     secondarylabel="relationship"
-                    secondaryvalues={[
-                        'which one?',
-                        'this one',
-                        'no that one',
-                        'no actually this other one',
-                    ]}
+                    secondaryvalues={['ok great']}
                 />
             </div>
             <div className="submit-wrapper">
