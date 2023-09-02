@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+const accessToken = Cookies.get('accessToken');
 
 export default function InputRelationship({
     id,
@@ -10,7 +13,59 @@ export default function InputRelationship({
     secondarylabeldisplay,
 }) {
     const [relationshipType, setRelationshipType] = useState(values[0]);
-    const [relationshipOptions, setRelationshipOptions] = useState(secondaryvalues);
+    const [relationshipOptions, setRelationshipOptions] =
+        useState(secondaryvalues);
+
+    useEffect(() => {
+        if (relationshipType === 'the band') {
+            setRelationshipOptions(secondaryvalues);
+        } else if (relationshipType === 'a release') {
+            axios
+                .get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/releases`, {
+                    headers: {
+                        Authorization: `bearer ${accessToken}`,
+                    },
+                })
+                .then((response) => {
+                    const data = response.data.data;
+                    const releaseTitles = data.map(
+                        (release) => release.attributes.title
+                    );
+                    setRelationshipOptions(releaseTitles);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        } else if (relationshipType === 'an edition') {
+            axios
+                .get(
+                    `${process.env.NEXT_PUBLIC_STRAPI_URL}/editions?populate=*`,
+                    {
+                        headers: {
+                            Authorization: `bearer ${accessToken}`,
+                        },
+                    }
+                )
+                .then((response) => {
+                    const data = response.data.data;
+                    console.log(data);
+                    const editionTitles = data.map(
+                        (edition) =>
+                            edition.attributes.releases.data[0].attributes.title +
+                            ' - ' +
+                            edition.attributes.catalogNumber + 
+                            ' (' +
+                            edition.attributes.label +
+                            ')'
+                    );
+                    setRelationshipOptions(editionTitles);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+    }, [relationshipType]);
+
     return (
         <>
             <div>
@@ -42,7 +97,11 @@ export default function InputRelationship({
                 >
                     {secondarylabel}
                 </label>
-                <select defaultValue="0" id={id} disabled={relationshipType === 'the band'}>
+                <select
+                    defaultValue="0"
+                    id={id}
+                    disabled={relationshipType === 'the band'}
+                >
                     {relationshipOptions.map((option, index) => (
                         <option key={index} value={index}>
                             {option}

@@ -8,7 +8,7 @@ import { useSelectedBand } from '../api/SelectedBandContext';
 const fetchPosts = async () => {
     try {
         const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts?populate=bands&sort=date:desc&pagination[pageSize]=100`,
+            `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts?populate=bands&sort=date:desc&pagination[pageSize]=500`,
             {
                 headers: {
                     Authorization: `bearer ${accessToken}`,
