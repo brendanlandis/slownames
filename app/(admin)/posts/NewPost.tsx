@@ -1,56 +1,32 @@
-import axios from 'axios';
-import Cookies from 'js-cookie';
-const accessToken = Cookies.get('accessToken');
-
+import { useState } from 'react';
 import { useSelectedBand } from '../api/SelectedBandContext';
-
 import InputText from '../sharedcomponents/forms/InputText';
 import InputDate from '../sharedcomponents/forms/InputDate';
 import InputRichText from '../sharedcomponents/forms/InputRichText';
 import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
-
-import { useState } from 'react';
-import { format } from 'date-fns';
+import submitPost from '../api/SubmitPost';
 
 export default function PostsForm() {
     const postBandObj = useSelectedBand();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const responseData = await submitPost(formData, postBandObj);
+            // console.log(responseData);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const [formData, setFormData] = useState({
         headline: '',
         date: new Date(),
         text: '',
+        attachmentlinktext: '',
     });
-
-    const formattedDate = format(formData.date, 'yyyy-MM-dd');
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        axios
-            .post(
-                `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts`,
-                JSON.stringify({
-                    data: {
-                        ...formData,
-                        date: formattedDate,
-                        bands: [postBandObj && postBandObj.selectedBand],
-                    },
-                }),
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `bearer ${accessToken}`,
-                    },
-                }
-            )
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
 
     const handleTextChange = (e) => {
         const { name, value } = e.target;
