@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
 
-const submitNewBand = async (newBandName, userId) => {
+const SubmitNewBand = async (newBandName, userId) => {
 
     try {
         const response = await axios.post(
@@ -50,4 +50,4 @@ const submitNewBand = async (newBandName, userId) => {
     }
 };
 
-export default submitNewBand;
+export default SubmitNewBand;

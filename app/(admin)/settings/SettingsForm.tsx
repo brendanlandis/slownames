@@ -1,14 +1,11 @@
 'use client';
-import InputText from '../sharedcomponents/forms/InputText';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import GetUser from './GetUser';
 import { useState } from 'react';
-
-import submitNewBand from '../api/SubmitNewBand';
+import SubmitNewBand from '../api/SubmitNewBand';
 
 export default function SettingsForm(props) {
     const { data: user, isLoading, isError } = GetUser();
-
     const [newBandName, setNewBandName] = useState('');
 
     const handleNewBandChange = (e) => {
@@ -18,7 +15,7 @@ export default function SettingsForm(props) {
     const handleNewBandSubmit = async (event) => {
         event.preventDefault();
         try {
-            const responseData = await submitNewBand(newBandName, user.id);
+            const responseData = await SubmitNewBand(newBandName, user.id);
             console.log(responseData);
         } catch (error) {
             console.error(error);
