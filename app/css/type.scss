@@ -35,7 +35,8 @@ h2 {
 }
 
 
-button[type='submit'] {
+button[type='submit'],
+button[type='button'], {
     font-weight: 600 !important;
     letter-spacing: 0.1em;
 }

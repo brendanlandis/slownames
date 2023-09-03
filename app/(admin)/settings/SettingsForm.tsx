@@ -2,8 +2,28 @@
 import InputText from '../sharedcomponents/forms/InputText';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import GetHumanName from '../api/GetHumanName';
+import { useState } from 'react';
+
+import submitNewBand from '../api/SubmitNewBand';
 
 export default function SettingsForm(props) {
+
+    const [newBandName, setNewBandName] = useState('');
+    
+    const handleNewBandChange = (e) => {
+        setNewBandName(e.target.value);
+    };
+    
+    const handleNewBandSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const responseData = await submitNewBand(newBandName);
+            console.log(responseData);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <>
             <div className="form-header">
@@ -25,20 +45,29 @@ export default function SettingsForm(props) {
                 </p>
                 <div className="new-secondary-band">
                     <div className="input-wrapper">
-                        <InputText
-                            id="band-form-new-secondary-band"
-                            label="band name"
-                            name="bandname"
-                            required={false}
-                            handleTextChange="ok"
-                            labeldisplay={false}
+                        <label className="hidden" htmlFor="new-band-name">
+                            "new band name"
+                        </label>
+                        <input
+                            type="text"
+                            id="new-band-name"
+                            name="newbandname"
+                            className="form-input"
+                            placeholder="new band name"
+                            value={newBandName}
+                            onChange={handleNewBandChange}
                         />
                     </div>
                     <div>
-                        <ButtonSubmit
-                            id="primaryartist-form-submit"
-                            label="add band"
-                        />
+                        <div className="new-band-submit-wrapper">
+                            <button
+                                id="new-band-submit"
+                                type="button"
+                                onClick={handleNewBandSubmit}
+                            >
+                                add band
+                            </button>
+                        </div>
                     </div>
                 </div>
 
