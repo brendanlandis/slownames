@@ -30,6 +30,9 @@ export default function SettingsForm(props) {
                         <InputText
                             id="band-form-new-secondary-band"
                             label="band name"
+                            name="bandname"
+                            required={false}
+                            handleTextChange="ok"
                             labeldisplay={false}
                         />
                     </div>

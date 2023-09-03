@@ -9,10 +9,8 @@ export default function InputRelationship({ id, values }) {
     const { selectedBand } = useSelectedBand();
 
     const [relType, setRelType] = useState(values[0]);
-    const [relObjects, setRelObjects] = useState([
-        [0, ''],
-    ]);
-
+    const [relObjects, setRelObjects] = useState([[0, '']]);
+    const [relObject, setRelObject] = useState(0);
 
     useEffect(() => {
         if (relType === 'the band') {
@@ -21,6 +19,7 @@ export default function InputRelationship({ id, values }) {
             getRelatedReleases(selectedBand)
                 .then((relatedReleases) => {
                     setRelObjects(relatedReleases);
+                    // setRelObject(relatedReleases[0][0]);
                 })
                 .catch((error) => {
                     console.error(error);
@@ -29,12 +28,35 @@ export default function InputRelationship({ id, values }) {
             getRelatedEditions(selectedBand)
                 .then((relatedEditions) => {
                     setRelObjects(relatedEditions);
+                    // setRelObject(relatedEditions[0][0]);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         }
+        console.log('----------');
+        console.log('relType: ' + relType);
+        console.log('relObjects:');
+        console.log(relObjects);
+        console.log('relObject: ' + relObject);
+        // console.log('relType: ' + relType);
+        // console.log('relObject: ' + relObject);
     }, [relType, selectedBand]);
+
+    const handleRelObjectChange = (e) => {
+        if (relType === 'the band') {
+            setRelObject(0);
+        } else {
+            // const newObject: number = relObjects[0][0] as number;
+            // setRelObject(newObject);
+            setRelObject(parseInt(e.target.value));
+        }
+        console.log('----------');
+        console.log('relType: ' + relType);
+        console.log('relObjects:');
+        console.log(relObjects);
+        console.log('relObject: ' + relObject);
+    };
 
     return (
         <>
@@ -62,9 +84,11 @@ export default function InputRelationship({ id, values }) {
                     And then, which one specifically is this about?
                 </label>
                 <select
-                    defaultValue="0"
                     id={id + '-object'}
                     disabled={relType === 'the band'}
+                    // onChange={(e) => setRelObject(parseInt(e.target.value))}
+                    onChange={(e) => handleRelObjectChange(e)}
+                    value={relObject}
                 >
                     {relObjects.map((object, index) => (
                         <option key={index} value={object[0]}>
