@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
 import format from 'date-fns/format';
 
-const submitPost = async (formData, postBandObj) => {
+const submitPress = async (formData, pressBandObj) => {
     try {
         const formattedDate = format(formData.date, 'yyyy-MM-dd');
         const response = await axios.post(
@@ -12,7 +12,7 @@ const submitPost = async (formData, postBandObj) => {
                 data: {
                     ...formData,
                     date: formattedDate,
-                    bands: [postBandObj && postBandObj.selectedBand],
+                    bands: [pressBandObj && pressBandObj.selectedBand],
                 },
             }),
             {
@@ -28,4 +28,4 @@ const submitPost = async (formData, postBandObj) => {
     }
 };
 
-export default submitPost;
+export default submitPress;

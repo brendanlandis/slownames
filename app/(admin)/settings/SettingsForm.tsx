@@ -1,8 +1,6 @@
 'use client';
 import InputText from '../sharedcomponents/forms/InputText';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
-import MainBandDropdown from './MainBandDropdown';
-import OtherBandsChecklist from './OtherBandsChecklist';
 import GetHumanName from '../api/GetHumanName';
 
 export default function SettingsForm(props) {

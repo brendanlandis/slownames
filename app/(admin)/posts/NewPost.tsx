@@ -9,7 +9,7 @@ import InputFile from '../sharedcomponents/forms/InputFile';
 import InputRelationship from '../sharedcomponents/forms/InputRelationship';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 
-export default function PostsForm() {
+export default function NewPosts() {
     const postBandObj = useSelectedBand();
     const [relationshipType, setRelationshipType] = useState('');
     const [selectedObject, setSelectedObject] = useState('');
