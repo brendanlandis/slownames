@@ -1,37 +1,52 @@
 'use client';
 import InputText from '../sharedcomponents/forms/InputText';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
-import GetHumanName from '../api/GetHumanName';
+import GetUser from './GetUser';
 import { useState } from 'react';
 
 import submitNewBand from '../api/SubmitNewBand';
 
 export default function SettingsForm(props) {
+    const { data: user, isLoading, isError } = GetUser();
 
     const [newBandName, setNewBandName] = useState('');
-    
+
     const handleNewBandChange = (e) => {
         setNewBandName(e.target.value);
     };
-    
+
     const handleNewBandSubmit = async (event) => {
         event.preventDefault();
         try {
-            const responseData = await submitNewBand(newBandName);
+            const responseData = await submitNewBand(newBandName, user.id);
             console.log(responseData);
         } catch (error) {
             console.error(error);
         }
     };
 
+    if (isLoading) {
+        return (
+            <div className="form-header">
+                <h1>loading user</h1>
+            </div>
+        );
+    }
+
+    if (isError) {
+        return (
+            <div className="form-header">
+                <h1>oh no</h1>
+            </div>
+        );
+    }
+
     return (
         <>
             <div className="form-header">
                 <h1>
                     Settings for Registered Human #{props.humanNum}
-                    <span className="human-name">
-                        <GetHumanName />
-                    </span>
+                    <span className="human-name">{user.username}</span>
                 </h1>
             </div>
             <form id="settings-form">
@@ -46,7 +61,7 @@ export default function SettingsForm(props) {
                 <div className="new-secondary-band">
                     <div className="input-wrapper">
                         <label className="hidden" htmlFor="new-band-name">
-                            "new band name"
+                            add new band
                         </label>
                         <input
                             type="text"
@@ -58,16 +73,14 @@ export default function SettingsForm(props) {
                             onChange={handleNewBandChange}
                         />
                     </div>
-                    <div>
-                        <div className="new-band-submit-wrapper">
-                            <button
-                                id="new-band-submit"
-                                type="button"
-                                onClick={handleNewBandSubmit}
-                            >
-                                add band
-                            </button>
-                        </div>
+                    <div className="new-band-submit-wrapper">
+                        <button
+                            id="new-band-submit"
+                            type="button"
+                            onClick={handleNewBandSubmit}
+                        >
+                            add band
+                        </button>
                     </div>
                 </div>
 
