@@ -84,7 +84,10 @@ export default function SettingsForm(props) {
                 </div>
 
                 <div className="divider">FINALLY</div>
-                <p className="explanation">Select your main band.</p>
+                <p className="explanation">
+                    Select your main band. (This will be the default band at the
+                    top of each page.)
+                </p>
                 <label className="hidden" htmlFor="mainBand">
                     What's your main band?
                 </label>
