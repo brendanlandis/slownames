@@ -2,6 +2,7 @@ export interface Band {
     id: number;
     bandname: string;
     selected: boolean;
+    users: number[];
 }
 
 export interface User {

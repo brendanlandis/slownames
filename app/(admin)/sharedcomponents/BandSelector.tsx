@@ -1,9 +1,9 @@
-import GetBands from '../api/GetBands';
+import GetUserBands from '../api/GetUserBands';
 import React, { useEffect, useState } from 'react';
 import { useSelectedBand } from '../api/SelectedBandContext';
 
 export default function BandSelector({ forPage }) {
-    const { data: selectedBands, isLoading, isError } = GetBands();
+    const { data: selectedBands, isLoading, isError } = GetUserBands();
 
     const { selectedBand, setSelectedBand } = useSelectedBand();
 

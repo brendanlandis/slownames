@@ -2,7 +2,8 @@
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import GetUser from './GetUser';
 import { useState } from 'react';
-import SubmitNewBand from '../api/SubmitNewBand';
+import SubmitNewBand from './SubmitNewBand';
+import OtherBandsChecklist from './OtherBandsChecklist';
 
 export default function SettingsForm(props) {
     const { data: user, isLoading, isError } = GetUser();
@@ -17,6 +18,7 @@ export default function SettingsForm(props) {
         try {
             const responseData = await SubmitNewBand(newBandName, user.id);
             console.log(responseData);
+            setNewBandName('');
         } catch (error) {
             console.error(error);
         }
@@ -25,7 +27,7 @@ export default function SettingsForm(props) {
     if (isLoading) {
         return (
             <div className="form-header">
-                <h1>loading user</h1>
+                <h1></h1>
             </div>
         );
     }
@@ -49,7 +51,7 @@ export default function SettingsForm(props) {
             <form id="settings-form">
                 <div className="divider first">FIRST</div>
                 <p className="explanation">Check all the bands you're in.</p>
-                {/* <OtherBandsChecklist /> */}
+                <OtherBandsChecklist userId={user.id} />
 
                 <div className="divider">THEN</div>
                 <p className="explanation">

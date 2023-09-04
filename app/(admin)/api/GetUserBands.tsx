@@ -36,7 +36,7 @@ const transformBandsData = (data) => {
     return transformedBandsArray;
 };
 
-const GetBands = () => {
+const GetUserBands = () => {
     const { data, ...rest } = useQuery(['bandsArray'], fetchBands);
     const transformedData = data ? transformBandsData(data) : [];
     return {
@@ -45,4 +45,4 @@ const GetBands = () => {
     };
 };
 
-export default GetBands;
+export default GetUserBands;
