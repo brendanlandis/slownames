@@ -31,19 +31,19 @@ function SettingsDropdown() {
             <Menu.Items className="dropdown-content secondary-nav">
                 <Menu.Item>
                     <Link
+                        className={pathname == '/settings' ? 'active' : ''}
+                        href="/settings"
+                    >
+                        settings
+                    </Link>
+                </Menu.Item>
+                <Menu.Item>
+                    <Link
                         className={pathname == '/logout' ? 'active' : ''}
                         href="/logout"
                         onClick={handleLogout}
                     >
                         logout
-                    </Link>
-                </Menu.Item>
-                <Menu.Item>
-                    <Link
-                        className={pathname == '/settings' ? 'active' : ''}
-                        href="/settings"
-                    >
-                        settings
                     </Link>
                 </Menu.Item>
             </Menu.Items>

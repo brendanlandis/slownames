@@ -75,8 +75,8 @@ export default function NavMobile() {
                                 <NavMobileItem url="/videos" name="videos" onClick={closeModal} />
                             </ul>
                             <ul className="secondary-nav">
-                                <NavMobileItem url="/logout" name="logout" onClick={handleLogout} />
                                 <NavMobileItem url="/settings" name="settings" onClick={closeModal} />
+                                <NavMobileItem url="/logout" name="logout" onClick={handleLogout} />
                             </ul>
                         </Dialog.Panel>
                     </Transition.Child>
