@@ -13,6 +13,10 @@ POTENTIALLY COOL PLUGINS AND STUFF:
 - grids for dealing with old stuff: https://ui.toast.com/tui-grid
 - comboboxes / autocompletes: https://github.com/downshift-js/downshift
 - date picker: https://projects.wojtekmaj.pl/react-date-picker/
+- might be a better collection of components: https://mantine.dev/
+- might be a better markdown editor: https://mdxeditor.dev/
+- maxonry layout: https://github.com/askides/react-plock
+- excellent gradients: https://gradient.style/
 
 
 COULD BE COOL FOR OTHER SITES:
