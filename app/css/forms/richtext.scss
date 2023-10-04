@@ -40,6 +40,14 @@
             fill: #000;
         }
     }
+    button[type="submit"], button[type="button"]:not(#mobile-menu-button) {
+        background-color: #fff;
+        color: #000;
+        font-size: 0.7rem;
+    }
+    .tox .tox-toolbar, .tox .tox-toolbar__overflow, .tox .tox-toolbar__primary {
+        background-image: none;
+    }
 }
 
 // save button in link popup
