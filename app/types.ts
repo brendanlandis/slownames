@@ -68,3 +68,24 @@ export interface Press {
         id: number;
     }>;
 }
+
+export interface WritingTool {
+    id: number;
+    type: string;
+    usable: boolean;
+    used: number;
+    users: Array<{
+        id: number;
+    }>;
+    description: string;
+    explanation: string;
+    images: Array<{
+        id: number;
+        url: string;
+    }>;
+    links: Array<{
+        id: number;
+        text: string;
+        url: string;
+    }>;
+}

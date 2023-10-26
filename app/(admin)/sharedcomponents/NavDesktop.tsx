@@ -58,6 +58,7 @@ export default function NavDesktop() {
                 <SettingsDropdown />
             </div>
             <ul className="center">
+                <NavDesktopItem url="/writing" name="writing" />
                 <NavDesktopItem url="/" name="posts" />
                 <NavDesktopItem url="/press" name="press" />
                 <NavDesktopItem url="/shows" name="shows" />

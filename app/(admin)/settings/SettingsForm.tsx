@@ -1,6 +1,6 @@
 'use client';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
-import GetUser from './GetUser';
+import GetUser from '../api/GetUser';
 import { useState } from 'react';
 import SubmitNewBand from './SubmitNewBand';
 import OtherBandsChecklist from './OtherBandsChecklist';

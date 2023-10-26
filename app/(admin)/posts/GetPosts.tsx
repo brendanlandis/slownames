@@ -42,7 +42,7 @@ const filterPostsData = (data, selectedBand) => {
 };
 
 const GetPosts = () => {
-    const { data, ...rest } = useQuery(['posts'], fetchPosts);
+    const { data, ...rest } = useQuery({queryKey: ['posts'], queryFn: fetchPosts});
     const { selectedBand } = useSelectedBand();
     const filteredData = data ? filterPostsData(data, selectedBand) : [];
     return {
