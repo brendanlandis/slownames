@@ -1,5 +1,5 @@
 import GetPress from './GetPress';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import Markdown from 'react-markdown';
 
 export default function ViewPress() {
     const { data: press, isLoading, isError } = GetPress();
@@ -29,7 +29,7 @@ export default function ViewPress() {
                         <tr key={press.id}>
                             <td>{press.date}</td>
                             <td>{press.type}</td>
-                            <td><ReactMarkdown>{press.quote}</ReactMarkdown></td>
+                            <td><Markdown>{press.quote}</Markdown></td>
                             <td>{press.visibility}</td>
                             <td>
                                 {press.bands.map((band) => (

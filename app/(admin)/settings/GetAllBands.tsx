@@ -42,7 +42,7 @@ const filterBandsData = (data, userId) => {
 };
 
 const GetAllBands = (userId) => {
-    const { data, ...rest } = useQuery(['allbands'], fetchAllBands);
+    const { data, ...rest } = useQuery({queryKey: ['allbands'], queryFn: fetchAllBands});
     const filteredData = data ? filterBandsData(data, userId) : [];
     return {
         data: filteredData,

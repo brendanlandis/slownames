@@ -15,7 +15,7 @@ POTENTIALLY COOL PLUGINS AND STUFF:
 - date picker: https://projects.wojtekmaj.pl/react-date-picker/
 - might be a better collection of components: https://mantine.dev/
 - might be a better markdown editor: https://mdxeditor.dev/
-- maxonry layout: https://github.com/askides/react-plock
+- masonry layout: https://github.com/askides/react-plock
 - excellent gradients: https://gradient.style/
 
 

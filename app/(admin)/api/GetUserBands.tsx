@@ -37,7 +37,7 @@ const transformBandsData = (data) => {
 };
 
 const GetUserBands = () => {
-    const { data, ...rest } = useQuery(['bandsArray'], fetchBands);
+    const { data, ...rest } = useQuery({queryKey: ['bandsArray'], queryFn: fetchBands});
     const transformedData = data ? transformBandsData(data) : [];
     return {
         data: transformedData,
