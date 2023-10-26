@@ -27,7 +27,7 @@ const filterBandsData = (data, userId) => {
         bandname: band.attributes.bandname,
         selected: false,
         users: [
-            ...(band.attributes.user.data?.map((user) => user.id) || []),
+            ...(band.attributes.user?.data?.id ? [band.attributes.user.data.id] : []),
             ...(band.attributes.users.data?.map((user) => user.id) || []),
         ],
     }));

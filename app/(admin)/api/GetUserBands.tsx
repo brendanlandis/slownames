@@ -27,6 +27,7 @@ const transformBandsData = (data) => {
         bandname: band.bandname,
         selected: false,
     }));
+    // @ts-ignore
     const mainBand: Band = {
         id: data.mainband.id,
         bandname: data.mainband.bandname,
