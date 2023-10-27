@@ -3,6 +3,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
 import { WritingTool } from '@/app/types';
+import GetUser from '../api/GetUser';
 
 const fetchWritingTools = async () => {
     try {
@@ -32,7 +33,7 @@ const filterWritingToolsData = (data, selectedUser) => {
         })),
         description: tool.attributes.description,
         explanation: tool.attributes.explanation,
-        images: tool.attributes.images.data.map((image) => ({
+        images: tool.attributes.images?.data?.map((image) => ({
             id: image.id,
             url: `${process.env.NEXT_PUBLIC_STRAPI_URL?.replace('.net/api', '.net')}${image.attributes.url}`,
         })),
@@ -51,8 +52,8 @@ const filterWritingToolsData = (data, selectedUser) => {
 
 const GetWritingTools = () => {
     const { data, ...rest } = useQuery({queryKey: ['writingtools'], queryFn: fetchWritingTools});
-    const selectedUser = 1;
-    const filteredData = data ? filterWritingToolsData(data, selectedUser) : [];
+    const selectedUser = GetUser().data;
+    const filteredData = data ? filterWritingToolsData(data, selectedUser.id) : [];
     return {
         data: filteredData,
         ...rest,

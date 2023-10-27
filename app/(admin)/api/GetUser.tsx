@@ -21,7 +21,10 @@ const fetchUser = async () => {
 };
 
 const GetUser = () => {
-    const { data, ...rest } = useQuery({queryKey: ['user'], queryFn: fetchUser});
+    const { data, ...rest } = useQuery({
+        queryKey: ['user'],
+        queryFn: fetchUser,
+    });
     return {
         data: data,
         ...rest,

@@ -38,7 +38,7 @@ export default function ViewWritingTools() {
                             <td>{tool.usable}</td>
                             <td>{tool.used}</td>
                             <td>
-                                {tool.users.map((user) => (
+                                {tool.users?.map((user) => (
                                     <div key={user.id}>{user.id}</div>
                                 ))}
                             </td>
@@ -47,7 +47,7 @@ export default function ViewWritingTools() {
                                 <Markdown>{tool.explanation}</Markdown>
                             </td>
                             <td>
-                                {tool.images.map((image) => (
+                                {tool.images?.map((image) => (
                                     <div key={image.id}>
                                         <Image
                                             src={image.url}
@@ -59,9 +59,9 @@ export default function ViewWritingTools() {
                                 ))}
                             </td>
                             <td>
-                                {tool.links.map((link) => (
-                                    <div>
-                                        <a key={link.id} href={link.url}>
+                                {tool.links?.map((link, i) => (
+                                    <div key={i}>
+                                        <a href={link.url}>
                                             {link.text}
                                         </a>
                                     </div>
