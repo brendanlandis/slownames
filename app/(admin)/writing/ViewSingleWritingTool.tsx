@@ -13,59 +13,34 @@ export default function ViewSingleWritingTool() {
     }
 
     return (
-        <>
-            {/* <pre>{JSON.stringify(tool, null, 2)}</pre> */}
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>type</th>
-                        <th>usable</th>
-                        <th>used</th>
-                        <th>users</th>
-                        <th>description</th>
-                        <th>explanation</th>
-                        <th>images</th>
-                        <th>links</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr key={tool.id}>
-                        <td>{tool.id}</td>
-                        <td>{tool.type}</td>
-                        <td>{tool.usable.toString()}</td>
-                        <td>{tool.used}</td>
-                        <td>
-                            {tool.users?.map((user) => (
-                                <div key={user.id}>{user.id}</div>
-                            ))}
-                        </td>
-                        <td>{tool.description}</td>
-                        <td>
-                            <Markdown>{tool.explanation}</Markdown>
-                        </td>
-                        <td>
-                            {tool.images?.map((image) => (
-                                <div key={image.id}>
-                                    <Image
-                                        src={image.url}
-                                        alt="an extremely good image"
-                                        fill={true}
-                                        quality={100}
-                                    />
-                                </div>
-                            ))}
-                        </td>
-                        <td>
-                            {tool.links?.map((link, i) => (
-                                <div key={i}>
-                                    <a href={link.url}>{link.text}</a>
-                                </div>
-                            ))}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </>
+        <div className="single-tool">
+            <div className="edit-buttons">
+                <button type="button">give me another one</button>
+                <button type="button">ok I did it</button>
+            </div>
+            <h3>{tool.description}</h3>
+            <div>
+                <Markdown>{tool.explanation}</Markdown>
+            </div>
+            <div>
+                {tool.links?.map((link, i) => (
+                    <div key={i}>
+                        <a href={link.url}>{link.text}</a>
+                    </div>
+                ))}
+            </div>
+            <div>
+                {tool.images?.map((image) => (
+                    <a href={image.url} key={image.id}>
+                        <Image
+                            src={image.url}
+                            alt="an extremely good image"
+                            fill={true}
+                            quality={100}
+                        />
+                    </a>
+                ))}
+            </div>
+        </div>
     );
 }

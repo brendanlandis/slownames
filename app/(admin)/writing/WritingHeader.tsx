@@ -16,8 +16,8 @@ export default function WritingHeader() {
                 </div>
                 <h2>Pick a random writing tool</h2>
                 <ViewSingleWritingTool />
-                <h2>View all writing tools</h2>
-                <ViewWritingTools />
+                {/* <h2>View all writing tools</h2>
+                <ViewWritingTools /> */}
                 <h2>Pick a random free-writing topic</h2>
                 <h2>Pick a random text fishing method</h2>
                 <h2>Pick a random text manipulation method</h2>

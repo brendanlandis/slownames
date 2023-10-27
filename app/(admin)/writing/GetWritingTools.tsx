@@ -26,7 +26,7 @@ const filterWritingToolsData = (data, selectedUser) => {
     const filteredWritingToolsData: WritingTool[] = data.data.map((tool) => ({
         id: tool.id,
         type: tool.attributes.type,
-        usable: tool.attributes.usable,
+        singleUse: tool.attributes.singleUse,
         used: tool.attributes.used,
         users: tool.attributes.users.data.map((user) => ({
             id: user.id,

@@ -72,7 +72,7 @@ export interface Press {
 export interface WritingTool {
     id: number;
     type: string;
-    usable: boolean;
+    singleUse: boolean;
     used: number;
     users: Array<{
         id: number;
