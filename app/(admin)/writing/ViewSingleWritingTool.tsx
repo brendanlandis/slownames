@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 export default function ViewSingleWritingTool() {
     const { data: tool, isLoading, isError } = GetSingleWritingTool();
-
     if (isLoading) {
         return <>loading tool...</>;
     }
@@ -34,7 +33,7 @@ export default function ViewSingleWritingTool() {
                     <tr key={tool.id}>
                         <td>{tool.id}</td>
                         <td>{tool.type}</td>
-                        <td>{tool.usable}</td>
+                        <td>{tool.usable.toString()}</td>
                         <td>{tool.used}</td>
                         <td>
                             {tool.users?.map((user) => (

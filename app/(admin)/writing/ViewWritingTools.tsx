@@ -35,7 +35,7 @@ export default function ViewWritingTools() {
                         <tr key={tool.id}>
                             <td>{tool.id}</td>
                             <td>{tool.type}</td>
-                            <td>{tool.usable}</td>
+                            <td>{tool.usable.toString()}</td>
                             <td>{tool.used}</td>
                             <td>
                                 {tool.users?.map((user) => (
