@@ -35,7 +35,10 @@ const filterWritingToolsData = (data, selectedUser) => {
         explanation: tool.attributes.explanation,
         images: tool.attributes.images?.data?.map((image) => ({
             id: image.id,
-            url: `${process.env.NEXT_PUBLIC_STRAPI_URL?.replace('.net/api', '.net')}${image.attributes.url}`,
+            url: `${process.env.NEXT_PUBLIC_STRAPI_URL?.replace(
+                '.net/api',
+                '.net'
+            )}${image.attributes.url}`,
         })),
         links: tool.attributes.links.map((link) => ({
             text: link.text,
@@ -43,19 +46,47 @@ const filterWritingToolsData = (data, selectedUser) => {
         })),
     }));
 
-    const filteredWritingToolsForTargetUser: WritingTool[] = filteredWritingToolsData.filter(
-        (tool) => tool.users.some((user) => user.id === selectedUser)
-    );
-
+    const filteredWritingToolsForTargetUser: WritingTool[] =
+        filteredWritingToolsData.filter((tool) =>
+            tool.users.some((user) => user.id === selectedUser)
+        );
     return filteredWritingToolsForTargetUser;
 };
 
 const GetWritingTools = () => {
-    const { data, ...rest } = useQuery({queryKey: ['writingtools'], queryFn: fetchWritingTools});
+    const { data, ...rest } = useQuery({
+        queryKey: ['writingtools'],
+        queryFn: fetchWritingTools,
+    });
     const selectedUser = GetUser().data;
-    const filteredData = data ? filterWritingToolsData(data, selectedUser.id) : [];
+    const filteredData = data
+        ? filterWritingToolsData(data, selectedUser.id)
+        : [];
     return {
         data: filteredData,
+        ...rest,
+    };
+};
+
+export const GetSingleWritingTool = () => {
+    const { data, ...rest } = useQuery({
+        queryKey: ['writingtools'],
+        queryFn: fetchWritingTools,
+    });
+    const selectedUser = GetUser().data;
+    const filteredData = data
+        ? filterWritingToolsData(data, selectedUser.id)
+        : [];
+
+    const getRandomRow = (array: any[]) => {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        return array[randomIndex];
+    };
+
+    const randomData = filteredData ? getRandomRow(filteredData) : null;
+    // console.log(randomData);
+    return {
+        data: randomData,
         ...rest,
     };
 };
