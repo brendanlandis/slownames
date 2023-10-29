@@ -10,7 +10,7 @@ export default function NavMobile() {
         event.preventDefault();
         removeAllCookies();
         window.location.href = '/login';
-    }
+    };
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -67,17 +67,53 @@ export default function NavMobile() {
                                 </button>
                             </div>
                             <ul className="primary-nav">
-                                <NavMobileItem url="/writing" name="writing" onClick={closeModal} />
-                                <NavMobileItem url="/" name="posts" onClick={closeModal} />
-                                <NavMobileItem url="/press" name="press" onClick={closeModal} />
-                                <NavMobileItem url="/shows" name="shows" onClick={closeModal} />
-                                <NavMobileItem url="/recordings" name="recordings" onClick={closeModal} />
-                                <NavMobileItem url="/photos" name="photos" onClick={closeModal} />
-                                <NavMobileItem url="/videos" name="videos" onClick={closeModal} />
+                                <NavMobileItem
+                                    url="/writing"
+                                    name="writing tools"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
+                                    url="/"
+                                    name="posts"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
+                                    url="/press"
+                                    name="press"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
+                                    url="/shows"
+                                    name="shows"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
+                                    url="/recordings"
+                                    name="recordings"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
+                                    url="/photos"
+                                    name="photos"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
+                                    url="/videos"
+                                    name="videos"
+                                    onClick={closeModal}
+                                />
                             </ul>
                             <ul className="secondary-nav">
-                                <NavMobileItem url="/settings" name="settings" onClick={closeModal} />
-                                <NavMobileItem url="/logout" name="logout" onClick={handleLogout} />
+                                <NavMobileItem
+                                    url="/settings"
+                                    name="settings"
+                                    onClick={closeModal}
+                                />
+                                <NavMobileItem
+                                    url="/logout"
+                                    name="logout"
+                                    onClick={handleLogout}
+                                />
                             </ul>
                         </Dialog.Panel>
                     </Transition.Child>

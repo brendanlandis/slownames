@@ -11,10 +11,10 @@ function SettingsDropdown() {
         event.preventDefault();
         removeAllCookies();
         window.location.href = '/login';
-    }
+    };
     return (
         <Menu>
-            <Menu.Button id="mobile-menu-button">
+            <Menu.Button className="mobile-menu-button">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -52,13 +52,14 @@ function SettingsDropdown() {
 }
 
 export default function NavDesktop() {
+    const pathname = usePathname();
     return (
         <nav id="nav-desktop">
             <div className="left">
                 <SettingsDropdown />
             </div>
             <ul className="center">
-                <NavDesktopItem url="/writing" name="writing" />
+                <NavDesktopItem url="/writing/topic" name="writing topic" />
                 <NavDesktopItem url="/" name="posts" />
                 <NavDesktopItem url="/press" name="press" />
                 <NavDesktopItem url="/shows" name="shows" />

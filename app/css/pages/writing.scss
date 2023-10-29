@@ -1,4 +1,6 @@
-#writing {
+#writing,
+#writing-topic {
+    align-content: start;
     img {
         max-width: 100% !important;
         height: auto !important;
@@ -6,7 +8,56 @@
         position: static !important;
         inset: initial !important;
     }
-    table, th, td, tr {
+    table,
+    th,
+    td,
+    tr {
         vertical-align: top !important;
+    }
+    .single-tool-header {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 2em;
+        /* margin-bottom: 3em; */
+    }
+    h1 {
+        margin-bottom: 0;
+    }
+    .top-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        button {
+            font-size: 0.7em;
+            margin-bottom: 0.5em;
+            background: transparent;
+            border: 0;
+            svg {
+                stroke: #000;
+                transition: all(1s);
+            }
+        }
+    }
+    .single-tool-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'explanation images' 'links images';
+        row-gap: 1em;
+        column-gap: 1em;
+        margin: 1em 0;
+        .tool-explanation {
+            grid-area: explanation;
+            p:first-child {
+                margin-top: 0;
+            }
+        }
+        .tool-images {
+            grid-area: images;
+            img {
+                margin: 0;
+            }
+        }
+        .tool-links {
+            grid-area: links;
+        }
     }
 }

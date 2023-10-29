@@ -14,9 +14,10 @@ export default function ViewSingleWritingTool() {
 
     return (
         <div className="single-tool">
-            <div className="edit-buttons">
-                <button type="button">give me another one</button>
-                <button type="button">ok I did it</button>
+            <div className="top-buttons">
+                <div>
+                    <button type="button">how bout another one</button>
+                </div>
             </div>
             <h3>{tool.description}</h3>
             <div>
@@ -40,6 +41,9 @@ export default function ViewSingleWritingTool() {
                         />
                     </a>
                 ))}
+            </div>
+            <div className='bottom-buttons'>
+                <button type="button">ok I did it</button>
             </div>
         </div>
     );
