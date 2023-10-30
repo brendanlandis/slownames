@@ -5,11 +5,11 @@ import Image from 'next/image';
 export default function ViewSingleWritingTopic() {
     const { data: tool, isLoading, isError } = GetSingleWritingTool();
     if (isLoading) {
-        return <>loading tool...</>;
+        return <div className="single-tool-header"><h1>loading...</h1></div>;
     }
 
     if (isError) {
-        return <>error fetching tools</>;
+        return <div className="single-tool-header"><h1>error fetching topic</h1></div>;
     }
 
     return (

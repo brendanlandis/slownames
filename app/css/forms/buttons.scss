@@ -1,5 +1,5 @@
 button[type='submit'],
-button[type='button']:not(.mobile-menu-button) {
+button[type='button']:not(.menu-button) {
     @apply btn btn-neutral;
     border-radius: 0.5em;
     &:hover {

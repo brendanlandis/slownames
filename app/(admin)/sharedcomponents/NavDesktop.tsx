@@ -14,7 +14,7 @@ function SettingsDropdown() {
     };
     return (
         <Menu>
-            <Menu.Button className="mobile-menu-button">
+            <Menu.Button className="menu-button">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -59,7 +59,76 @@ export default function NavDesktop() {
                 <SettingsDropdown />
             </div>
             <ul className="center">
-                <NavDesktopItem url="/writing/topic" name="writing topic" />
+                <li className="nav-item">
+                    <Menu>
+                        <Menu.Button className="menu-button">
+                            <span>writing</span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                />
+                            </svg>
+                        </Menu.Button>
+                        <Menu.Items className="dropdown-content secondary-nav">
+                            <Menu.Item>
+                                <Link
+                                    className={
+                                        pathname == '/writing/topic'
+                                            ? 'active'
+                                            : ''
+                                    }
+                                    href="/writing/topic"
+                                >
+                                    writing topics
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link
+                                    className={
+                                        pathname == '/writing/fishing'
+                                            ? 'active'
+                                            : ''
+                                    }
+                                    href="/writing/fishing"
+                                >
+                                    text fishing
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link
+                                    className={
+                                        pathname == '/writing/manipulate'
+                                            ? 'active'
+                                            : ''
+                                    }
+                                    href="/writing/manipulate"
+                                >
+                                    text manipulation
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link
+                                    className={
+                                        pathname == '/writing/oblique'
+                                            ? 'active'
+                                            : ''
+                                    }
+                                    href="/writing/oblique"
+                                >
+                                    oblique strategies
+                                </Link>
+                            </Menu.Item>
+                        </Menu.Items>
+                    </Menu>
+                </li>
                 <NavDesktopItem url="/" name="posts" />
                 <NavDesktopItem url="/press" name="press" />
                 <NavDesktopItem url="/shows" name="shows" />

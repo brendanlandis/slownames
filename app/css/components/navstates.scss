@@ -19,24 +19,26 @@
 }
 
 .nav-item {
-    a {
+    a,
+    button {
         @apply nav-item-default-state;
     }
-    &:hover a,
-    &:focus a,
-    &:active a,
     a:hover,
     a:focus,
-    a:active {
+    a:active,
+    button:hover,
+    button:focus,
+    button:active {
         @apply nav-item-hover-state;
     }
-    &.active a {
+    &.active a,
+    &.active button {
         @apply nav-item-active-state;
     }
 }
 
 .secondary-nav {
-    a {
+    a, button {
         @apply nav-item-default-state;
     }
     a:hover,
@@ -45,7 +47,8 @@
         @apply nav-item-hover-state;
     }
     a.active,
-    li.active a {
+    li.active a,
+    li.active button {
         @apply nav-item-active-state-reversed;
     }
 }

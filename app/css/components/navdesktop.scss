@@ -12,6 +12,9 @@ nav#nav-desktop {
     .left {
         line-height: 0.8em;
         cursor: pointer;
+        .menu-button {
+            padding: 20px 0;
+        }
     }
     .center {
         display: flex;
@@ -20,12 +23,24 @@ nav#nav-desktop {
         overflow: hidden;
         li {
             text-align: center;
-            font-size: 1.2em;
-            a {
+            a, button {
+                font-size: 1.2em;
+                letter-spacing: 0.1em;
                 display: block;
                 padding: 20px 20px;
                 height: 100%;
                 width: 100%;
+            }
+            .menu-button {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: flex-start;
+                gap: 0.3em;
+                line-height: 1rem;
+                svg {
+                    height: 1.2rem;
+                    width: 1.2rem;
+                }
             }
         }
     }
@@ -37,7 +52,8 @@ nav#nav-desktop {
     z-index: 1;
     color: #fff;
     border: 1px solid #fff;
-    margin-top: 1em;
+    font-size: 0.8rem;
+    margin-top: 0em;
     position: absolute;
     *[role='menuitem'] {
         background: #000;
