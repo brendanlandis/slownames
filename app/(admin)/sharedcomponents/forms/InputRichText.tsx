@@ -1,12 +1,13 @@
 'use client';
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import TurndownService from 'turndown';
+// import TurndownService from 'turndown';
 
-const turndownService = new TurndownService();
+// const turndownService = new TurndownService();
 
 const convertHtmlToMarkdown = (html) => {
-    return turndownService.turndown(html);
+    // return turndownService.turndown(html);
+    return html;
 }
 
 export default function InputRichText({
