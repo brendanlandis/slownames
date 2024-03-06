@@ -49,14 +49,13 @@ export default function NewPosts() {
         console.log('object:' + object);
         setRelationshipType(type);
         setSelectedObject(object);
-    }
+    };
 
     return (
         <form id="posts-form" onSubmit={handleSubmit}>
             <div className="divider first">FIRST</div>
             <p className="explanation">
-                Write out the headline and content, plus the date you'd like
-                this to go live on.
+                Write out the headline and content, plus the date you'd like this to go live on.
             </p>
             <div className="form-row four-one">
                 <div className="wrapper-headline">
@@ -93,19 +92,13 @@ export default function NewPosts() {
             </div>
             <div className="divider">THEN</div>
             <p className="explanation">
-                You can attach something to this post (like a PDF, or a ZIP file
-                or something), and it'll be linked to at the bottom of the post.
-                Mostly for nerd stuff - scores, max / puredata / vcv patches,
-                MIDI files, MOD files, idk!
+                You can attach something to this post (like a PDF, or a ZIP file or something), and it'll be linked to
+                at the bottom of the post. Mostly for nerd stuff - scores, max / puredata / vcv patches, MIDI files, MOD
+                files, idk!
             </p>
             <div className="form-row one-one">
                 <div>
-                    <InputFile
-                        id="posts-form-attachments"
-                        name="attachments"
-                        label="attachment"
-                        labeldisplay={false}
-                    />
+                    <InputFile id="posts-form-attachments" name="attachments" label="attachment" labeldisplay={false} />
                 </div>
                 <div>
                     <InputText
@@ -119,29 +112,16 @@ export default function NewPosts() {
                 </div>
             </div>
             <div className="divider">LASTLY</div>
-            <p className="explanation">
-                Is this about the band generally, or a specific thing?
-            </p>
+            <p className="explanation">Is this about the band generally, or a specific thing?</p>
 
             <div className="form-row one">
                 <InputRelationship
                     id="posts-form-relationship"
-                    values={[
-                        'the band',
-                        'a release',
-                        'an edition',
-                        'some press',
-                        'a show',
-                        'a tour',
-                        'a video',
-                    ]}
+                    values={['the band', 'a release', 'an edition', 'some press', 'a show', 'a tour', 'a video']}
                 />
             </div>
             <div className="submit-wrapper">
-                <ButtonSubmit
-                    id="posts-form-submit"
-                    label="go ahead and jump"
-                />
+                <ButtonSubmit id="posts-form-submit" label="save" />
             </div>
         </form>
     );

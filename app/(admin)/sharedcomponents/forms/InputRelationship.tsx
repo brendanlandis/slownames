@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelectedBand } from '../../api/SelectedBandContext';
-import {
-    getRelatedReleases,
-    getRelatedEditions,
-} from '../../api/GetRelationships';
+import { getRelatedReleases, getRelatedEditions } from '../../api/GetRelationships';
 
 export default function InputRelationship({ id, values }) {
     const { selectedBand } = useSelectedBand();

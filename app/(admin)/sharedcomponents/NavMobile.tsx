@@ -24,11 +24,7 @@ export default function NavMobile() {
         <>
             <div id="mobile-menu-open">
                 <button type="button" onClick={openModal}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             fillRule="evenodd"
                             d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
@@ -67,53 +63,17 @@ export default function NavMobile() {
                                 </button>
                             </div>
                             <ul className="primary-nav">
-                                <NavMobileItem
-                                    url="/writing"
-                                    name="writing tools"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/"
-                                    name="posts"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/press"
-                                    name="press"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/shows"
-                                    name="shows"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/recordings"
-                                    name="recordings"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/photos"
-                                    name="photos"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/videos"
-                                    name="videos"
-                                    onClick={closeModal}
-                                />
+                                {/* <NavMobileItem url="/writing" name="writing tools" onClick={closeModal} /> */}
+                                <NavMobileItem url="/" name="posts" onClick={closeModal} />
+                                <NavMobileItem url="/press" name="press" onClick={closeModal} />
+                                <NavMobileItem url="/shows" name="shows" onClick={closeModal} />
+                                <NavMobileItem url="/recordings" name="recordings" onClick={closeModal} />
+                                <NavMobileItem url="/photos" name="photos" onClick={closeModal} />
+                                <NavMobileItem url="/videos" name="videos" onClick={closeModal} />
                             </ul>
                             <ul className="secondary-nav">
-                                <NavMobileItem
-                                    url="/settings"
-                                    name="settings"
-                                    onClick={closeModal}
-                                />
-                                <NavMobileItem
-                                    url="/logout"
-                                    name="logout"
-                                    onClick={handleLogout}
-                                />
+                                <NavMobileItem url="/settings" name="settings" onClick={closeModal} />
+                                <NavMobileItem url="/logout" name="logout" onClick={handleLogout} />
                             </ul>
                         </Dialog.Panel>
                     </Transition.Child>
