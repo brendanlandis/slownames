@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const accessToken = Cookies.get('accessToken');
-import format from 'date-fns/format';
+import { format } from 'date-fns/format';
 
 const submitPost = async (formData, postBandObj) => {
     try {

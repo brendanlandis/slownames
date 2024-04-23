@@ -2,7 +2,7 @@ import InputFile from '../sharedcomponents/forms/InputFile';
 import InputSelect from '../sharedcomponents/forms/InputSelect';
 import InputText from '../sharedcomponents/forms/InputText';
 import InputTextArea from '../sharedcomponents/forms/InputTextArea';
-import NewOrOld from '../sharedcomponents/NewOrOld';
+// import NewOrOld from '../sharedcomponents/NewOrOld';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import { Metadata } from 'next';
 
@@ -25,61 +25,35 @@ export default function videos() {
                         />
                     </span>
                 </h1>
-                <NewOrOld />
+                {/* <NewOrOld /> */}
             </div>
             <form id="videos-form">
                 <div className="divider first">FIRST</div>
                 <div className="form-row one-one">
-                    <div>
-                        <InputText
-                            id="videos-form-title"
-                            label="title"
-                            labeldisplay={false}
-                        />
-                    </div>
+                    <div>{/* <InputText id="videos-form-title" label="title" labeldisplay={false} /> */}</div>
                     <div>
                         <InputSelect
                             id="videos-form-work"
                             label="which work is this from?"
                             labeldisplay={false}
-                            options={[
-                                'which work is this from?',
-                                'Freak World EP',
-                                'Eulogy for Land',
-                                'Superunknown',
-                            ]}
+                            options={['which work is this from?', 'Freak World EP', 'Eulogy for Land', 'Superunknown']}
                         />
                     </div>
                 </div>
 
                 <div className="divider">THEN</div>
                 <div className="form-row one-one">
-                    <div>
-                        <InputText
-                            id="video-form-video-url"
-                            label="video link"
-                            labeldisplay={false}
-                        />
-                    </div>
+                    <div>{/* <InputText id="video-form-video-url" label="video link" labeldisplay={false} /> */}</div>
 
                     <div>
-                        <InputFile
-                            id="video-form-file"
-                            label="or, upload the file"
-                            labeldisplay={true}
-                        />
+                        {/* <InputFile id="video-form-file" label="or, upload the file" labeldisplay={true} /> */}
                     </div>
                 </div>
 
                 <div className="divider">LASTLY</div>
 
                 <div>
-                    <InputTextArea
-                        id="video-form-credits"
-                        label="credits"
-                        height="200"
-                        labeldisplay={false}
-                    />
+                    <InputTextArea id="video-form-credits" label="credits" height="200" labeldisplay={false} />
                 </div>
                 <div>
                     <InputSelect
@@ -96,10 +70,7 @@ export default function videos() {
                 </div>
             </form>
             <div className="submit-wrapper">
-                <ButtonSubmit
-                    id="video-form-submit"
-                    label="roll with the punches & get to what's real"
-                />
+                <ButtonSubmit id="video-form-submit" label="roll with the punches & get to what's real" />
             </div>
         </main>
     );

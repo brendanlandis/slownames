@@ -1,7 +1,7 @@
 import InputFile from '../sharedcomponents/forms/InputFile';
 import InputSelect from '../sharedcomponents/forms/InputSelect';
 import InputText from '../sharedcomponents/forms/InputText';
-import NewOrOld from '../sharedcomponents/NewOrOld';
+// import NewOrOld from '../sharedcomponents/NewOrOld';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import { Metadata } from 'next';
 
@@ -32,32 +32,20 @@ export default function photos() {
                         />
                     </span>
                 </h1>
-                <NewOrOld />
+                {/* <NewOrOld /> */}
             </div>
             <form id="photo-form">
                 <div className="divider first">ADD A NEW SHOOT</div>
                 <div className="form-row one-one">
                     <div>
-                        <InputText
-                            id="photo-form-shoot-name"
-                            label="name of shoot"
-                            labeldisplay={false}
-                        />
+                        {/* <InputText id="photo-form-shoot-name" label="name of shoot" labeldisplay={false} /> */}
                     </div>
                     <div>
-                        <InputText
-                            id="photo-form-shoot-credit"
-                            label="photographer credit"
-                            labeldisplay={false}
-                        />
+                        {/* <InputText id="photo-form-shoot-credit" label="photographer credit" labeldisplay={false} /> */}
                     </div>
                 </div>
                 <div className="side-by-side">
-                    <InputFile
-                        id="photo-form-shoot-files"
-                        label="photos"
-                        labeldisplay={true}
-                    />
+                    {/* <InputFile id="photo-form-shoot-files" label="photos" labeldisplay={true} /> */}
                 </div>
                 <div className="divider">OR A SINGLE PHOTO</div>
                 <div className="form-row one-one">
@@ -66,28 +54,16 @@ export default function photos() {
                             id="photo-form-photo-shoot"
                             label="to which shoot does this belong?"
                             labeldisplay={false}
-                            options={[
-                                'to which shoot does this belong?',
-                                'the first one',
-                                'the second one',
-                            ]}
+                            options={['to which shoot does this belong?', 'the first one', 'the second one']}
                         />
                     </div>
                     <div>
-                        <InputText
-                            id="photo-form-photo-credit"
-                            label="credit (if not _______)"
-                            labeldisplay={false}
-                        />
+                        {/* <InputText id="photo-form-photo-credit" label="credit (if not _______)" labeldisplay={false} /> */}
                     </div>
                 </div>
                 <div className="form-row one-one">
                     <div className="side-by-side">
-                        <InputFile
-                            id="photo-form-photo-file"
-                            label="photo"
-                            labeldisplay={true}
-                        />
+                        {/* <InputFile id="photo-form-photo-file" label="photo" labeldisplay={true} /> */}
                     </div>
                     <div>
                         <InputSelect
@@ -109,10 +85,7 @@ export default function photos() {
                 </div>
             </form>
             <div className="submit-wrapper">
-                <ButtonSubmit
-                    id="photos-form-submit"
-                    label="damn i look great wow"
-                />
+                <ButtonSubmit id="photos-form-submit" label="damn i look great wow" />
             </div>
         </main>
     );

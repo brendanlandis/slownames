@@ -1,16 +1,16 @@
-import GetPress from './GetPress';
+// import GetPress from './GetPress';
 import Markdown from 'react-markdown';
 
 export default function ViewPress() {
-    const { data: press, isLoading, isError } = GetPress();
+    // const { data: press, isLoading, isError } = GetPress();
 
-    if (isLoading) {
-        return <>loading press...</>;
-    }
+    // if (isLoading) {
+    //     return <>loading press...</>;
+    // }
 
-    if (isError) {
-        return <>error fetching press</>;
-    }
+    // if (isError) {
+    //     return <>error fetching press</>;
+    // }
 
     return (
         <>
@@ -25,11 +25,13 @@ export default function ViewPress() {
                     </tr>
                 </thead>
                 <tbody>
-                    {press.map((press) => (
+                    {/* {press.map((press) => (
                         <tr key={press.id}>
                             <td>{press.date}</td>
                             <td>{press.type}</td>
-                            <td><Markdown>{press.quote}</Markdown></td>
+                            <td>
+                                <Markdown>{press.quote}</Markdown>
+                            </td>
                             <td>{press.visibility}</td>
                             <td>
                                 {press.bands.map((band) => (
@@ -39,7 +41,7 @@ export default function ViewPress() {
                                 ))}
                             </td>
                         </tr>
-                    ))}
+                    ))} */}
                 </tbody>
             </table>
         </>

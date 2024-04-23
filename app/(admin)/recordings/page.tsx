@@ -1,6 +1,6 @@
 import InputSelect from '../sharedcomponents/forms/InputSelect';
 import InputText from '../sharedcomponents/forms/InputText';
-import NewOrOld from '../sharedcomponents/NewOrOld';
+// import NewOrOld from '../sharedcomponents/NewOrOld';
 import InputFile from '../sharedcomponents/forms/InputFile';
 import ButtonSubmit from '../sharedcomponents/forms/ButtonSubmit';
 import InputRichText from '../sharedcomponents/forms/InputRichText';
@@ -35,33 +35,33 @@ export default function recordings() {
                         />
                     </span>
                 </h1>
-                <NewOrOld />
+                {/* <NewOrOld /> */}
             </div>
             <form id="recording-form">
                 <div className="divider first">FIRST THE BASICS</div>
                 <div className="form-row one-one">
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-title"
                             label="title"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                     <div className="side-by-side">
-                        <InputFile
+                        {/* <InputFile
                             id="recording-form-cover"
                             label="cover art"
                             labeldisplay={true}
-                        />
+                        /> */}
                     </div>
                 </div>
                 <div>
-                    <InputRichText
+                    {/* <InputRichText
                         id="recording-form-about"
                         label="about this recording"
                         height="400"
                         labeldisplay={false}
-                    />
+                    /> */}
                 </div>
                 <div className="form-row one-one">
                     <div>
@@ -73,61 +73,56 @@ export default function recordings() {
                         />
                     </div>
                     <div>
-                        <InputTextArea
-                            id="recording-form-credits"
-                            label="credits"
-                            height="300"
-                            labeldisplay={false}
-                        />
+                        <InputTextArea id="recording-form-credits" label="credits" height="300" labeldisplay={false} />
                     </div>
                 </div>
                 <div className="divider">WHERE TO LISTEN</div>
                 <div className="form-row one-one">
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-bandcamp-url"
                             label="bandcamp url"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-bandcamp-id"
                             label="bandcamp embed ID"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-spotify-url"
                             label="spotify url"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-link"
                             label="link (if there's a label page or something)"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                 </div>
 
                 <div className="divider">MISCELLANY</div>
                 <div className="form-row one-one-one">
                     <div>
-                        <InputFile
+                        {/* <InputFile
                             id="recording-form-attachments"
                             label="attachments (bonus materials that might come with the download)"
                             labeldisplay={true}
-                        />
+                        /> */}
                     </div>
                     <div>
-                        <InputFile
+                        {/* <InputFile
                             id="recording-form-liner-notes"
                             label="liner notes (additional packaging designs)"
                             labeldisplay={true}
-                        />
+                        /> */}
                     </div>
                     <div>
                         <InputSelect
@@ -149,71 +144,58 @@ export default function recordings() {
                             id="recording-form-edition-work"
                             label="which work"
                             labeldisplay={false}
-                            options={[
-                                'Freak World EP',
-                                'New Abrasions',
-                                'Eulogy for Land',
-                            ]}
+                            options={['Freak World EP', 'New Abrasions', 'Eulogy for Land']}
                         />
                     </div>
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-edition-num"
                             label="how many printed"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                     <div>
                         <InputSelect
                             id="recording-form-edition-type"
                             label="what medium"
                             labeldisplay={false}
-                            options={[
-                                'cassettes',
-                                'records',
-                                'CDs',
-                                'objects',
-                                'other',
-                            ]}
+                            options={['cassettes', 'records', 'CDs', 'objects', 'other']}
                         />
                     </div>
                 </div>
                 <div className="form-row one-one-one">
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-edition-label"
                             label="label"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                     <div>
-                        <InputText
+                        {/* <InputText
                             id="recording-form-edition-catalog-num"
                             label="catalog number"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                     <div>
-                        <InputDate
+                        {/* <InputDate
                             id="recording-form-edition-catalog"
                             label="release date"
                             labeldisplay={false}
-                        />
+                        /> */}
                     </div>
                 </div>
                 <div className="side-by-side">
-                    <InputFile
+                    {/* <InputFile
                         id="recording-form-edition-photos"
                         label="photos"
                         labeldisplay={true}
-                    />
+                    /> */}
                 </div>
             </form>
             <div className="submit-wrapper">
-                <ButtonSubmit
-                    id="recording-form-submit"
-                    label="amazing hell ya"
-                />
+                <ButtonSubmit id="recording-form-submit" label="amazing hell ya" />
             </div>
         </main>
     );

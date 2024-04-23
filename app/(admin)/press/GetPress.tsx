@@ -34,20 +34,20 @@ const filterPressData = (data, selectedBand) => {
         })),
     }));
 
-    const filteredPressForTargetBand: Press[] = filteredPressData.filter(
-        (press) => press.bands.some((band) => band.id === selectedBand)
+    const filteredPressForTargetBand: Press[] = filteredPressData.filter((press) =>
+        press.bands.some((band) => band.id === selectedBand)
     );
 
     return filteredPressForTargetBand;
 };
 
 const GetPress = () => {
-    const { data, ...rest } = useQuery(['press'], fetchPress);
-    const { selectedBand } = useSelectedBand();
-    const filteredData = data ? filterPressData(data, selectedBand) : [];
+    // const { data, ...rest } = useQuery(['press'], fetchPress);
+    // const { selectedBand } = useSelectedBand();
+    // const filteredData = data ? filterPressData(data, selectedBand) : [];
     return {
-        data: filteredData,
-        ...rest,
+        // data: filteredData,
+        // ...rest,
     };
 };
 
