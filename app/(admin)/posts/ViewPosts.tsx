@@ -32,7 +32,7 @@ export default function ViewPosts() {
                             <td>
                                 {post.bands.map((band) => (
                                     <div key={band.id}>
-                                        {band.id} - {band.bandname}
+                                        {band.bandname}
                                     </div>
                                 ))}
                             </td>
